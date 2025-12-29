@@ -198,7 +198,11 @@ class EliteAutoGallery {
       resultsCount.textContent = `${this.filteredCars.length} vehicle${this.filteredCars.length !== 1 ? 's' : ''} found`;
     }
 
-    if (!carGrid) return;
+    if (!carGrid) {
+      // If we're on homepage (no car-grid), render featured cars instead
+      this.renderFeaturedCars();
+      return;
+    }
 
     if (this.filteredCars.length === 0) {
       carGrid.innerHTML = '<div class="col-span-full text-center py-20"><p class="text-slate-500">No vehicles found matching your criteria.</p></div>';

@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main # Change this to your branch name
+
+media_folder: "images/cars" # Where uploaded images will be stored
+public_folder: "/images/cars" # How to access images in the frontend
+
+collections:
+  - name: "cars" # Used in routes, e.g., /admin/collections/cars
+    label: "Cars" # Used in the UI
+    folder: "_cars" # The path to the folder where the car files are stored
+    create: true # Allow users to create new cars
+    slug: "{{year}}-{{make}}-{{model}}" # Filename template
+    fields: # The fields for each car
+      - {label: "Make", name: "make", widget: "string", required: true}
+      - {label: "Model", name: "model", widget: "string", required: true}
+      - {label: "Year", name: "year", widget: "number", value_type: "int", min: 1990, max: 2030, required: true}
+      - {label: "Price", name: "price", widget: "number", value_type: "int", required: true}
+      - {label: "Mileage", name: "mileage", widget: "number", value_type: "int"}
+      - {label: "Fuel Type", name: "fuel_type", widget: "select", options: ["Gasoline", "Diesel", "Electric", "Hybrid"]}
+      - {label: "Transmission", name: "transmission", widget: "select", options: ["Automatic", "Manual"]}
+      - {label: "Body Type", name: "body_type", widget: "select", options: ["Sedan", "SUV", "Coupe", "Truck", "Hatchback", "Convertible"]}
+      - {label: "Color", name: "color", widget: "string"}
+      - {label: "Main Image", name: "image_url", widget: "image", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Features", name: "features", widget: "list", required: false}
+      - {label: "Status", name: "status", widget: "select", options: ["Available", "Sold", "Reserved"], default: "Available"}
+      - {label: "Featured", name: "is_featured", widget: "boolean", default: false}

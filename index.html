@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Auto Gallery - Premium Pre-Owned Vehicles</title>
+    <meta name="description" content="Browse our collection of premium pre-owned vehicles. Quality cars, exceptional service.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69514e3aba40c5a0d3b7b7be/a1dfb7dd0_logo.png" 
+                     alt="W&M Auto's Limited">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="gallery.html">Our Stock</a></li>
+                <li><a href="transportation.html">Transportation</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="gallery.html" class="btn">View Inventory</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.5rem; height: 1.5rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Our Stock</a>
+            <a href="transportation.html">Transportation</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html" class="btn" style="margin-top: 1rem;">View Inventory</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Find Your Perfect Vehicle</h1>
+                <p>Quality pre-owned vehicles with exceptional service and transparent pricing</p>
+                <a href="gallery.html" class="btn" style="font-size: 1rem; padding: 0.875rem 2rem;">Browse Our Inventory</a>
+            </div>
+        </section>
+
+        <!-- Featured Vehicles -->
+        <section style="background-color: white; padding: 4rem 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem;">Featured Vehicles</h2>
+                    <p style="color: var(--slate-600); max-width: 42rem; margin: 0 auto;">
+                        Check out our handpicked selection of premium vehicles
+                    </p>
+                </div>
+
+                <div class="car-grid" id="featured-cars">
+                    <div class="loading">Loading featured vehicles...</div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="gallery.html" class="btn btn-secondary">View All Vehicles</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section style="background-color: var(--slate-50); padding: 4rem 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem;">Why Choose Us</h2>
+                    <p style="color: var(--slate-600); max-width: 42rem; margin: 0 auto;">
+                        We're committed to providing exceptional service and quality vehicles
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+                    <div style="background-color: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--slate-100);">
+                        <div style="width: 3rem; height: 3rem; background-color: var(--slate-900); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Quality Inspected</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75;">Every vehicle undergoes thorough inspection to ensure the highest quality standards.</p>
+                    </div>
+
+                    <div style="background-color: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--slate-100);">
+                        <div style="width: 3rem; height: 3rem; background-color: var(--slate-900); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Transparent Pricing</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75;">No hidden fees or surprises. What you see is what you get with our honest pricing.</p>
+                    </div>
+
+                    <div style="background-color: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--slate-100);">
+                        <div style="width: 3rem; height: 3rem; background-color: var(--slate-900); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Excellent Service</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75;">Our dedicated team is here to help you find the perfect vehicle for your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="background-color: var(--slate-900); color: white; padding: 4rem 0;">
+            <div class="container" style="text-align: center;">
+                <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem;">Ready to Find Your Next Car?</h2>
+                <p style="color: var(--slate-400); margin-bottom: 2rem; max-width: 36rem; margin-left: auto; margin-right: auto;">
+                    Browse our complete inventory or contact us for personalized assistance
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="gallery.html" class="btn" style="background-color: white; color: var(--slate-900);">View Inventory</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

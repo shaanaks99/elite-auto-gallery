@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Inventory - Elite Auto Gallery</title>
+    <meta name="description" content="Browse our complete collection of quality pre-owned vehicles.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69514e3aba40c5a0d3b7b7be/a1dfb7dd0_logo.png" 
+                     alt="W&M Auto's Limited">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html" class="active">Our Stock</a></li>
+                <li><a href="transportation.html">Transportation</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="gallery.html" class="btn">View Inventory</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.5rem; height: 1.5rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Our Stock</a>
+            <a href="transportation.html">Transportation</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html" class="btn" style="margin-top: 1rem;">View Inventory</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Header -->
+        <div class="page-header">
+            <div class="container">
+                <h1>Our Inventory</h1>
+                <p>Browse our complete collection of quality pre-owned vehicles. Each car has been inspected and certified for your peace of mind.</p>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div class="container">
+                <div class="filter-container">
+                    <!-- Search -->
+                    <div class="search-box">
+                        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input 
+                            type="text" 
+                            id="search" 
+                            placeholder="Search by make, model, or year..."
+                            aria-label="Search vehicles">
+                    </div>
+
+                    <!-- Filter Dropdowns -->
+                    <div class="filter-group">
+                        <select id="body-type" aria-label="Filter by body type">
+                            <option value="all">All Types</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Coupe">Coupe</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Convertible">Convertible</option>
+                        </select>
+
+                        <select id="fuel-type" aria-label="Filter by fuel type">
+                            <option value="all">All Fuel</option>
+                            <option value="Gasoline">Gasoline</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Electric">Electric</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+
+                        <select id="transmission" aria-label="Filter by transmission">
+                            <option value="all">All Trans</option>
+                            <option value="Automatic">Automatic</option>
+                            <option value="Manual">Manual</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="container" style="padding: 2rem 0;">
+            <p class="results-count" id="results-count">Loading vehicles...</p>
+
+            <div class="car-grid" id="car-grid">
+                <div class="loading">Loading vehicles...</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

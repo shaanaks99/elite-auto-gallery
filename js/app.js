@@ -263,7 +263,13 @@ class EliteAutoGallery {
     const featured = this.cars.filter(car => car.is_featured && car.status === 'Available').slice(0, 3);
 
     if (featured.length === 0) {
-      featuredGrid.innerHTML = '<p class="text-center text-slate-500">No featured vehicles available.</p>';
+      // Show first 3 available cars if no featured ones
+      const available = this.cars.filter(car => car.status === 'Available').slice(0, 3);
+      if (available.length > 0) {
+        featuredGrid.innerHTML = available.map(car => this.createCarCard(car)).join('');
+      } else {
+        featuredGrid.innerHTML = '<p class="text-center text-slate-500" style="grid-column: 1/-1;">No featured vehicles available.</p>';
+      }
       return;
     }
 

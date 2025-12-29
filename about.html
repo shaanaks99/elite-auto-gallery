@@ -22,7 +22,11 @@
             <div class="nav-cta">
                 <a href="gallery.html" class="btn">View Inventory</a>
             </div>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.5rem; height: 1.5rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
         </div>
         <div class="mobile-menu" id="mobile-menu">
             <a href="index.html">Home</a>
@@ -34,42 +38,124 @@
     </nav>
 
     <main>
-        <div class="page-header">
+        <!-- Hero Section -->
+        <section style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 5rem 0;">
             <div class="container">
-                <h1>About Us</h1>
-                <p>Your trusted partner in finding quality pre-owned vehicles</p>
+                <div class="animate-slide-up">
+                    <p style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: #94a3b8;">ABOUT W&W AUTOS</p>
+                    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2;">Quality Vehicles &<br><span style="color: #94a3b8; font-style: italic;">Professional Logistics</span></h1>
+                    <p style="font-size: 1.125rem; color: #cbd5e1; max-width: 42rem; line-height: 1.75;">W&W Autos is your trusted partner for quality pre-owned vehicles and professional vehicle transportation. Serving auctions, franchises, and the general public with expertise and reliability.</p>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="container" style="padding: 4rem 0;">
-            <div style="max-width: 48rem; margin: 0 auto;">
-                <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">Our Story</h2>
-                <p style="color: var(--slate-600); line-height: 1.75; margin-bottom: 1.5rem;">
-                    At Elite Auto Gallery, we're passionate about connecting people with their perfect vehicle. 
-                    With years of experience in the automotive industry, we've built a reputation for quality, 
-                    transparency, and exceptional customer service.
-                </p>
-                <p style="color: var(--slate-600); line-height: 1.75; margin-bottom: 1.5rem;">
-                    Every vehicle in our inventory undergoes a thorough inspection to ensure it meets our high 
-                    standards. We believe in honest pricing and building long-term relationships with our customers.
-                </p>
-                <h2 style="font-size: 1.875rem; font-weight: 700; margin: 2rem 0 1.5rem;">Why Choose Us</h2>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--slate-100);">
-                        <strong style="color: var(--slate-900);">Quality Assured:</strong> 
-                        <span style="color: var(--slate-600);"> Every vehicle is thoroughly inspected</span>
-                    </li>
-                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--slate-100);">
-                        <strong style="color: var(--slate-900);">Transparent Pricing:</strong> 
-                        <span style="color: var(--slate-600);"> No hidden fees or surprises</span>
-                    </li>
-                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--slate-100);">
-                        <strong style="color: var(--slate-900);">Expert Service:</strong> 
-                        <span style="color: var(--slate-600);"> Knowledgeable team ready to help</span>
-                    </li>
-                </ul>
+        <!-- Stats Section -->
+        <section style="background-color: white; padding: 4rem 0;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center;">
+                    <div class="animate-slide-up delay-100">
+                        <h2 style="font-size: 3.5rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.5rem;">15+</h2>
+                        <p style="color: var(--slate-600); font-size: 1rem;">Years in Business</p>
+                    </div>
+                    <div class="animate-slide-up delay-200">
+                        <h2 style="font-size: 3.5rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.5rem;">5,000+</h2>
+                        <p style="color: var(--slate-600); font-size: 1rem;">Cars Sold</p>
+                    </div>
+                    <div class="animate-slide-up delay-300">
+                        <h2 style="font-size: 3.5rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.5rem;">500+</h2>
+                        <p style="color: var(--slate-600); font-size: 1rem;">Happy Customers</p>
+                    </div>
+                    <div class="animate-slide-up delay-400">
+                        <h2 style="font-size: 3.5rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.5rem;">98%</h2>
+                        <p style="color: var(--slate-600); font-size: 1rem;">Satisfaction Rate</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section style="background-color: var(--slate-50); padding: 5rem 0;">
+            <div class="container">
+                <p class="animate-slide-up" style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: var(--slate-500);">OUR STORY</p>
+                <h2 class="animate-slide-up delay-100" style="font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: var(--slate-900);">What W&W Autos Is All About</h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+                    <div class="animate-slide-left delay-200">
+                        <p style="color: var(--slate-600); line-height: 1.75; margin-bottom: 1.5rem;">
+                            W&W Autos was founded with a commitment to excellence in both vehicle sales and transportation logistics. We understand that every car matters, whether it's a daily driver or a cherished classic.
+                        </p>
+                        <p style="color: var(--slate-600); line-height: 1.75; margin-bottom: 1.5rem;">
+                            Our dual focus allows us to serve a diverse clientele - from individual buyers looking for their next vehicle to auctions and large franchises requiring reliable transport services. We've built our reputation on professionalism, attention to detail, and consistent delivery of quality service.
+                        </p>
+                        <p style="color: var(--slate-600); line-height: 1.75;">
+                            Located in Byfleet, we're proud to serve the local community and beyond with our expertise in vehicle logistics and sales. Every car we sell is carefully selected, and every transport job is handled with the utmost care and professionalism.
+                        </p>
+                    </div>
+                    
+                    <div class="animate-slide-right delay-300" style="position: relative;">
+                        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80" alt="Tesla Model 3" style="width: 100%; height: 400px; object-fit: cover; border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
+                        <div style="position: absolute; bottom: 2rem; left: 2rem; background-color: white; padding: 1rem 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                            <p style="font-size: 1.125rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.25rem;">Byfleet</p>
+                            <p style="font-size: 0.875rem; color: var(--slate-600);">West Byfleet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section style="background-color: white; padding: 5rem 0;">
+            <div class="container" style="text-align: center;">
+                <p class="animate-slide-up" style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: var(--slate-500);">OUR VALUES</p>
+                <h2 class="animate-slide-up delay-100" style="font-size: 2.5rem; font-weight: 700; margin-bottom: 4rem; color: var(--slate-900);">What Drives Us Forward</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; max-width: 900px; margin: 0 auto;">
+                    <div class="animate-slide-up delay-200">
+                        <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-700) 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Quality First</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75;">Every vehicle is carefully inspected and selected to meet our high standards.</p>
+                    </div>
+
+                    <div class="animate-slide-up delay-300">
+                        <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-700) 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Customer Focus</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75;">Your satisfaction is our priority, from selection to after-sales support.</p>
+                    </div>
+
+                    <div class="animate-slide-up delay-400">
+                        <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-700) 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Reliability</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75;">Professional service you can count on, every single time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 4rem 0;">
+            <div class="container" style="text-align: center;">
+                <h2 class="animate-slide-up" style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem;">Ready to Find Your Perfect Car?</h2>
+                <p class="animate-slide-up delay-100" style="color: #cbd5e1; margin-bottom: 2rem; max-width: 36rem; margin-left: auto; margin-right: auto;">
+                    Visit our showroom or browse our online inventory to discover your next vehicle. Our team is ready to help.
+                </p>
+                <div class="animate-slide-up delay-200" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="gallery.html" class="btn" style="background-color: white; color: var(--slate-900);">View Inventory</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="js/app.js"></script>

@@ -79,7 +79,7 @@
                 <p class="animate-slide-up" style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: var(--slate-500);">OUR STORY</p>
                 <h2 class="animate-slide-up delay-100" style="font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: var(--slate-900);">What W&W Autos Is All About</h2>
                 
-                <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+                <div id="story-grid" style="display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center;">
                     <div class="animate-slide-left delay-200">
                         <p style="color: var(--slate-600); line-height: 1.75; margin-bottom: 1.5rem;">
                             W&W Autos was founded with a commitment to excellence in both vehicle sales and transportation logistics. We understand that every car matters, whether it's a daily driver or a cherished classic.
@@ -93,8 +93,8 @@
                     </div>
                     
                     <div class="animate-slide-right delay-300" style="position: relative;">
-                        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80" alt="Tesla Model 3" style="width: 100%; height: 300px; object-fit: cover; border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
-                        <div style="position: absolute; bottom: 2rem; left: 2rem; background-color: white; padding: 1rem 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80" alt="Tesla Model 3" style="width: 100%; height: 300px; object-fit: cover; border-radius: 1rem;">
+                        <div style="position: absolute; bottom: -1rem; left: -1rem; background-color: white; padding: 1rem 1.5rem; border-radius: 0.75rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
                             <p style="font-size: 1.125rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.25rem;">Byfleet</p>
                             <p style="font-size: 0.875rem; color: var(--slate-600);">West Byfleet</p>
                         </div>
@@ -102,6 +102,14 @@
                 </div>
             </div>
         </section>
+        
+        <style>
+            @media (min-width: 1024px) {
+                #story-grid {
+                    grid-template-columns: 1fr 1fr !important;
+                }
+            }
+        </style>
 
         <!-- Values Section -->
         <section style="background-color: #f8fafc; padding: 5rem 0;">

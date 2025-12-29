@@ -47,7 +47,7 @@ class EliteAutoGallery {
         color: 'Alpine White',
         image_url: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80',
         description: 'Stunning BMW 3 Series in pristine condition. Features include leather interior, navigation system, and premium sound system. Low mileage and well-maintained.',
-        features: ['Leather Seats', 'Navigation', 'Sunroof', 'Backup Camera', 'Bluetooth'],
+        features: ['Leather Seats', 'Navigation', 'Sunroof', 'Backup Camera', 'Bluetooth', 'Sport Package', 'Heated Seats'],
         status: 'Available',
         is_featured: true
       },
@@ -61,10 +61,10 @@ class EliteAutoGallery {
         fuel_type: 'Gasoline',
         transmission: 'Automatic',
         body_type: 'Sedan',
-        color: 'Silver',
+        color: 'Selenite Grey',
         image_url: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80',
-        description: 'Elegant Mercedes-Benz E-Class with premium features and excellent condition.',
-        features: ['Premium Sound', 'Heated Seats', 'Lane Assist', 'Cruise Control'],
+        description: 'Elegant Mercedes-Benz E-Class with premium features and excellent condition. AMG line with performance exhaust.',
+        features: ['AMG Line', 'Premium Sound', 'Heated Seats', 'Lane Assist', 'Cruise Control', 'Panoramic Roof'],
         status: 'Available',
         is_featured: true
       },
@@ -80,10 +80,61 @@ class EliteAutoGallery {
         body_type: 'SUV',
         color: 'Black',
         image_url: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80',
-        description: 'Luxurious Porsche Cayenne with hybrid powertrain. Nearly new with full warranty.',
-        features: ['Sport Package', 'Panoramic Roof', 'Air Suspension', 'Premium Audio'],
+        description: 'Luxurious Porsche Cayenne with hybrid powertrain. Nearly new with full manufacturer warranty remaining.',
+        features: ['Sport Package', 'Panoramic Roof', 'Air Suspension', 'Premium Audio', 'Carbon Ceramic Brakes', '22" Wheels'],
         status: 'Available',
         is_featured: true
+      },
+      {
+        id: '4',
+        make: 'Audi',
+        model: 'A4',
+        year: 2022,
+        price: 35500,
+        mileage: 28000,
+        fuel_type: 'Gasoline',
+        transmission: 'Automatic',
+        body_type: 'Sedan',
+        color: 'Glacier White',
+        image_url: 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=800&q=80',
+        description: 'Well-maintained Audi A4 with full service history. Quattro all-wheel drive for superior handling.',
+        features: ['Quattro AWD', 'Virtual Cockpit', 'LED Headlights', 'Apple CarPlay', 'Parking Sensors', 'Cruise Control'],
+        status: 'Available',
+        is_featured: false
+      },
+      {
+        id: '5',
+        make: 'Tesla',
+        model: 'Model 3',
+        year: 2023,
+        price: 42000,
+        mileage: 8000,
+        fuel_type: 'Electric',
+        transmission: 'Automatic',
+        body_type: 'Sedan',
+        color: 'Pearl White',
+        image_url: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80',
+        description: 'Like-new Tesla Model 3 Long Range with Autopilot. Low mileage and comprehensive warranty coverage.',
+        features: ['Autopilot', 'Premium Sound', 'Glass Roof', 'Supercharging', '19" Wheels', 'White Interior'],
+        status: 'Available',
+        is_featured: true
+      },
+      {
+        id: '6',
+        make: 'Lexus',
+        model: 'RX 350',
+        year: 2021,
+        price: 48500,
+        mileage: 35000,
+        fuel_type: 'Gasoline',
+        transmission: 'Automatic',
+        body_type: 'SUV',
+        color: 'Atomic Silver',
+        image_url: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80',
+        description: 'Premium Lexus RX 350 with F Sport package. Immaculate condition with full dealer service history.',
+        features: ['F Sport Package', 'Mark Levinson Audio', 'Heads-Up Display', 'Adaptive Cruise', 'Heated & Cooled Seats', '360 Camera'],
+        status: 'Available',
+        is_featured: false
       }
     ];
   }
@@ -246,7 +297,7 @@ class EliteAutoGallery {
     if (!container) return;
 
     container.innerHTML = `
-      <a href="gallery.html" class="back-button">
+      <a href="gallery.html" class="back-button animate-slide-left">
         <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -254,14 +305,14 @@ class EliteAutoGallery {
       </a>
 
       <div class="car-detail-grid">
-        <div class="car-detail-image">
+        <div class="car-detail-image animate-slide-left delay-100">
           <img src="${car.image_url || 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80'}" 
                alt="${car.year} ${car.make} ${car.model}">
           <span class="badge">${car.status || 'Available'}</span>
         </div>
 
         <div>
-          <div class="info-box">
+          <div class="info-box animate-slide-right delay-200">
             <h1>${car.year} ${car.make} ${car.model}</h1>
             <p class="price">$${car.price?.toLocaleString()}</p>
 
@@ -325,14 +376,14 @@ class EliteAutoGallery {
           </div>
 
           ${car.description ? `
-            <div class="info-box description-box">
+            <div class="info-box description-box animate-slide-right delay-300">
               <h2>Description</h2>
               <p>${car.description}</p>
             </div>
           ` : ''}
 
           ${car.features && car.features.length > 0 ? `
-            <div class="info-box features-box">
+            <div class="info-box features-box animate-slide-right delay-400">
               <h2>Features</h2>
               <div class="feature-tags">
                 ${car.features.map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
@@ -340,7 +391,7 @@ class EliteAutoGallery {
             </div>
           ` : ''}
 
-          <div class="contact-cta">
+          <div class="contact-cta animate-slide-right delay-500">
             <h3>Interested in this vehicle?</h3>
             <p>Contact us today to schedule a test drive or get more information.</p>
             <div class="contact-buttons">

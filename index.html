@@ -48,18 +48,98 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1>Find Your Perfect Vehicle</h1>
-                <p>Quality pre-owned vehicles with exceptional service and transparent pricing</p>
-                <a href="gallery.html" class="btn" style="font-size: 1rem; padding: 0.875rem 2rem;">Browse Our Inventory</a>
+        <section style="background-color: white; padding: 4rem 0;">
+            <div class="container">
+                <div id="hero-grid" style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+                    <!-- Left Content -->
+                    <div>
+                        <p class="animate-slide-up delay-100" style="color: var(--emerald-500); font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">
+                            ⚡ Premium Quality Vehicles
+                        </p>
+                        <h1 class="animate-slide-up delay-200" style="font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1rem; color: var(--slate-900);">
+                            W&W Autos
+                        </h1>
+                        <p class="animate-slide-up delay-300" style="font-size: 1.5rem; color: var(--slate-500); margin-bottom: 0.5rem;">
+                            Quality &<br>Logistics
+                        </p>
+                        <p class="animate-slide-up delay-400" style="color: var(--slate-600); margin-bottom: 2rem; line-height: 1.75;">
+                            Premium vehicle sales and professional transport logistics.<br>
+                            Serving auctions, franchises, and the general public with<br>
+                            expertise in classic car moves.
+                        </p>
+
+                        <div class="animate-slide-up delay-500" style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <a href="gallery.html" class="btn" style="font-size: 0.875rem; padding: 0.75rem 1.5rem;">
+                                View All Stock →
+                            </a>
+                            <a href="#" class="btn btn-secondary" style="font-size: 0.875rem; padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                ⭐ Google Reviews
+                            </a>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="animate-slide-up delay-600" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;">
+                            <div style="text-align: center;">
+                                <div class="smooth-hover" style="width: 3rem; height: 3rem; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; background-color: var(--slate-50); border-radius: 0.5rem;">
+                                    <svg style="width: 1.5rem; height: 1.5rem; color: var(--slate-700);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <p style="font-size: 0.875rem; font-weight: 600; color: var(--slate-900);">Certified</p>
+                                <p style="font-size: 0.75rem; color: var(--slate-500);">Quality Assured</p>
+                            </div>
+
+                            <div style="text-align: center;">
+                                <div style="width: 3rem; height: 3rem; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; background-color: var(--slate-50); border-radius: 0.5rem;">
+                                    <svg style="width: 1.5rem; height: 1.5rem; color: var(--slate-700);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                    </svg>
+                                </div>
+                                <p style="font-size: 0.875rem; font-weight: 600; color: var(--slate-900);">Professional</p>
+                                <p style="font-size: 0.75rem; color: var(--slate-500);">Logistics Service</p>
+                            </div>
+
+                            <div style="text-align: center;">
+                                <div style="width: 3rem; height: 3rem; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; background-color: var(--slate-50); border-radius: 0.5rem;">
+                                    <svg style="width: 1.5rem; height: 1.5rem; color: var(--slate-700);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                    </svg>
+                                </div>
+                                <p style="font-size: 0.875rem; font-weight: 600; color: var(--slate-900);">Trusted by</p>
+                                <p style="font-size: 0.75rem; color: var(--slate-500);">Auctions & Franchises</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Image (shows on desktop) -->
+                    <div class="animate-slide-right delay-300" style="position: relative; display: none;" id="hero-image-desktop">
+                        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80" 
+                             alt="Featured Vehicle" 
+                             style="width: 100%; height: 450px; object-fit: cover; border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
+                        <div class="animate-scale delay-700" style="position: absolute; bottom: 2rem; left: 2rem; background-color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                            <p style="font-size: 0.75rem; color: var(--slate-600); margin-bottom: 0.25rem;">Starting from</p>
+                            <p style="font-size: 1.5rem; font-weight: 700; color: var(--slate-900);">$15,999</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+        
+        <style>
+            @media (min-width: 1024px) {
+                #hero-image-desktop {
+                    display: block !important;
+                }
+                #hero-grid {
+                    grid-template-columns: 1fr 1fr !important;
+                }
+            }
+        </style>
 
         <!-- Featured Vehicles -->
         <section style="background-color: white; padding: 4rem 0;">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="animate-slide-up" style="text-align: center; margin-bottom: 3rem;">
                     <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem;">Featured Vehicles</h2>
                     <p style="color: var(--slate-600); max-width: 42rem; margin: 0 auto;">
                         Check out our handpicked selection of premium vehicles
@@ -77,44 +157,68 @@
         </section>
 
         <!-- Services Section -->
-        <section style="background-color: var(--slate-50); padding: 4rem 0;">
+        <section style="background-color: var(--slate-50); padding: 5rem 0;">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem;">Why Choose Us</h2>
+                <div class="animate-slide-up" style="text-align: center; margin-bottom: 3rem;">
+                    <p style="color: var(--slate-500); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+                        WHAT W&W AUTOS IS ALL ABOUT
+                    </p>
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Professional Service & Quality</h2>
                     <p style="color: var(--slate-600); max-width: 42rem; margin: 0 auto;">
-                        We're committed to providing exceptional service and quality vehicles
+                        At W&W Autos, we combine premium vehicle sales with professional transport logistics. 
+                        Whether you're buying a car or need expert vehicle transportation, we deliver excellence every time.
                     </p>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
-                    <div style="background-color: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--slate-100);">
-                        <div style="width: 3rem; height: 3rem; background-color: var(--slate-900); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                            <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; max-width: 900px; margin: 0 auto;">
+                    <div class="animate-slide-up delay-100 smooth-hover" style="text-align: center;">
+                        <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-700) 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Quality Inspected</h3>
-                        <p style="color: var(--slate-600); line-height: 1.75;">Every vehicle undergoes thorough inspection to ensure the highest quality standards.</p>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--slate-900);">Quality Guaranteed</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75; font-size: 0.9375rem;">Every vehicle undergoes a rigorous 150-point inspection before hitting our lot.</p>
                     </div>
 
-                    <div style="background-color: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--slate-100);">
-                        <div style="width: 3rem; height: 3rem; background-color: var(--slate-900); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                            <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <div style="text-align: center;">
+                        <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-700) 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                             </svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Transparent Pricing</h3>
-                        <p style="color: var(--slate-600); line-height: 1.75;">No hidden fees or surprises. What you see is what you get with our honest pricing.</p>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--slate-900);">Certified Pre-Owned</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75; font-size: 0.9375rem;">All our vehicles come with certified pre-owned status and full history reports.</p>
                     </div>
 
-                    <div style="background-color: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--slate-100);">
-                        <div style="width: 3rem; height: 3rem; background-color: var(--slate-900); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                            <svg style="width: 1.5rem; height: 1.5rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div style="text-align: center;">
+                        <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-700) 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--slate-900);">Full Service</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75; font-size: 0.9375rem;">On-site service center with certified technicians for all your maintenance needs.</p>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-700) 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--slate-900);">Quick Process</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75; font-size: 0.9375rem;">Streamlined buying process. Drive home in your new car the same day.</p>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-700) 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg style="width: 2rem; height: 2rem; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
                             </svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Excellent Service</h3>
-                        <p style="color: var(--slate-600); line-height: 1.75;">Our dedicated team is here to help you find the perfect vehicle for your needs.</p>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--slate-900);">24/7 Support</h3>
+                        <p style="color: var(--slate-600); line-height: 1.75; font-size: 0.9375rem;">Our team is always here to help with any questions or concerns.</p>
                     </div>
                 </div>
             </div>

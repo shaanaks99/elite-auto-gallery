@@ -8,6 +8,7 @@ fuel_type: Diesel
 transmission: Automatic
 body_type: Hatchback
 color: yellow
+image_url: /images/cars/lambo-hurrican.png
 description: this is a test but lambo is a gini and yes its a test
 features:
   - roof

@@ -1,0 +1,237 @@
+/* Additional CSS for inventory filtering and status badges */
+
+/* Filter Section */
+.filter-section {
+    background: #f8f9fa;
+    padding: 2rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.filter-btn:hover {
+    border-color: #c9a961;
+    color: #c9a961;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: #c9a961;
+    border-color: #c9a961;
+    color: white;
+}
+
+.results-count {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Status Badges */
+.status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.status-sold {
+    background: #dc3545;
+    color: white;
+}
+
+.status-reserved {
+    background: #ffc107;
+    color: #000;
+}
+
+.featured-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: linear-gradient(135deg, #c9a961 0%, #b8934d 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    z-index: 2;
+}
+
+/* Loading and Error States */
+.loading-state, .error-state, .no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.loading-state i, .error-state i, .no-results i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #c9a961;
+}
+
+.loading-state i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-state i {
+    color: #dc3545;
+}
+
+/* Inventory Grid */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.car-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.car-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.car-card:hover .car-image img {
+    transform: scale(1.1);
+}
+
+.car-details {
+    padding: 1.5rem;
+}
+
+.car-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.car-trim {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.car-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.car-specs span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.car-specs i {
+    color: #c9a961;
+}
+
+.car-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.car-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #c9a961;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #c9a961 0%, #b8934d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .inventory-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .filter-controls {
+        justify-content: stretch;
+    }
+    
+    .filter-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    .car-specs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

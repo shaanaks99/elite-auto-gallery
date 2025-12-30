@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: shaanaks99/elite-auto-gallery
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "images/cars"
+public_folder: "/images/cars"
+
+# Editorial Workflow - enables draft/review/publish columns
+publish_mode: editorial_workflow
+
+collections:
+  - name: "cars"
+    label: "Cars"
+    label_singular: "Car"
+    folder: "_cars"
+    create: true
+    delete: true  # ← This enables the delete button!
+    slug: "{{year}}-{{make}}-{{model}}"
+    editor:
+      preview: true
+    preview_path: "car-detail.html?id={{slug}}"
+    summary: "{{year}} {{make}} {{model}} - {{availability}}"  # Better list view
+    sortable_fields: ['year', 'make', 'price', 'availability']  # Can sort by these
+    fields:
+      - { label: "Make", name: "make", widget: "string", hint: "e.g. BMW, Mercedes, Ferrari" }
+      - { label: "Model", name: "model", widget: "string", hint: "e.g. M4, C63, 488" }
+      - { label: "Year", name: "year", widget: "number", value_type: "int", min: 1900, max: 2030 }
+      - { label: "Trim", name: "trim", widget: "string", required: false, hint: "e.g. Competition, AMG, Sport" }
+      - { label: "Price (£)", name: "price", widget: "number", value_type: "int", hint: "Enter price in GBP (£) - DO NOT include currency symbol, just the number. Example: 65000 for £65,000" }
+      - { label: "Mileage", name: "mileage", widget: "number", value_type: "int", hint: "Miles on the odometer" }
+      - { label: "Transmission", name: "transmission", widget: "select", options: ["Automatic", "Manual", "Semi-Automatic"] }
+      - { label: "Fuel Type", name: "fuelType", widget: "select", options: ["Petrol", "Diesel", "Electric", "Hybrid", "Plug-in Hybrid"] }
+      - { label: "Engine Size", name: "engineSize", widget: "string", required: false, hint: "e.g. 3.0L V6, 2.0L Turbo" }
+      - { label: "Power (BHP)", name: "power", widget: "number", required: false, hint: "Brake horsepower" }
+      - { label: "Color", name: "color", widget: "string", hint: "Exterior color" }
+      - { label: "Interior Color", name: "interiorColor", widget: "string", required: false }
+      - { label: "Doors", name: "doors", widget: "number", value_type: "int", default: 4 }
+      - { label: "Seats", name: "seats", widget: "number", value_type: "int", default: 5 }
+      - { label: "Availability", name: "availability", widget: "select", options: ["available", "reserved", "sold"], default: "available", hint: "Current status of the vehicle" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Show gold star badge on this car" }
+      - { label: "VIN", name: "vin", widget: "string", required: false, hint: "Vehicle Identification Number" }
+      - { label: "Registration", name: "registration", widget: "string", required: false, hint: "e.g. AB12 CDE" }
+      - { label: "Body Type", name: "bodyType", widget: "select", options: ["Sedan", "Coupe", "SUV", "Convertible", "Hatchback", "Estate", "Sports Car", "Supercar"], required: false }
+      - { label: "Images", name: "images", widget: "list", required: false, hint: "Upload or paste image URLs. First image will be the main photo.", field: { label: "Image URL", name: "image", widget: "string" } }
+      - { label: "Features", name: "features", widget: "list", required: false, hint: "Add each feature as a separate item", field: { label: "Feature", name: "feature", widget: "string" } }
+      - { label: "Description", name: "body", widget: "markdown", required: false, hint: "Detailed description of the vehicle" }

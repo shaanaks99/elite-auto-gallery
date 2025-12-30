@@ -11,5 +11,5 @@ color: red
 image_url: /images/cars/farrari.png
 description: farri is a test of being sold
 status: Sold
-is_featured: false
+is_featured: true
 ---

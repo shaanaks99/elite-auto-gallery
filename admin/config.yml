@@ -1,31 +1,244 @@
 backend:
   name: github
-  repo: shaanaks99/elite-auto-gallery # Update this with your actual repo
-  branch: main # Change this to your branch name if different
-  base_url: https://api.netlify.com # Netlify's OAuth provider
-  auth_endpoint: auth # OAuth endpoint
+  repo: shaanaks99/elite-auto-gallery
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
-media_folder: "images/cars" # Where uploaded images will be stored
-public_folder: "/images/cars" # How to access images in the frontend
+media_folder: "images/cars"
+public_folder: "/images/cars"
+
+# Publish mode - makes it easy to review before publishing
+publish_mode: editorial_workflow
 
 collections:
-  - name: "cars" # Used in routes, e.g., /admin/collections/cars
-    label: "Cars" # Used in the UI
-    folder: "_cars" # The path to the folder where the car files are stored
-    create: true # Allow users to create new cars
-    slug: "{{year}}-{{make}}-{{model}}" # Filename template
-    fields: # The fields for each car
-      - {label: "Make", name: "make", widget: "string", required: true}
-      - {label: "Model", name: "model", widget: "string", required: true}
-      - {label: "Year", name: "year", widget: "number", value_type: "int", min: 1990, max: 2030, required: true}
-      - {label: "Price", name: "price", widget: "number", value_type: "int", required: true}
-      - {label: "Mileage", name: "mileage", widget: "number", value_type: "int"}
-      - {label: "Fuel Type", name: "fuel_type", widget: "select", options: ["Gasoline", "Diesel", "Electric", "Hybrid"]}
-      - {label: "Transmission", name: "transmission", widget: "select", options: ["Automatic", "Manual"]}
-      - {label: "Body Type", name: "body_type", widget: "select", options: ["Sedan", "SUV", "Coupe", "Truck", "Hatchback", "Convertible"]}
-      - {label: "Color", name: "color", widget: "string"}
-      - {label: "Main Image", name: "image_url", widget: "image", required: false}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Features", name: "features", widget: "list", required: false}
-      - {label: "Status", name: "status", widget: "select", options: ["Available", "Sold", "Reserved"], default: "Available"}
-      - {label: "Featured", name: "is_featured", widget: "boolean", default: false}
+  - name: "cars"
+    label: "🚗 Car Inventory"
+    label_singular: "Car"
+    folder: "_cars"
+    create: true
+    delete: true
+    slug: "{{year}}-{{make}}-{{model}}"
+    
+    # Helpful summary in list view
+    summary: "{{year}} {{make}} {{model}} - {{availability}} (£{{price}})"
+    
+    # Allow sorting
+    sortable_fields: ['year', 'make', 'price', 'availability']
+    
+    # Preview the car while editing
+    editor:
+      preview: true
+    
+    fields:
+      # === BASIC INFO (Required) ===
+      - label: "📝 Basic Information"
+        name: "basic_info_section"
+        widget: "object"
+        collapsed: false
+        fields:
+          - label: "Make"
+            name: "make"
+            widget: "string"
+            required: true
+            hint: "e.g., BMW, Mercedes, Audi, Ford"
+            
+          - label: "Model"
+            name: "model"
+            widget: "string"
+            required: true
+            hint: "e.g., M4, C-Class, A6, Focus"
+            
+          - label: "Year"
+            name: "year"
+            widget: "number"
+            value_type: "int"
+            min: 1990
+            max: 2030
+            required: true
+            default: 2022
+            
+          - label: "Trim / Variant"
+            name: "trim"
+            widget: "string"
+            required: false
+            hint: "e.g., Competition, AMG, S Line (optional)"
+      
+      # === PRICING & AVAILABILITY ===
+      - label: "💷 Price & Availability"
+        name: "price_section"
+        widget: "object"
+        collapsed: false
+        fields:
+          - label: "Price (£)"
+            name: "price"
+            widget: "number"
+            value_type: "int"
+            required: true
+            hint: "Enter price in pounds - DO NOT include £ symbol. Example: 35000 for £35,000"
+            
+          - label: "Availability Status"
+            name: "availability"
+            widget: "select"
+            required: true
+            default: "available"
+            options:
+              - label: "✅ Available (Shows on website)"
+                value: "available"
+              - label: "⏳ Reserved (Hidden from website)"
+                value: "reserved"
+              - label: "❌ Sold (Hidden from website)"
+                value: "sold"
+            hint: "Only 'Available' cars show on the website to customers"
+            
+          - label: "⭐ Featured Car"
+            name: "featured"
+            widget: "boolean"
+            default: false
+            hint: "Featured cars appear first and get a gold star badge"
+      
+      # === SPECIFICATIONS ===
+      - label: "🔧 Technical Specifications"
+        name: "specs_section"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Mileage"
+            name: "mileage"
+            widget: "number"
+            value_type: "int"
+            required: true
+            hint: "Total miles on the odometer"
+            
+          - label: "Transmission"
+            name: "transmission"
+            widget: "select"
+            required: true
+            options:
+              - "Automatic"
+              - "Manual"
+              - "Semi-Automatic"
+            default: "Automatic"
+            
+          - label: "Fuel Type"
+            name: "fuelType"
+            widget: "select"
+            required: true
+            options:
+              - "Petrol"
+              - "Diesel"
+              - "Electric"
+              - "Hybrid"
+              - "Plug-in Hybrid"
+            default: "Petrol"
+            
+          - label: "Engine Size"
+            name: "engineSize"
+            widget: "string"
+            required: false
+            hint: "e.g., 2.0L, 3.0L V6, 2.0L Turbo"
+            
+          - label: "Power (BHP)"
+            name: "power"
+            widget: "number"
+            required: false
+            hint: "Brake horsepower - e.g., 250"
+            
+          - label: "Body Type"
+            name: "bodyType"
+            widget: "select"
+            required: false
+            options:
+              - "Sedan"
+              - "Coupe"
+              - "SUV"
+              - "Convertible"
+              - "Hatchback"
+              - "Estate"
+              - "Sports Car"
+              - "Supercar"
+            
+          - label: "Doors"
+            name: "doors"
+            widget: "number"
+            value_type: "int"
+            default: 4
+            min: 2
+            max: 5
+            
+          - label: "Seats"
+            name: "seats"
+            widget: "number"
+            value_type: "int"
+            default: 5
+            min: 2
+            max: 8
+      
+      # === COLORS ===
+      - label: "🎨 Colors"
+        name: "colors_section"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Exterior Color"
+            name: "color"
+            widget: "string"
+            required: true
+            hint: "e.g., Alpine White, Mythos Black, Misano Blue"
+            
+          - label: "Interior Color"
+            name: "interiorColor"
+            widget: "string"
+            required: false
+            hint: "e.g., Black Leather, Beige, Alcantara"
+      
+      # === REGISTRATION ===
+      - label: "📋 Registration Details"
+        name: "registration_section"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Registration Number"
+            name: "registration"
+            widget: "string"
+            required: false
+            hint: "e.g., AB12 CDE"
+            
+          - label: "VIN (Vehicle ID Number)"
+            name: "vin"
+            widget: "string"
+            required: false
+            hint: "17-character VIN (optional, for records)"
+      
+      # === IMAGES ===
+      - label: "📸 Car Images"
+        name: "images"
+        widget: "list"
+        required: false
+        hint: "Add multiple images - first image will be the main photo"
+        summary: "Image {{index}}"
+        field:
+          label: "Image URL"
+          name: "image"
+          widget: "string"
+          hint: "Paste image URL or upload to images/cars folder first"
+      
+      # === FEATURES ===
+      - label: "✨ Features & Equipment"
+        name: "features"
+        widget: "list"
+        required: false
+        hint: "Add each feature separately (one per line)"
+        summary: "{{fields.feature}}"
+        field:
+          label: "Feature"
+          name: "feature"
+          widget: "string"
+          hint: "e.g., Leather Seats, Sunroof, Parking Sensors"
+      
+      # === DESCRIPTION ===
+      - label: "📝 Description"
+        name: "body"
+        widget: "markdown"
+        required: false
+        hint: "Write a detailed description of the vehicle. You can use formatting (bold, lists, etc.)"

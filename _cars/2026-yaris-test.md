@@ -19,5 +19,10 @@ interiorColor: red
 registration: ab12 cde4
 images:
   - /images/cars/yaris.png
+  - /images/cars/bmw.png
+  - /images/cars/farrari.png
+  - /images/cars/lambo-hurrican.png
+  - /images/cars/yaris.png
+features: []
 ---
 t﻿est hello this i stest test test

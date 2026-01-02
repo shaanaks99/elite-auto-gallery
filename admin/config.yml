@@ -29,197 +29,172 @@ collections:
       preview: true
     
     fields:
-      # === BASIC INFO (Required) ===
-      - label: "📝 Basic Information"
-        name: "basic_info_section"
-        widget: "object"
-        collapsed: false
-        fields:
-          - label: "Make"
-            name: "make"
-            widget: "string"
-            required: true
-            hint: "e.g., BMW, Mercedes, Audi, Ford"
-            
-          - label: "Model"
-            name: "model"
-            widget: "string"
-            required: true
-            hint: "e.g., M4, C-Class, A6, Focus"
-            
-          - label: "Year"
-            name: "year"
-            widget: "number"
-            value_type: "int"
-            min: 1990
-            max: 2030
-            required: true
-            default: 2022
-            
-          - label: "Trim / Variant"
-            name: "trim"
-            widget: "string"
-            required: false
-            hint: "e.g., Competition, AMG, S Line (optional)"
+      # === BASIC INFO ===
+      - label: "Make"
+        name: "make"
+        widget: "string"
+        required: true
+        hint: "e.g., BMW, Mercedes, Audi, Ford"
+        
+      - label: "Model"
+        name: "model"
+        widget: "string"
+        required: true
+        hint: "e.g., M4, C-Class, A6, Focus"
+        
+      - label: "Year"
+        name: "year"
+        widget: "number"
+        value_type: "int"
+        min: 1990
+        max: 2030
+        required: true
+        default: 2022
+        
+      - label: "Trim / Variant"
+        name: "trim"
+        widget: "string"
+        required: false
+        hint: "e.g., Competition, AMG, S Line (optional)"
       
-      # === PRICING & AVAILABILITY ===
-      - label: "💷 Price & Availability"
-        name: "price_section"
-        widget: "object"
-        collapsed: false
-        fields:
-          - label: "Price (£)"
-            name: "price"
-            widget: "number"
-            value_type: "int"
-            required: true
-            hint: "Enter price in pounds - DO NOT include £ symbol. Example: 35000 for £35,000"
-            
-          - label: "Availability Status"
-            name: "availability"
-            widget: "select"
-            required: true
-            default: "available"
-            options:
-              - label: "✅ Available (Shows on website)"
-                value: "available"
-              - label: "⏳ Reserved (Hidden from website)"
-                value: "reserved"
-              - label: "❌ Sold (Hidden from website)"
-                value: "sold"
-            hint: "Only 'Available' cars show on the website to customers"
-            
-          - label: "⭐ Featured Car"
-            name: "featured"
-            widget: "boolean"
-            default: false
-            hint: "Featured cars appear first and get a gold star badge"
+      # === PRICE & AVAILABILITY ===
+      - label: "💷 Price (£)"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        required: true
+        hint: "Enter price in pounds - DO NOT include £ symbol. Example: 35000 for £35,000"
+        
+      - label: "Availability Status"
+        name: "availability"
+        widget: "select"
+        required: true
+        default: "available"
+        options:
+          - label: "✅ Available (Shows on website)"
+            value: "available"
+          - label: "⏳ Reserved (Hidden from website)"
+            value: "reserved"
+          - label: "❌ Sold (Hidden from website)"
+            value: "sold"
+        hint: "Only 'Available' cars show on the website to customers"
+        
+      - label: "⭐ Featured Car"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Featured cars appear first and get a gold star badge"
       
       # === SPECIFICATIONS ===
-      - label: "🔧 Technical Specifications"
-        name: "specs_section"
-        widget: "object"
-        collapsed: true
-        fields:
-          - label: "Mileage"
-            name: "mileage"
-            widget: "number"
-            value_type: "int"
-            required: true
-            hint: "Total miles on the odometer"
-            
-          - label: "Transmission"
-            name: "transmission"
-            widget: "select"
-            required: true
-            options:
-              - "Automatic"
-              - "Manual"
-              - "Semi-Automatic"
-            default: "Automatic"
-            
-          - label: "Fuel Type"
-            name: "fuelType"
-            widget: "select"
-            required: true
-            options:
-              - "Petrol"
-              - "Diesel"
-              - "Electric"
-              - "Hybrid"
-              - "Plug-in Hybrid"
-            default: "Petrol"
-            
-          - label: "Engine Size"
-            name: "engineSize"
-            widget: "string"
-            required: false
-            hint: "e.g., 2.0L, 3.0L V6, 2.0L Turbo"
-            
-          - label: "Power (BHP)"
-            name: "power"
-            widget: "number"
-            required: false
-            hint: "Brake horsepower - e.g., 250"
-            
-          - label: "Body Type"
-            name: "bodyType"
-            widget: "select"
-            required: false
-            options:
-              - "Sedan"
-              - "Coupe"
-              - "SUV"
-              - "Convertible"
-              - "Hatchback"
-              - "Estate"
-              - "Sports Car"
-              - "Supercar"
-            
-          - label: "Doors"
-            name: "doors"
-            widget: "number"
-            value_type: "int"
-            default: 4
-            min: 2
-            max: 5
-            
-          - label: "Seats"
-            name: "seats"
-            widget: "number"
-            value_type: "int"
-            default: 5
-            min: 2
-            max: 8
+      - label: "Mileage"
+        name: "mileage"
+        widget: "number"
+        value_type: "int"
+        required: true
+        hint: "Total miles on the odometer"
+        
+      - label: "Transmission"
+        name: "transmission"
+        widget: "select"
+        required: true
+        options:
+          - "Automatic"
+          - "Manual"
+          - "Semi-Automatic"
+        default: "Automatic"
+        
+      - label: "Fuel Type"
+        name: "fuelType"
+        widget: "select"
+        required: true
+        options:
+          - "Petrol"
+          - "Diesel"
+          - "Electric"
+          - "Hybrid"
+          - "Plug-in Hybrid"
+        default: "Petrol"
+        
+      - label: "Engine Size"
+        name: "engineSize"
+        widget: "string"
+        required: false
+        hint: "e.g., 2.0L, 3.0L V6, 2.0L Turbo"
+        
+      - label: "Power (BHP)"
+        name: "power"
+        widget: "number"
+        required: false
+        hint: "Brake horsepower - e.g., 250"
+        
+      - label: "Body Type"
+        name: "bodyType"
+        widget: "select"
+        required: false
+        options:
+          - "Sedan"
+          - "Coupe"
+          - "SUV"
+          - "Convertible"
+          - "Hatchback"
+          - "Estate"
+          - "Sports Car"
+          - "Supercar"
+        
+      - label: "Doors"
+        name: "doors"
+        widget: "number"
+        value_type: "int"
+        default: 4
+        min: 2
+        max: 5
+        
+      - label: "Seats"
+        name: "seats"
+        widget: "number"
+        value_type: "int"
+        default: 5
+        min: 2
+        max: 8
       
       # === COLORS ===
-      - label: "🎨 Colors"
-        name: "colors_section"
-        widget: "object"
-        collapsed: true
-        fields:
-          - label: "Exterior Color"
-            name: "color"
-            widget: "string"
-            required: true
-            hint: "e.g., Alpine White, Mythos Black, Misano Blue"
-            
-          - label: "Interior Color"
-            name: "interiorColor"
-            widget: "string"
-            required: false
-            hint: "e.g., Black Leather, Beige, Alcantara"
+      - label: "Exterior Color"
+        name: "color"
+        widget: "string"
+        required: true
+        hint: "e.g., Alpine White, Mythos Black, Misano Blue"
+        
+      - label: "Interior Color"
+        name: "interiorColor"
+        widget: "string"
+        required: false
+        hint: "e.g., Black Leather, Beige, Alcantara"
       
       # === REGISTRATION ===
-      - label: "📋 Registration Details"
-        name: "registration_section"
-        widget: "object"
-        collapsed: true
-        fields:
-          - label: "Registration Number"
-            name: "registration"
-            widget: "string"
-            required: false
-            hint: "e.g., AB12 CDE"
-            
-          - label: "VIN (Vehicle ID Number)"
-            name: "vin"
-            widget: "string"
-            required: false
-            hint: "17-character VIN (optional, for records)"
+      - label: "Registration Number"
+        name: "registration"
+        widget: "string"
+        required: false
+        hint: "e.g., AB12 CDE"
+        
+      - label: "VIN (Vehicle ID Number)"
+        name: "vin"
+        widget: "string"
+        required: false
+        hint: "17-character VIN (optional, for records)"
       
       # === IMAGES ===
       - label: "📸 Car Images"
         name: "images"
         widget: "list"
         required: false
-        hint: "Add multiple images - first image will be the main photo"
+        hint: "Add image URLs - first image will be the main photo. Upload images to /images/cars folder first, then use: /images/cars/your-image.jpg"
         summary: "Image {{index}}"
         field:
           label: "Image URL"
           name: "image"
           widget: "string"
-          hint: "Paste image URL or upload to images/cars folder first"
+          hint: "Example: /images/cars/bmw-m4-front.jpg"
       
       # === FEATURES ===
       - label: "✨ Features & Equipment"
@@ -227,7 +202,6 @@ collections:
         widget: "list"
         required: false
         hint: "Add each feature separately (one per line)"
-        summary: "{{fields.feature}}"
         field:
           label: "Feature"
           name: "feature"

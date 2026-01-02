@@ -1,4 +1,4 @@
-// car-detail-SYTNER-STYLE.js - Car detail page with image gallery
+// car-detail.js - ROBUST VERSION with better error handling
 
 let currentCar = null;
 let currentImageIndex = 0;
@@ -7,6 +7,8 @@ let allImages = [];
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const carId = urlParams.get('id');
+    
+    console.log('Loading car with ID:', carId);
     
     if (!carId) {
         showError('No car specified');
@@ -19,11 +21,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadCarDetails(carId) {
     try {
-        // Load car from GitHub
-        const car = await loadCarFromGitHub(carId);
+        console.log('Attempting to load car:', carId);
+        
+        // Try direct file URL first (faster and more reliable)
+        const directUrl = `https://raw.githubusercontent.com/shaanaks99/elite-auto-gallery/main/_cars/${carId}.md`;
+        console.log('Fetching from:', directUrl);
+        
+        const response = await fetch(directUrl);
+        console.log('Response status:', response.status);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const content = await response.text();
+        console.log('Content loaded, length:', content.length);
+        
+        const car = parseCarMarkdown(content, carId);
+        console.log('Parsed car:', car);
         
         if (!car) {
-            showError('Car not found');
+            showError('Failed to parse car details');
             return;
         }
         
@@ -35,32 +53,17 @@ async function loadCarDetails(carId) {
         
     } catch (error) {
         console.error('Error loading car details:', error);
-        showError('Failed to load car details');
-    }
-}
-
-async function loadCarFromGitHub(carId) {
-    try {
-        const response = await fetch(`https://api.github.com/repos/shaanaks99/elite-auto-gallery/contents/_cars/${carId}.md`);
-        
-        if (!response.ok) {
-            return null;
-        }
-        
-        const data = await response.json();
-        const content = atob(data.content);
-        return parseCarMarkdown(content, carId);
-        
-    } catch (error) {
-        console.error('Error loading car:', error);
-        return null;
+        showError(`Failed to load car details: ${error.message}`);
     }
 }
 
 function parseCarMarkdown(content, carId) {
     try {
+        console.log('Parsing markdown...');
+        
         const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
         if (!frontmatterMatch) {
+            console.error('No frontmatter found');
             return null;
         }
         
@@ -74,21 +77,26 @@ function parseCarMarkdown(content, carId) {
         for (const line of lines) {
             const trimmed = line.trim();
             
+            // Handle array items
             if (trimmed.startsWith('- ') && currentArray) {
-                currentArray.push(trimmed.substring(2).trim());
+                const value = trimmed.substring(2).trim();
+                currentArray.push(value);
                 continue;
             }
             
+            // Handle key-value pairs
             const match = trimmed.match(/^(\w+):\s*(.*)$/);
             if (match) {
                 const [, key, value] = match;
                 currentKey = key;
                 
+                // Check if this starts an array
                 if (value === '') {
                     currentArray = [];
                     car[key] = currentArray;
                 } else {
                     currentArray = null;
+                    // Parse the value
                     if (value === 'true') {
                         car[key] = true;
                     } else if (value === 'false') {
@@ -96,18 +104,21 @@ function parseCarMarkdown(content, carId) {
                     } else if (!isNaN(value) && value !== '') {
                         car[key] = Number(value);
                     } else {
+                        // Remove quotes if present
                         car[key] = value.replace(/^["']|["']$/g, '');
                     }
                 }
             }
         }
         
+        // Extract description from content after frontmatter
         const descriptionMatch = content.match(/---\n[\s\S]*?---\n\n([\s\S]*)/);
         if (descriptionMatch) {
             car.body = descriptionMatch[1].trim();
             car.description = descriptionMatch[1].trim();
         }
         
+        console.log('Parsed car successfully:', car);
         return car;
     } catch (error) {
         console.error('Error parsing car markdown:', error);
@@ -116,6 +127,8 @@ function parseCarMarkdown(content, carId) {
 }
 
 function displayCarDetails(car) {
+    console.log('Displaying car details...');
+    
     // Title
     const title = `${car.year} ${car.make} ${car.model}${car.trim ? ' ' + car.trim : ''}`;
     document.getElementById('car-title').textContent = title;
@@ -148,7 +161,7 @@ function displayCarDetails(car) {
     
     // Description
     const descriptionEl = document.getElementById('car-description');
-    descriptionEl.innerHTML = car.body || car.description || '<p>No description available.</p>';
+    descriptionEl.innerHTML = `<p>${car.body || car.description || 'No description available.'}</p>`;
     
     // Features
     if (car.features && car.features.length > 0) {
@@ -161,9 +174,14 @@ function displayCarDetails(car) {
     
     // Additional Details
     displayAdditionalDetails(car);
+    
+    console.log('Display complete!');
 }
 
 function setupImageGallery(car) {
+    console.log('Setting up image gallery...');
+    console.log('Car images:', car.images);
+    
     allImages = car.images && car.images.length > 0 ? car.images : ['https://via.placeholder.com/800x600?text=No+Image'];
     currentImageIndex = 0;
     
@@ -172,8 +190,11 @@ function setupImageGallery(car) {
     mainImage.src = allImages[0];
     mainImage.alt = `${car.year} ${car.make} ${car.model}`;
     
+    console.log('Main image set to:', allImages[0]);
+    
     // Show navigation if multiple images
     if (allImages.length > 1) {
+        console.log('Multiple images detected, showing gallery...');
         document.getElementById('prev-image').style.display = 'flex';
         document.getElementById('next-image').style.display = 'flex';
         document.getElementById('thumbnail-container').style.display = 'block';
@@ -308,10 +329,11 @@ function displayAdditionalDetails(car) {
 }
 
 function showError(message) {
+    console.error('Showing error:', message);
     document.getElementById('loading').innerHTML = `
-        <i class="fas fa-exclamation-circle"></i>
-        <p>${message}</p>
-        <a href="gallery.html" class="btn">Back to Inventory</a>
+        <i class="fas fa-exclamation-circle" style="color: #dc3545; font-size: 3rem;"></i>
+        <p style="color: #dc3545; font-weight: 600; margin-top: 1rem;">${message}</p>
+        <a href="gallery.html" class="btn" style="margin-top: 1rem; display: inline-block; padding: 0.75rem 1.5rem; background: #1a1a2e; color: #fff; text-decoration: none; border-radius: 8px;">Back to Inventory</a>
     `;
 }
 

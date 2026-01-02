@@ -154,7 +154,7 @@ function createCarCard(car) {
     const availabilityBadge = '<span class="badge available">Available</span>';
     
     return `
-        <div class="car-card animate-fade-in">
+        <div class="car-card animate-fade-in" onclick="window.location.href='car-detail.html?id=${car.id}'" style="cursor: pointer;">
             ${featuredBadge}
             ${availabilityBadge}
             <div class="car-image">
@@ -170,7 +170,7 @@ function createCarCard(car) {
                 </div>
                 <div class="car-price-action">
                     <p class="car-price">${formattedPrice}</p>
-                    <a href="car-detail.html?id=${car.id}" class="btn-secondary">View Details</a>
+                    <a href="car-detail.html?id=${car.id}" class="btn-secondary" onclick="event.stopPropagation();">View Details</a>
                 </div>
             </div>
         </div>

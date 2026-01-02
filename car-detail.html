@@ -4,251 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Details - Elite Auto Gallery</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="inventory-styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="car-detail-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .car-detail-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .car-detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-        
-        .car-gallery {
-            position: sticky;
-            top: 2rem;
-        }
-        
-        .main-image {
-            width: 100%;
-            height: 500px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-        
-        .main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .thumbnail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 0.5rem;
-        }
-        
-        .thumbnail {
-            height: 80px;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            border: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .thumbnail:hover, .thumbnail.active {
-            border-color: #c9a961;
-        }
-        
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .car-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .car-price-section {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-        }
-        
-        .car-price-large {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #c9a961;
-        }
-        
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .spec-item {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        
-        .spec-item i {
-            color: #c9a961;
-            font-size: 1.5rem;
-            margin-top: 0.25rem;
-        }
-        
-        .spec-content h4 {
-            margin: 0 0 0.25rem 0;
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        
-        .spec-content p {
-            margin: 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        
-        .features-section {
-            margin: 2rem 0;
-        }
-        
-        .features-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            background: #f8f9fa;
-            border-radius: 6px;
-        }
-        
-        .feature-item i {
-            color: #28a745;
-        }
-        
-        .description-section {
-            margin: 2rem 0;
-            line-height: 1.8;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .btn-cta {
-            flex: 1;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-cta-primary {
-            background: linear-gradient(135deg, #c9a961 0%, #b8934d 100%);
-            color: white;
-        }
-        
-        .btn-cta-secondary {
-            background: white;
-            color: #1a1a1a;
-            border: 2px solid #1a1a1a;
-        }
-        
-        .btn-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        @media (max-width: 968px) {
-            .car-detail-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .car-gallery {
-                position: static;
-            }
-            
-            .specs-grid, .features-list {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="index.html" class="logo">ELITE AUTO GALLERY</a>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="inventory.html">Our Stock</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="transportation.html">Transportation</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69514e3aba40c5a0d3b7b7be/a1dfb7dd0_logo.png" 
+                     alt="W&M Auto's Limited">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html" class="active">Our Stock</a></li>
+                <li><a href="transportation.html">Transportation</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="gallery.html" class="btn">View Inventory</a>
             </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.5rem; height: 1.5rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Our Stock</a>
+            <a href="transportation.html">Transportation</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <div class="car-detail-container">
-        <a href="inventory.html" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Inventory</a>
-        
-        <div id="loading-indicator" class="loading-state">
-            <i class="fas fa-spinner fa-spin"></i>
-            <p>Loading vehicle details...</p>
-        </div>
-        
-        <div id="car-detail-content" style="display: none;">
-            <div class="car-detail-grid">
-                <div class="car-gallery">
-                    <div class="main-image" id="main-image">
-                        <!-- Main image will be loaded here -->
-                    </div>
-                    <div class="thumbnail-grid" id="thumbnail-grid">
-                        <!-- Thumbnails will be loaded here -->
-                    </div>
+    <!-- Back Button -->
+    <div class="container" style="padding-top: 2rem;">
+        <a href="gallery.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Inventory
+        </a>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading-state">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Loading vehicle details...</p>
+    </div>
+
+    <!-- Main Content -->
+    <main id="car-detail-content" style="display: none;">
+        <div class="container detail-container">
+            
+            <!-- Left Column: Images -->
+            <div class="detail-left">
+                <!-- Main Image -->
+                <div class="main-image-container">
+                    <img id="main-image" src="" alt="Car image" class="main-image">
+                    <button class="image-nav prev" id="prev-image" style="display: none;">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="image-nav next" id="next-image" style="display: none;">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                
-                <div class="car-info" id="car-info">
-                    <!-- Car information will be loaded here -->
+
+                <!-- Thumbnail Gallery -->
+                <div class="thumbnail-container" id="thumbnail-container" style="display: none;">
+                    <button class="thumbnail-scroll left" id="scroll-left">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="thumbnail-gallery" id="thumbnail-gallery">
+                        <!-- Thumbnails will be inserted here -->
+                    </div>
+                    <button class="thumbnail-scroll right" id="scroll-right">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Column: Details -->
+            <div class="detail-right">
+                <!-- Title & Price -->
+                <div class="detail-header">
+                    <h1 id="car-title" class="car-title"></h1>
+                    <div id="car-badges" class="car-badges"></div>
+                    <p id="car-price" class="car-price"></p>
+                </div>
+
+                <!-- Key Specs Grid -->
+                <div class="key-specs" id="key-specs">
+                    <!-- Specs will be inserted here -->
+                </div>
+
+                <!-- Description -->
+                <div class="car-description">
+                    <h2>Description</h2>
+                    <div id="car-description"></div>
+                </div>
+
+                <!-- Features -->
+                <div class="car-features" id="car-features-section" style="display: none;">
+                    <h2>Features & Equipment</h2>
+                    <ul id="car-features" class="features-list"></ul>
+                </div>
+
+                <!-- Additional Details -->
+                <div class="additional-details" id="additional-details">
+                    <!-- Additional details will be inserted here -->
+                </div>
+
+                <!-- Contact Section -->
+                <div class="contact-section">
+                    <h2>Interested in this vehicle?</h2>
+                    <p>Contact us today to arrange a viewing or test drive.</p>
+                    <div class="contact-buttons">
+                        <a href="tel:+442012345678" class="btn btn-primary">
+                            <i class="fas fa-phone"></i> Call Us
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Enquire Now
+                        </a>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +44 20 1234 5678</p>
+                        <p><i class="fas fa-envelope"></i> info@eliteautogallery.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9am-6pm, Sat: 10am-4pm</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 4rem;">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -256,15 +151,16 @@
                     <p>Your trusted partner in premium automotive excellence.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="inventory.html">Our Stock</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Our Stock</a></li>
+                        <li><a href="transportation.html">Transportation</a></li>
                         <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact</h4>
+                    <h3>Contact</h3>
                     <p><i class="fas fa-phone"></i> +44 20 1234 5678</p>
                     <p><i class="fas fa-envelope"></i> info@eliteautogallery.com</p>
                 </div>
@@ -275,7 +171,6 @@
         </div>
     </footer>
 
-    <script src="carLoader.js"></script>
-    <script src="car-detail.js"></script>
+    <script src="car-detail-SYTNER-STYLE.js"></script>
 </body>
 </html>

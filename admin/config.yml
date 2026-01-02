@@ -2,8 +2,6 @@ backend:
   name: github
   repo: shaanaks99/elite-auto-gallery
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 media_folder: "images/cars"
 public_folder: "/images/cars"

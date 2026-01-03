@@ -754,3 +754,62 @@ main {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* MOBILE MENU FIX - Add this to css/styles.css */
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 80px; /* Below the nav bar */
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 999;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobile-menu.active {
+    display: flex; /* Show when active class is added */
+}
+
+.mobile-menu a {
+    padding: 0.75rem 1rem;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.mobile-menu a:hover {
+    background: #f3f4f6;
+}
+
+/* Show hamburger button on mobile */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block !important;
+    }
+    
+    .nav-links {
+        display: none !important;
+    }
+    
+    .nav-cta {
+        display: none !important;
+    }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none !important;
+    }
+    
+    .mobile-menu {
+        display: none !important;
+    }
+}

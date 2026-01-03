@@ -164,7 +164,7 @@ function displayCarDetails(car) {
     descriptionEl.innerHTML = `<p>${car.body || car.description || 'No description available.'}</p>`;
     
     // Features
-    if (car.features && car.features.length > 0) {
+    if (car.features && Array.isArray(car.features) && car.features.length > 0) {
         document.getElementById('car-features-section').style.display = 'block';
         const featuresList = document.getElementById('car-features');
         featuresList.innerHTML = car.features.map(feature => 

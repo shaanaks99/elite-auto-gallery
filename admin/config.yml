@@ -79,6 +79,13 @@ collections:
             value: "sold"
         hint: "Only 'Available' cars show on the website to customers"
         
+      - label: "⭐ Featured on Homepage"
+        name: "featured"
+        widget: "boolean"
+        required: false
+        default: false
+        hint: "Toggle ON to display this car in the featured section on the homepage"
+        
       - label: "⭐ Featured Car"
         name: "featured"
         widget: "boolean"

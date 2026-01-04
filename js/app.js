@@ -130,7 +130,19 @@ function displayCars(cars) {
         return;
     }
     
-    carGrid.innerHTML = cars.map(car => createCarCard(car)).join('');
+    // Create real car cards
+    let carCards = cars.map(car => createCarCard(car)).join('');
+    
+    // Add "Coming Soon" cards if fewer than 6 cars
+    const minCards = 6;
+    if (cars.length < minCards) {
+        const comingSoonCount = minCards - cars.length;
+        for (let i = 0; i < comingSoonCount; i++) {
+            carCards += createComingSoonCard();
+        }
+    }
+    
+    carGrid.innerHTML = carCards;
     resultsCount.textContent = `${cars.length} vehicle${cars.length !== 1 ? 's' : ''} found`;
 }
 
@@ -171,6 +183,32 @@ function createCarCard(car) {
                 <div class="car-price-action">
                     <p class="car-price">${formattedPrice}</p>
                     <a href="car-detail.html?id=${car.id}" class="btn-secondary" onclick="event.stopPropagation();">View Details</a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function createComingSoonCard() {
+    return `
+        <div class="car-card animate-fade-in coming-soon-card">
+            <div class="car-image coming-soon-image">
+                <div class="coming-soon-content">
+                    <i class="fas fa-clock" style="font-size: 3rem; color: #cbd5e1; margin-bottom: 1rem;"></i>
+                    <h3 style="color: #64748b; font-size: 1.25rem; margin: 0;">More Stock</h3>
+                    <p style="color: #94a3b8; margin: 0.5rem 0 0 0;">Coming Soon</p>
+                </div>
+            </div>
+            <div class="car-details">
+                <h3 class="car-title" style="color: #94a3b8;">New Arrivals Expected</h3>
+                <p class="car-trim" style="color: #cbd5e1;">Check back soon for more quality vehicles</p>
+                <div class="car-specs" style="opacity: 0.5;">
+                    <span><i class="fas fa-star"></i> Premium Selection</span>
+                    <span><i class="fas fa-certificate"></i> Quality Assured</span>
+                </div>
+                <div class="car-price-action">
+                    <p class="car-price" style="color: #94a3b8;">TBA</p>
+                    <button class="btn-secondary" style="opacity: 0.5; cursor: not-allowed;" disabled>Coming Soon</button>
                 </div>
             </div>
         </div>

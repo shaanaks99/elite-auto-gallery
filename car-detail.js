@@ -132,7 +132,7 @@ function displayCarDetails(car) {
     // Title
     const title = `${car.year} ${car.make} ${car.model}${car.trim ? ' ' + car.trim : ''}`;
     document.getElementById('car-title').textContent = title;
-    document.title = `${title} - Elite Auto Gallery`;
+    document.title = `${title} - W&M Autos`;
     
     // Price
     const formattedPrice = new Intl.NumberFormat('en-GB', {

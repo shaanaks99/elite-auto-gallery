@@ -813,3 +813,30 @@ main {
         display: none !important;
     }
 }
+/* COMING SOON CARD STYLES */
+/* Add this to css/styles.css */
+
+.coming-soon-card {
+    opacity: 0.8;
+    border: 2px dashed #e2e8f0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.coming-soon-image {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.coming-soon-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.coming-soon-card:hover {
+    transform: none;
+    cursor: default;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}

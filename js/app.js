@@ -265,3 +265,55 @@ function setupMobileMenu() {
         });
     }
 }
+
+// Load and display featured cars on homepage
+async function loadFeaturedCars() {
+    const featuredContainer = document.getElementById('featured-cars');
+    
+    if (!featuredContainer) {
+        return; // Not on homepage
+    }
+    
+    try {
+        const allCars = await loadCarsFromGitHub();
+        
+        // Filter for featured AND available cars
+        const featuredCars = allCars.filter(car => 
+            car.featured === true && 
+            car.availability === 'available'
+        );
+        
+        console.log('Featured cars found:', featuredCars.length);
+        
+        if (featuredCars.length === 0) {
+            featuredContainer.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #64748b;">
+                    <p style="font-size: 1.125rem;">No featured vehicles at the moment.</p>
+                    <p style="margin-top: 0.5rem;">Check back soon or <a href="gallery.html" style="color: #1e293b; text-decoration: underline;">view all vehicles</a>.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        // Sort by newest first
+        featuredCars.sort((a, b) => b.year - a.year);
+        
+        // Show up to 6 featured cars
+        const carsToShow = featuredCars.slice(0, 6);
+        
+        featuredContainer.innerHTML = carsToShow.map(car => createCarCard(car)).join('');
+        
+    } catch (error) {
+        console.error('Error loading featured cars:', error);
+        featuredContainer.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #dc2626;">
+                <p>Failed to load featured vehicles. Please try again later.</p>
+            </div>
+        `;
+    }
+}
+
+// Initialize featured cars if on homepage
+if (document.getElementById('featured-cars')) {
+    loadFeaturedCars();
+}

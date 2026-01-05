@@ -403,11 +403,13 @@
     align-items: center;
     gap: 0.75rem;
     margin: 0;
+    color: #ffffff !important; /* Ensure white on all devices */
 }
 
 .contact-info i {
     width: 20px;
     text-align: center;
+    color: #ffffff !important; /* Ensure white icons */
 }
 
 /* Responsive */

@@ -112,10 +112,15 @@ function parseCarMarkdown(content, carId) {
         }
         
         // Extract description from content after frontmatter
-        const descriptionMatch = content.match(/---\n[\s\S]*?---\n\n([\s\S]*)/);
+        // Handle both single and double line breaks after ---
+        const descriptionMatch = content.match(/---\n[\s\S]*?---\n+([\s\S]*)/);
         if (descriptionMatch) {
-            car.body = descriptionMatch[1].trim();
-            car.description = descriptionMatch[1].trim();
+            let desc = descriptionMatch[1].trim();
+            // Remove any incomplete HTML tags at the end
+            desc = desc.replace(/<!\s*$/g, '').trim();
+            car.body = desc;
+            car.description = desc;
+            console.log('Extracted description:', desc.substring(0, 100) + '...');
         }
         
         console.log('Parsed car successfully:', car);
@@ -161,7 +166,32 @@ function displayCarDetails(car) {
     
     // Description
     const descriptionEl = document.getElementById('car-description');
-    descriptionEl.innerHTML = `<p>${car.body || car.description || 'No description available.'}</p>`;
+    let description = car.body || car.description || '';
+    
+    console.log('Raw description:', description);
+    
+    // Clean up any HTML fragments or markers
+    description = description
+        .replace(/<!--StartFragment-->/g, '')
+        .replace(/<!--EndFragment-->/g, '')
+        .replace(/<!\s*$/g, '') // Remove incomplete HTML tags
+        .replace(/^\s*<!\s*/g, '') // Remove incomplete tags at start
+        .trim();
+    
+    console.log('Cleaned description:', description);
+    
+    if (description) {
+        // Convert line breaks to paragraphs if not already formatted
+        if (!description.includes('<p>') && !description.includes('<br>')) {
+            // Split by double line breaks for paragraphs
+            const paragraphs = description.split(/\n\n+/).filter(p => p.trim());
+            descriptionEl.innerHTML = paragraphs.map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+        } else {
+            descriptionEl.innerHTML = description;
+        }
+    } else {
+        descriptionEl.innerHTML = '<p>No description available.</p>';
+    }
     
     // Features
     if (car.features && Array.isArray(car.features) && car.features.length > 0) {
@@ -364,6 +394,12 @@ function initLightbox(images) {
     const lightboxNext = document.getElementById('lightbox-next');
     const lightboxCounter = document.getElementById('lightbox-counter');
     
+    // Safety check - make sure all lightbox elements exist
+    if (!lightbox || !lightboxImage || !lightboxClose || !lightboxPrev || !lightboxNext || !lightboxCounter) {
+        console.warn('Lightbox elements not found, skipping lightbox initialization');
+        return;
+    }
+    
     // Click main image to open lightbox
     const mainImage = document.getElementById('main-image');
     if (mainImage) {
@@ -383,20 +419,29 @@ function initLightbox(images) {
     });
     
     // Close lightbox
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+    
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
     
     // Navigation
-    lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
-    lightboxNext.addEventListener('click', () => navigateLightbox(1));
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+    }
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', () => navigateLightbox(1));
+    }
     
     // Keyboard controls
     document.addEventListener('keydown', (e) => {
-        if (lightbox.style.display === 'flex') {
+        if (lightbox && lightbox.style.display === 'flex') {
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') navigateLightbox(-1);
             if (e.key === 'ArrowRight') navigateLightbox(1);

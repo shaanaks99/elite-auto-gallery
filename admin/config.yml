@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: shaanaks99/elite-auto-gallery
   branch: main
 

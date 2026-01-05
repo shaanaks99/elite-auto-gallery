@@ -406,6 +406,11 @@
     color: #ffffff !important; /* Ensure white on all devices */
 }
 
+.contact-info p a {
+    color: #ffffff !important; /* Force white for phone links */
+    text-decoration: none;
+}
+
 .contact-info i {
     width: 20px;
     text-align: center;

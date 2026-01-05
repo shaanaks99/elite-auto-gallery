@@ -50,8 +50,27 @@
                 <div class="animate-slide-left">
                     <div style="background-color: white; padding: 2.5rem; border-radius: 1rem; border: 1px solid var(--slate-100); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
                         <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">Send Us a Message</h2>
-                        <form name="contact" method="POST" data-netlify="true">
-                            <input type="hidden" name="form-name" value="contact">
+                        
+                        <!-- Success Message -->
+                        <div id="success-message" style="display: none; background-color: #d4edda; color: #155724; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid #c3e6cb;">
+                            <strong>✅ Success!</strong> Your message has been sent. We'll get back to you soon!
+                        </div>
+                        
+                        <!-- Error Message -->
+                        <div id="error-message" style="display: none; background-color: #f8d7da; color: #721c24; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid #f5c6cb;">
+                            <strong>❌ Error!</strong> Something went wrong. Please try again or email us directly.
+                        </div>
+                        
+                        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                            <!-- Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="1e0ae979-fd83-4fe5-8b6e-a6a73de4c94b">
+                            
+                            <!-- Redirect to same page after submission -->
+                            <input type="hidden" name="redirect" value="false">
+                            
+                            <!-- Subject line for email -->
+                            <input type="hidden" name="from_name" value="W&M Autos Contact Form">
+                            
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                                 <div>
                                     <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--slate-700);">Full Name *</label>
@@ -76,7 +95,14 @@
                                 <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--slate-700);">Message *</label>
                                 <textarea name="message" rows="6" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--slate-200); border-radius: 0.5rem; font-size: 0.9375rem; resize: vertical;"></textarea>
                             </div>
-                            <button type="submit" class="btn" style="width: 100%; padding: 1rem; font-size: 1rem;">Send Message</button>
+                            
+                            <!-- Honeypot spam protection -->
+                            <input type="checkbox" name="botcheck" style="display: none;">
+                            
+                            <button type="submit" id="submit-btn" class="btn" style="width: 100%; padding: 1rem; font-size: 1rem;">
+                                <span id="btn-text">Send Message</span>
+                                <span id="btn-loading" style="display: none;">Sending...</span>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -172,6 +198,64 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenu.classList.remove('active');
             }
         });
+    }
+});
+
+// Web3Forms submission handler
+const form = document.getElementById('contact-form');
+const successMessage = document.getElementById('success-message');
+const errorMessage = document.getElementById('error-message');
+const submitBtn = document.getElementById('submit-btn');
+const btnText = document.getElementById('btn-text');
+const btnLoading = document.getElementById('btn-loading');
+
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    submitBtn.disabled = true;
+    
+    // Hide previous messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+    
+    try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Show success message
+            successMessage.style.display = 'block';
+            form.reset();
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        } else {
+            // Show error message
+            errorMessage.style.display = 'block';
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    } catch (error) {
+        // Show error message
+        errorMessage.style.display = 'block';
+        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } finally {
+        // Reset button state
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled = false;
     }
 });
 </script>

@@ -2,7 +2,8 @@ backend:
   name: git-gateway
   repo: shaanaks99/elite-auto-gallery
   branch: main
-
+  site_domain: wnm-autos.netlify.app
+  
 media_folder: "images/cars"
 public_folder: "/images/cars"
 

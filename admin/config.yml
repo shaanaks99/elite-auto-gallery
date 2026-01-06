@@ -2,11 +2,13 @@ backend:
   name: github
   repo: shaanaks99/elite-auto-gallery
   branch: main
+  # No auth needed - will prompt for token on first use
 
 media_folder: "images/cars"
 public_folder: "/images/cars"
-
 publish_mode: editorial_workflow
+
+# ... rest of your collections config ...
 
 collections:
   - name: "cars"

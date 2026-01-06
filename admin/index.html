@@ -9,7 +9,12 @@
   <body>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script>
+      // Initialize Netlify Identity with your site URL
       if (window.netlifyIdentity) {
+        window.netlifyIdentity.init({
+          APIUrl: "https://phenomenal-douhua-1e3ac4.netlify.app/.netlify/identity"
+        });
+        
         window.netlifyIdentity.on("init", user => {
           if (!user) {
             window.netlifyIdentity.on("login", () => {

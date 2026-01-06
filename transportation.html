@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Transportation Services - W&M Autos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .transport-hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .transport-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/transport/b92abcbd-1cbf-4a93-b6a0-d0affc6ca90f.jpeg') center/cover;
+            opacity: 0.15;
+        }
+        
+        .transport-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e293b;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 1.5rem;
+            margin: 4rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69514e3aba40c5a0d3b7b7be/a1dfb7dd0_logo.png" alt="W&M Auto's Limited">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Our Stock</a></li>
+                <li><a href="transportation.html" class="active">Transportation</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn">Get a Quote</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.5rem; height: 1.5rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Our Stock</a>
+            <a href="transportation.html">Transportation</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="transport-hero">
+            <div class="container">
+                <div class="animate-slide-up">
+                    <p style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: #94a3b8;">PROFESSIONAL VEHICLE TRANSPORTATION</p>
+                    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">Safe & Reliable Transport<br><span style="color: #94a3b8; font-style: italic;">Across the UK</span></h1>
+                    <p style="font-size: 1.25rem; color: #cbd5e1; max-width: 42rem; line-height: 1.75; margin-bottom: 2rem;">From auction collections to private relocations, we provide fully insured vehicle transportation services you can trust.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn" style="background: white; color: #1e293b; font-weight: 600; padding: 1rem 2rem;">Request a Quote</a>
+                        <a href="tel:07918931399" class="btn" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2rem;">📞 Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section style="padding: 5rem 0; background: #f8fafc;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Our Transportation Services</h2>
+                    <p style="font-size: 1.125rem; color: #64748b; max-width: 42rem; margin: 0 auto;">Professional vehicle recovery and transport for all occasions</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card animate-slide-up">
+                        <div class="service-icon">🏆</div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Auction Collections</h3>
+                        <p style="color: #64748b; line-height: 1.75;">Reliable collection and delivery services from major UK auctions. We handle all paperwork and logistics so you don't have to.</p>
+                    </div>
+
+                    <div class="service-card animate-slide-up delay-100">
+                        <div class="service-icon">🏛️</div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Dealer Services</h3>
+                        <p style="color: #64748b; line-height: 1.75;">Fast, professional transport for franchises and independent dealers. Regular contracts available for high-volume requirements.</p>
+                    </div>
+
+                    <div class="service-card animate-slide-up delay-200">
+                        <div class="service-icon">🚗</div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Private Collections</h3>
+                        <p style="color: #64748b; line-height: 1.75;">Door-to-door service for private purchases. Whether it's across town or across the country, we've got you covered.</p>
+                    </div>
+
+                    <div class="service-card animate-slide-up delay-300">
+                        <div class="service-icon">⚙️</div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Breakdown Recovery</h3>
+                        <p style="color: #64748b; line-height: 1.75;">Quick response breakdown and accident recovery services. Available 24/7 for emergency situations.</p>
+                    </div>
+
+                    <div class="service-card animate-slide-up delay-400">
+                        <div class="service-icon">🏁</div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Classic & Performance</h3>
+                        <p style="color: #64748b; line-height: 1.75;">Specialist transport for classic, vintage, and high-performance vehicles. Extra care and attention guaranteed.</p>
+                    </div>
+
+                    <div class="service-card animate-slide-up delay-500">
+                        <div class="service-icon">📍</div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">UK-Wide Coverage</h3>
+                        <p style="color: #64748b; line-height: 1.75;">Comprehensive coverage across England, Scotland, and Wales. No job too big or small, no distance too far.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section style="padding: 5rem 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Recent Transports</h2>
+                    <p style="font-size: 1.125rem; color: #64748b;">See our professional transport service in action</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/transport/08E3C068-7351-45C7-A758-817CFFCD1299.jpeg" alt="Classic Citroën van transport">
+                        <div class="gallery-overlay">
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">Classic Vehicle Transport</h4>
+                            <p style="font-size: 0.875rem; opacity: 0.9;">Vintage Citroën van safely delivered</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/transport/96630763-F759-44EB-8E68-1E0686BC0CEC.jpeg" alt="Renault 5 GT Turbo transport">
+                        <div class="gallery-overlay">
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">Performance Car Collection</h4>
+                            <p style="font-size: 0.875rem; opacity: 0.9;">Renault 5 GT Turbo - auction collection</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/transport/b92abcbd-1cbf-4a93-b6a0-d0affc6ca90f.jpeg" alt="Porsche dealership transport">
+                        <div class="gallery-overlay">
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">Dealer Services</h4>
+                            <p style="font-size: 0.875rem; opacity: 0.9;">Professional transport at Porsche Centre</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/transport/bb6779e6-2592-4ccb-8f6e-bda3bb21faa1.jpeg" alt="Vintage classic car transport">
+                        <div class="gallery-overlay">
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">Classic Car Specialist</h4>
+                            <p style="font-size: 0.875rem; opacity: 0.9;">Vintage classic handled with care</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/transport/transportation%20imge.jpeg" alt="VW Golf transport">
+                        <div class="gallery-overlay">
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">Everyday Transport</h4>
+                            <p style="font-size: 0.875rem; opacity: 0.9;">VW Golf - door-to-door service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section style="padding: 5rem 0; background: #f8fafc;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Why Choose W&M Autos</h2>
+                    <p style="font-size: 1.125rem; color: #64748b;">Professional, reliable, and fully insured</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Fully Insured</h4>
+                            <p style="color: #64748b; line-height: 1.6;">Comprehensive insurance coverage on every journey for complete peace of mind.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Professional Service</h4>
+                            <p style="color: #64748b; line-height: 1.6;">Years of experience transporting all types of vehicles with care and expertise.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Competitive Pricing</h4>
+                            <p style="color: #64748b; line-height: 1.6;">Fair, transparent pricing with no hidden costs. Volume discounts available.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Fast Response</h4>
+                            <p style="color: #64748b; line-height: 1.6;">Quick turnaround times with same-day service available for urgent collections.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Specialist Equipment</h4>
+                            <p style="color: #64748b; line-height: 1.6;">Modern recovery trucks and flatbeds suitable for all vehicle types and sizes.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">UK-Wide Network</h4>
+                            <p style="color: #64748b; line-height: 1.6;">Extensive coverage across the United Kingdom with reliable partnerships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="padding: 0 0 5rem;">
+            <div class="container">
+                <div class="cta-section">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Need Vehicle Transport?</h2>
+                    <p style="font-size: 1.25rem; color: #cbd5e1; max-width: 42rem; margin: 0 auto 2rem;">Get in touch today for a fast, competitive quote. We're here to help with all your vehicle transportation needs.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn" style="background: white; color: #1e293b; font-weight: 600; padding: 1rem 2.5rem;">Request a Quote</a>
+                        <a href="tel:07918931399" class="btn" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2.5rem;">📞 07918 931399</a>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #94a3b8;">Available 24/7 for emergency recovery</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: var(--slate-900); color: white; padding: 3rem 0 1.5rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">W&M Autos</h3>
+                    <p style="color: var(--slate-400); line-height: 1.75;">Quality pre-owned vehicles and professional vehicle transportation services across the UK.</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html" style="color: var(--slate-400); text-decoration: none;">Home</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="gallery.html" style="color: var(--slate-400); text-decoration: none;">Our Stock</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="transportation.html" style="color: var(--slate-400); text-decoration: none;">Transportation</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--slate-400); text-decoration: none;">About Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html" style="color: var(--slate-400); text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Contact</h4>
+                    <p style="color: var(--slate-400); line-height: 1.75; margin-bottom: 0.5rem;">📧 Sales@wandmautosltd.co.uk</p>
+                    <p style="color: var(--slate-400); line-height: 1.75; margin-bottom: 0.5rem;">📞 07918 931399</p>
+                    <p style="color: var(--slate-400); line-height: 1.75;">📍 Byfleet, West Byfleet</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--slate-700); padding-top: 2rem; text-align: center;">
+                <p style="color: var(--slate-400); font-size: 0.875rem;">&copy; 2026 W&M Autos. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                });
+                
+                // Close menu when clicking a link
+                const menuLinks = mobileMenu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

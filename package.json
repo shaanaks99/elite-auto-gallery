@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "tinacms dev -c \"npx serve\"",
-    "build": "tinacms build",
+    "build": "tinacms build --rootPath .",
     "tinacms": "tinacms"
   },
   "devDependencies": {

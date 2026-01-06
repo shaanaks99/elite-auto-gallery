@@ -2,13 +2,13 @@ backend:
   name: github
   repo: shaanaks99/elite-auto-gallery
   branch: main
-  # No auth needed - will prompt for token on first use
+  # Disable the OAuth proxy - use direct GitHub authentication instead
+  base_url: ""
 
 media_folder: "images/cars"
 public_folder: "/images/cars"
-publish_mode: editorial_workflow
 
-# ... rest of your collections config ...
+publish_mode: editorial_workflow
 
 collections:
   - name: "cars"
@@ -31,13 +31,11 @@ collections:
         name: "make"
         widget: "string"
         required: true
-        hint: "e.g., BMW, Mercedes, Audi, Ford"
         
       - label: "Model"
         name: "model"
         widget: "string"
         required: true
-        hint: "e.g., M4, C-Class, A6, Focus"
         
       - label: "Year"
         name: "year"
@@ -48,20 +46,18 @@ collections:
         required: true
         default: 2024
         
-      - label: "Trim / Variant"
+      - label: "Trim"
         name: "trim"
         widget: "string"
         required: false
-        hint: "e.g., Competition, AMG, S Line (optional)"
       
       - label: "💷 Price (£)"
         name: "price"
         widget: "number"
         value_type: "int"
         required: true
-        hint: "Enter price in pounds - DO NOT include £ symbol"
         
-      - label: "Availability Status"
+      - label: "Availability"
         name: "availability"
         widget: "select"
         required: true
@@ -74,7 +70,7 @@ collections:
           - label: "❌ Sold"
             value: "sold"
         
-      - label: "⭐ Featured on Homepage"
+      - label: "⭐ Featured"
         name: "featured"
         widget: "boolean"
         required: false
@@ -85,7 +81,6 @@ collections:
         widget: "number"
         value_type: "int"
         required: true
-        hint: "Total miles"
         
       - label: "Transmission"
         name: "transmission"
@@ -113,7 +108,6 @@ collections:
         name: "engineSize"
         widget: "string"
         required: false
-        hint: "e.g., 2.0L, 3.0L V6"
         
       - label: "Power (BHP)"
         name: "power"
@@ -154,31 +148,26 @@ collections:
         name: "color"
         widget: "string"
         required: true
-        hint: "e.g., Alpine White, Mythos Black"
         
       - label: "Interior Color"
         name: "interiorColor"
         widget: "string"
         required: false
-        hint: "e.g., Black Leather, Beige"
       
-      - label: "Registration Number"
+      - label: "Registration"
         name: "registration"
         widget: "string"
         required: false
-        hint: "e.g., AB12 CDE"
         
       - label: "VIN"
         name: "vin"
         widget: "string"
         required: false
-        hint: "17-character VIN"
       
       - label: "📸 Car Images"
         name: "images"
         widget: "list"
         required: false
-        hint: "First image will be the main photo"
         summary: "Image {{index}}"
         field:
           label: "Image"
@@ -190,15 +179,12 @@ collections:
         name: "features"
         widget: "list"
         required: false
-        hint: "Add each feature separately"
         field:
           label: "Feature"
           name: "feature"
           widget: "string"
-          hint: "e.g., Leather Seats, Sunroof"
       
       - label: "📝 Description"
         name: "body"
         widget: "markdown"
         required: false
-        hint: "Detailed description of the vehicle"

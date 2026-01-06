@@ -1,13 +1,11 @@
 backend:
-  name: git-gateway
+  name: github
   repo: shaanaks99/elite-auto-gallery
   branch: main
-  site_domain: wnm-autos.netlify.app
-  
+
 media_folder: "images/cars"
 public_folder: "/images/cars"
 
-# Publish mode - makes it easy to review before publishing
 publish_mode: editorial_workflow
 
 collections:
@@ -19,18 +17,14 @@ collections:
     delete: true
     slug: "{{year}}-{{make}}-{{model}}"
     
-    # Helpful summary in list view
     summary: "{{year}} {{make}} {{model}} - {{availability}} (£{{price}})"
     
-    # Allow sorting
     sortable_fields: ['year', 'make', 'price', 'availability']
     
-    # Preview the car while editing
     editor:
       preview: true
     
     fields:
-      # === BASIC INFO ===
       - label: "Make"
         name: "make"
         widget: "string"
@@ -50,7 +44,7 @@ collections:
         min: 1990
         max: 2030
         required: true
-        default: 2022
+        default: 2024
         
       - label: "Trim / Variant"
         name: "trim"
@@ -58,13 +52,12 @@ collections:
         required: false
         hint: "e.g., Competition, AMG, S Line (optional)"
       
-      # === PRICE & AVAILABILITY ===
       - label: "💷 Price (£)"
         name: "price"
         widget: "number"
         value_type: "int"
         required: true
-        hint: "Enter price in pounds - DO NOT include £ symbol. Example: 35000 for £35,000"
+        hint: "Enter price in pounds - DO NOT include £ symbol"
         
       - label: "Availability Status"
         name: "availability"
@@ -72,28 +65,25 @@ collections:
         required: true
         default: "available"
         options:
-          - label: "✅ Available (Shows on website)"
+          - label: "✅ Available"
             value: "available"
-          - label: "⏳ Reserved (Hidden from website)"
+          - label: "⏳ Reserved"
             value: "reserved"
-          - label: "❌ Sold (Hidden from website)"
+          - label: "❌ Sold"
             value: "sold"
-        hint: "Only 'Available' cars show on the website to customers"
         
       - label: "⭐ Featured on Homepage"
         name: "featured"
         widget: "boolean"
         required: false
         default: false
-        hint: "Toggle ON to display this car in the featured section on the homepage"
       
-      # === SPECIFICATIONS ===
       - label: "Mileage"
         name: "mileage"
         widget: "number"
         value_type: "int"
         required: true
-        hint: "Total miles on the odometer"
+        hint: "Total miles"
         
       - label: "Transmission"
         name: "transmission"
@@ -121,13 +111,12 @@ collections:
         name: "engineSize"
         widget: "string"
         required: false
-        hint: "e.g., 2.0L, 3.0L V6, 2.0L Turbo"
+        hint: "e.g., 2.0L, 3.0L V6"
         
       - label: "Power (BHP)"
         name: "power"
         widget: "number"
         required: false
-        hint: "Brake horsepower - e.g., 250"
         
       - label: "Body Type"
         name: "bodyType"
@@ -159,61 +148,55 @@ collections:
         min: 2
         max: 8
       
-      # === COLORS ===
       - label: "Exterior Color"
         name: "color"
         widget: "string"
         required: true
-        hint: "e.g., Alpine White, Mythos Black, Misano Blue"
+        hint: "e.g., Alpine White, Mythos Black"
         
       - label: "Interior Color"
         name: "interiorColor"
         widget: "string"
         required: false
-        hint: "e.g., Black Leather, Beige, Alcantara"
+        hint: "e.g., Black Leather, Beige"
       
-      # === REGISTRATION ===
       - label: "Registration Number"
         name: "registration"
         widget: "string"
         required: false
         hint: "e.g., AB12 CDE"
         
-      - label: "VIN (Vehicle ID Number)"
+      - label: "VIN"
         name: "vin"
         widget: "string"
         required: false
-        hint: "17-character VIN (optional, for records)"
+        hint: "17-character VIN"
       
-      # === IMAGES ===
       - label: "📸 Car Images"
         name: "images"
         widget: "list"
         required: false
-        hint: "Click 'Add Image' then 'Choose an image' to upload from your computer. First image will be the main photo."
+        hint: "First image will be the main photo"
         summary: "Image {{index}}"
         field:
           label: "Image"
           name: "image"
           widget: "image"
           required: false
-          hint: "Click 'Choose an image' to upload from your computer"
       
-      # === FEATURES ===
-      - label: "✨ Features & Equipment"
+      - label: "✨ Features"
         name: "features"
         widget: "list"
         required: false
-        hint: "Add each feature separately (one per line)"
+        hint: "Add each feature separately"
         field:
           label: "Feature"
           name: "feature"
           widget: "string"
-          hint: "e.g., Leather Seats, Sunroof, Parking Sensors"
+          hint: "e.g., Leather Seats, Sunroof"
       
-      # === DESCRIPTION ===
       - label: "📝 Description"
         name: "body"
         widget: "markdown"
         required: false
-        hint: "Write a detailed description of the vehicle. You can use formatting (bold, lists, etc.)"
+        hint: "Detailed description of the vehicle"

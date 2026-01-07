@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W&M Autos - Admin Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .btn-success {
+            background: #28a745;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #e9ecef;
+        }
+
+        .car-info {
+            padding: 1rem;
+        }
+
+        .car-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-details {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .car-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .btn-edit {
+            background: #ffc107;
+            color: #000;
+        }
+
+        .btn-edit:hover {
+            background: #e0a800;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+        }
+
+        .btn-delete:hover {
+            background: #c82333;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .image-upload {
+            border: 2px dashed #ced4da;
+            border-radius: 4px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .image-upload:hover {
+            border-color: #007bff;
+        }
+
+        .image-upload input[type="file"] {
+            display: none;
+        }
+
+        .image-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .preview-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #dee2e6;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 5rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-available {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-sold {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginSection" class="login-container">
+        <h2>W&M Autos Admin</h2>
+        <div class="form-group">
+            <label>Admin Password</label>
+            <input type="password" id="passwordInput" placeholder="Enter admin password">
+        </div>
+        <button class="btn btn-success" onclick="login()" style="width: 100%;">Login</button>
+        <div id="loginError"></div>
+    </div>
+
+    <div id="adminSection" style="display: none;">
+        <div class="header">
+            <h1>W&M Autos - Inventory Management</h1>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="container">
+            <div id="alertContainer"></div>
+            
+            <div class="actions">
+                <button class="btn btn-success" onclick="openAddCarModal()">
+                    + Add New Car
+                </button>
+                <button class="btn" onclick="loadCars()">
+                    🔄 Refresh
+                </button>
+            </div>
+
+            <div id="loadingSection" class="loading">
+                <div class="spinner"></div>
+                <p>Loading inventory...</p>
+            </div>
+
+            <div id="carsGrid" class="cars-grid"></div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Car Modal -->
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Car</h2>
+                <button class="close-btn" onclick="closeCarModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="carForm">
+                    <input type="hidden" id="carId">
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Make *</label>
+                            <input type="text" id="make" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Model *</label>
+                            <input type="text" id="model" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Year *</label>
+                            <input type="number" id="year" required min="1900" max="2030">
+                        </div>
+                        <div class="form-group">
+                            <label>Price (£) *</label>
+                            <input type="number" id="price" required min="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Trim</label>
+                            <input type="text" id="trim">
+                        </div>
+                        <div class="form-group">
+                            <label>Mileage</label>
+                            <input type="number" id="mileage" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Transmission</label>
+                            <select id="transmission">
+                                <option value="Manual">Manual</option>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Semi-Automatic">Semi-Automatic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Fuel Type</label>
+                            <select id="fuelType">
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Electric">Electric</option>
+                                <option value="Hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Engine Size (L)</label>
+                            <input type="text" id="engineSize" placeholder="e.g., 2.0">
+                        </div>
+                        <div class="form-group">
+                            <label>Body Type</label>
+                            <select id="bodyType">
+                                <option value="Sedan">Sedan</option>
+                                <option value="SUV">SUV</option>
+                                <option value="Hatchback">Hatchback</option>
+                                <option value="Coupe">Coupe</option>
+                                <option value="Estate">Estate</option>
+                                <option value="Convertible">Convertible</option>
+                                <option value="Van">Van</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Doors</label>
+                            <input type="number" id="doors" min="2" max="5">
+                        </div>
+                        <div class="form-group">
+                            <label>Seats</label>
+                            <input type="number" id="seats" min="2" max="9">
+                        </div>
+                        <div class="form-group">
+                            <label>Color</label>
+                            <input type="text" id="color">
+                        </div>
+                        <div class="form-group">
+                            <label>Registration</label>
+                            <input type="text" id="registration">
+                        </div>
+                        <div class="form-group">
+                            <label>Availability *</label>
+                            <select id="availability" required>
+                                <option value="available">Available</option>
+                                <option value="sold">Sold</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Featured</label>
+                            <select id="featured">
+                                <option value="false">No</option>
+                                <option value="true">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Description</label>
+                        <textarea id="description" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Images</label>
+                        <div class="image-upload" onclick="document.getElementById('imageFiles').click()">
+                            <input type="file" id="imageFiles" accept="image/*" multiple onchange="handleImageUpload(event)">
+                            <p>📁 Click to upload images or drag and drop</p>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Supports: JPG, PNG, WEBP</p>
+                        </div>
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeCarModal()">Cancel</button>
+                <button class="btn btn-success" onclick="saveCar()">Save Car</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentCars = [];
+        let currentImages = [];
+        let editingCarId = null;
+        const API_BASE = '/api'; // This will be your Cloudflare Worker
+
+        // Check if user is logged in
+        function checkAuth() {
+            const isLoggedIn = sessionStorage.getItem('adminLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('adminSection').style.display = 'block';
+                loadCars();
+            }
+        }
+
+        // Login function
+        function login() {
+            const password = document.getElementById('passwordInput').value;
+            const errorDiv = document.getElementById('loginError');
+            
+            // Simple password check - you'll enhance this with GitHub OAuth
+            fetch(`${API_BASE}/auth`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    sessionStorage.setItem('adminLoggedIn', 'true');
+                    sessionStorage.setItem('adminToken', data.token);
+                    checkAuth();
+                } else {
+                    errorDiv.innerHTML = '<div class="alert alert-error" style="margin-top: 1rem;">Invalid password</div>';
+                }
+            })
+            .catch(err => {
+                errorDiv.innerHTML = '<div class="alert alert-error" style="margin-top: 1rem;">Login failed. Please try again.</div>';
+            });
+        }
+
+        function logout() {
+            sessionStorage.removeItem('adminLoggedIn');
+            sessionStorage.removeItem('adminToken');
+            location.reload();
+        }
+
+        // Load all cars from GitHub
+        function loadCars() {
+            showLoading(true);
+            fetch(`${API_BASE}/cars`, {
+                headers: { 'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                currentCars = data.cars || [];
+                displayCars();
+                showLoading(false);
+            })
+            .catch(err => {
+                showAlert('Failed to load cars', 'error');
+                showLoading(false);
+            });
+        }
+
+        function displayCars() {
+            const grid = document.getElementById('carsGrid');
+            if (currentCars.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 3rem;">No cars in inventory. Click "Add New Car" to get started!</p>';
+                return;
+            }
+
+            grid.innerHTML = currentCars.map(car => `
+                <div class="car-card">
+                    <img src="${car.images && car.images[0] ? car.images[0] : '/images/placeholder-car.jpg'}" 
+                         alt="${car.make} ${car.model}" 
+                         class="car-image">
+                    <div class="car-info">
+                        <div class="car-title">${car.year} ${car.make} ${car.model}</div>
+                        <div class="car-details">
+                            ${car.mileage ? car.mileage.toLocaleString() + ' miles' : ''} 
+                            ${car.transmission ? '• ' + car.transmission : ''}
+                        </div>
+                        <div class="car-price">£${car.price ? car.price.toLocaleString() : 'POA'}</div>
+                        <span class="status-badge status-${car.availability || 'available'}">
+                            ${car.availability || 'available'}
+                        </span>
+                        <div class="car-actions" style="margin-top: 1rem;">
+                            <button class="btn btn-edit btn-small" onclick="editCar('${car.id}')">Edit</button>
+                            <button class="btn btn-delete btn-small" onclick="deleteCar('${car.id}', '${car.make} ${car.model}')">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openAddCarModal() {
+            document.getElementById('modalTitle').textContent = 'Add New Car';
+            document.getElementById('carForm').reset();
+            document.getElementById('carId').value = '';
+            editingCarId = null;
+            currentImages = [];
+            document.getElementById('imagePreview').innerHTML = '';
+            document.getElementById('carModal').classList.add('active');
+        }
+
+        function closeCarModal() {
+            document.getElementById('carModal').classList.remove('active');
+        }
+
+        function editCar(carId) {
+            const car = currentCars.find(c => c.id === carId);
+            if (!car) return;
+
+            editingCarId = carId;
+            document.getElementById('modalTitle').textContent = 'Edit Car';
+            document.getElementById('carId').value = carId;
+
+            // Populate form
+            Object.keys(car).forEach(key => {
+                const input = document.getElementById(key);
+                if (input) {
+                    input.value = car[key];
+                }
+            });
+
+            // Handle images
+            currentImages = car.images || [];
+            displayImagePreviews();
+
+            document.getElementById('carModal').classList.add('active');
+        }
+
+        function handleImageUpload(event) {
+            const files = Array.from(event.target.files);
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    currentImages.push({
+                        data: e.target.result,
+                        name: file.name,
+                        isNew: true
+                    });
+                    displayImagePreviews();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayImagePreviews() {
+            const preview = document.getElementById('imagePreview');
+            preview.innerHTML = currentImages.map((img, index) => `
+                <div class="preview-item">
+                    <img src="${img.data || img}" alt="Car image ${index + 1}">
+                    <button type="button" class="remove-image" onclick="removeImage(${index})">×</button>
+                </div>
+            `).join('');
+        }
+
+        function removeImage(index) {
+            currentImages.splice(index, 1);
+            displayImagePreviews();
+        }
+
+        function saveCar() {
+            const formData = {
+                id: document.getElementById('carId').value,
+                make: document.getElementById('make').value,
+                model: document.getElementById('model').value,
+                year: parseInt(document.getElementById('year').value),
+                price: parseInt(document.getElementById('price').value),
+                trim: document.getElementById('trim').value,
+                mileage: parseInt(document.getElementById('mileage').value) || null,
+                transmission: document.getElementById('transmission').value,
+                fuelType: document.getElementById('fuelType').value,
+                engineSize: document.getElementById('engineSize').value,
+                bodyType: document.getElementById('bodyType').value,
+                doors: parseInt(document.getElementById('doors').value) || null,
+                seats: parseInt(document.getElementById('seats').value) || null,
+                color: document.getElementById('color').value,
+                registration: document.getElementById('registration').value,
+                availability: document.getElementById('availability').value,
+                featured: document.getElementById('featured').value === 'true',
+                description: document.getElementById('description').value,
+                images: currentImages
+            };
+
+            showLoading(true);
+            const method = editingCarId ? 'PUT' : 'POST';
+            const endpoint = editingCarId ? `${API_BASE}/cars/${editingCarId}` : `${API_BASE}/cars`;
+
+            fetch(endpoint, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert(`Car ${editingCarId ? 'updated' : 'added'} successfully!`, 'success');
+                    closeCarModal();
+                    loadCars();
+                } else {
+                    showAlert('Failed to save car: ' + data.message, 'error');
+                }
+                showLoading(false);
+            })
+            .catch(err => {
+                showAlert('Error saving car', 'error');
+                showLoading(false);
+            });
+        }
+
+        function deleteCar(carId, carName) {
+            if (!confirm(`Are you sure you want to delete ${carName}? This cannot be undone.`)) {
+                return;
+            }
+
+            showLoading(true);
+            fetch(`${API_BASE}/cars/${carId}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert('Car deleted successfully', 'success');
+                    loadCars();
+                } else {
+                    showAlert('Failed to delete car', 'error');
+                }
+                showLoading(false);
+            })
+            .catch(err => {
+                showAlert('Error deleting car', 'error');
+                showLoading(false);
+            });
+        }
+
+        function showLoading(show) {
+            document.getElementById('loadingSection').style.display = show ? 'block' : 'none';
+        }
+
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            container.appendChild(alert);
+            setTimeout(() => alert.remove(), 5000);
+        }
+
+        // Initialize
+        checkAuth();
+    </script>
+</body>
+</html>

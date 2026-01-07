@@ -84,7 +84,7 @@
 
         .cars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
@@ -107,6 +107,17 @@
             height: 200px;
             object-fit: cover;
             background: #e9ecef;
+        }
+
+        .car-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 0.9rem;
         }
 
         .car-info {
@@ -181,7 +192,7 @@
         .modal-content {
             background: white;
             border-radius: 8px;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
@@ -233,6 +244,10 @@
             color: #333;
         }
 
+        .form-group label .required {
+            color: #dc3545;
+        }
+
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -248,26 +263,85 @@
             resize: vertical;
         }
 
-        .image-upload {
+        .image-section {
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: #f8f9fa;
+        }
+
+        .image-section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #495057;
+        }
+
+        .image-upload-box {
             border: 2px dashed #ced4da;
             border-radius: 4px;
             padding: 2rem;
             text-align: center;
             cursor: pointer;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
+            background: white;
         }
 
-        .image-upload:hover {
+        .image-upload-box:hover {
             border-color: #007bff;
+            background: #f0f8ff;
         }
 
-        .image-upload input[type="file"] {
+        .image-upload-box.primary {
+            border-color: #28a745;
+        }
+
+        .image-upload-box.primary:hover {
+            border-color: #218838;
+            background: #f0fff4;
+        }
+
+        .image-upload-box input[type="file"] {
             display: none;
         }
 
+        .upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-text {
+            font-size: 1rem;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-hint {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
         .image-preview {
+            margin-top: 1rem;
+        }
+
+        .primary-preview {
+            max-width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .primary-preview img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .additional-preview {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }
@@ -276,28 +350,36 @@
             position: relative;
             border-radius: 4px;
             overflow: hidden;
+            border: 2px solid #dee2e6;
         }
 
         .preview-item img {
             width: 100%;
-            height: 150px;
+            height: 120px;
             object-fit: cover;
         }
 
         .remove-image {
             position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background: rgba(220, 53, 69, 0.9);
+            top: 0.25rem;
+            right: 0.25rem;
+            background: rgba(220, 53, 69, 0.95);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: background 0.2s;
+        }
+
+        .remove-image:hover {
+            background: #dc3545;
         }
 
         .modal-footer {
@@ -384,6 +466,21 @@
             background: #fff3cd;
             color: #856404;
         }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.65rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 0.25rem;
+            background: #007bff;
+            color: white;
+            margin-left: 0.5rem;
+        }
+
+        .badge-primary {
+            background: #28a745;
+        }
     </style>
 </head>
 <body>
@@ -437,19 +534,19 @@
                     
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>Make *</label>
+                            <label>Make <span class="required">*</span></label>
                             <input type="text" id="make" required>
                         </div>
                         <div class="form-group">
-                            <label>Model *</label>
+                            <label>Model <span class="required">*</span></label>
                             <input type="text" id="model" required>
                         </div>
                         <div class="form-group">
-                            <label>Year *</label>
+                            <label>Year <span class="required">*</span></label>
                             <input type="number" id="year" required min="1900" max="2030">
                         </div>
                         <div class="form-group">
-                            <label>Price (£) *</label>
+                            <label>Price (£) <span class="required">*</span></label>
                             <input type="number" id="price" required min="0">
                         </div>
                         <div class="form-group">
@@ -510,7 +607,7 @@
                             <input type="text" id="registration">
                         </div>
                         <div class="form-group">
-                            <label>Availability *</label>
+                            <label>Availability <span class="required">*</span></label>
                             <select id="availability" required>
                                 <option value="available">Available</option>
                                 <option value="sold">Sold</option>
@@ -531,14 +628,40 @@
                         <textarea id="description" rows="4"></textarea>
                     </div>
 
-                    <div class="form-group full-width">
-                        <label>Images</label>
-                        <div class="image-upload" onclick="document.getElementById('imageFiles').click()">
-                            <input type="file" id="imageFiles" accept="image/*" multiple onchange="handleImageUpload(event)">
-                            <p>📁 Click to upload images or drag and drop</p>
-                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Supports: JPG, PNG, WEBP</p>
+                    <!-- PRIMARY IMAGE SECTION -->
+                    <div class="image-section">
+                        <div class="image-section-title">
+                            🎯 Primary Image <span class="required">*</span>
+                            <span class="badge badge-primary">Main Display</span>
                         </div>
-                        <div id="imagePreview" class="image-preview"></div>
+                        <p style="font-size: 0.9rem; color: #6c757d; margin-bottom: 1rem;">
+                            This image will be the main photo shown on your website and listings.
+                        </p>
+                        <div class="image-upload-box primary" onclick="document.getElementById('primaryImage').click()">
+                            <input type="file" id="primaryImage" accept="image/*" onchange="handlePrimaryImageUpload(event)">
+                            <div class="upload-icon">📸</div>
+                            <div class="upload-text">Click to upload primary image</div>
+                            <div class="upload-hint">JPG, PNG, or WEBP • Max 5MB</div>
+                        </div>
+                        <div id="primaryPreview" class="primary-preview"></div>
+                    </div>
+
+                    <!-- ADDITIONAL IMAGES SECTION -->
+                    <div class="image-section">
+                        <div class="image-section-title">
+                            📷 Additional Images (Optional)
+                            <span class="badge">Gallery</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #6c757d; margin-bottom: 1rem;">
+                            Add more photos for the car gallery. You can upload multiple images.
+                        </p>
+                        <div class="image-upload-box" onclick="document.getElementById('additionalImages').click()">
+                            <input type="file" id="additionalImages" accept="image/*" multiple onchange="handleAdditionalImagesUpload(event)">
+                            <div class="upload-icon">🖼️</div>
+                            <div class="upload-text">Click to upload additional images</div>
+                            <div class="upload-hint">Select multiple files • JPG, PNG, or WEBP</div>
+                        </div>
+                        <div id="additionalPreview" class="additional-preview"></div>
                     </div>
                 </form>
             </div>
@@ -551,9 +674,10 @@
 
     <script>
         let currentCars = [];
-        let currentImages = [];
+        let primaryImage = null;
+        let additionalImages = [];
         let editingCarId = null;
-        const API_BASE = 'https://wm-autos-api.moinworks09.workers.dev'; // This will be your Cloudflare Worker
+        const API_BASE = 'https://wm-autos-api.moinworks09.workers.dev';
 
         // Check if user is logged in
         function checkAuth() {
@@ -570,7 +694,6 @@
             const password = document.getElementById('passwordInput').value;
             const errorDiv = document.getElementById('loginError');
             
-            // Simple password check - you'll enhance this with GitHub OAuth
             fetch(`${API_BASE}/auth`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -610,6 +733,7 @@
                 showLoading(false);
             })
             .catch(err => {
+                console.error('Error loading cars:', err);
                 showAlert('Failed to load cars', 'error');
                 showLoading(false);
             });
@@ -622,11 +746,15 @@
                 return;
             }
 
-            grid.innerHTML = currentCars.map(car => `
+            grid.innerHTML = currentCars.map(car => {
+                const primaryImg = car.images && car.images.length > 0 ? car.images[0] : null;
+                
+                return `
                 <div class="car-card">
-                    <img src="${car.images && car.images[0] ? car.images[0] : '/images/placeholder-car.jpg'}" 
-                         alt="${car.make} ${car.model}" 
-                         class="car-image">
+                    ${primaryImg ? 
+                        `<img src="${primaryImg}" alt="${car.make} ${car.model}" class="car-image" onerror="this.parentElement.innerHTML='<div class=\\'car-image-placeholder\\'>No Image</div>'">` :
+                        `<div class="car-image-placeholder">No Image Available</div>`
+                    }
                     <div class="car-info">
                         <div class="car-title">${car.year} ${car.make} ${car.model}</div>
                         <div class="car-details">
@@ -643,7 +771,7 @@
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         function openAddCarModal() {
@@ -651,8 +779,10 @@
             document.getElementById('carForm').reset();
             document.getElementById('carId').value = '';
             editingCarId = null;
-            currentImages = [];
-            document.getElementById('imagePreview').innerHTML = '';
+            primaryImage = null;
+            additionalImages = [];
+            document.getElementById('primaryPreview').innerHTML = '';
+            document.getElementById('additionalPreview').innerHTML = '';
             document.getElementById('carModal').classList.add('active');
         }
 
@@ -671,50 +801,103 @@
             // Populate form
             Object.keys(car).forEach(key => {
                 const input = document.getElementById(key);
-                if (input) {
+                if (input && key !== 'images') {
                     input.value = car[key];
                 }
             });
 
-            // Handle images
-            currentImages = car.images || [];
-            displayImagePreviews();
+            // Handle images - first is primary, rest are additional
+            if (car.images && car.images.length > 0) {
+                primaryImage = { data: car.images[0], existing: true };
+                displayPrimaryPreview();
+                
+                if (car.images.length > 1) {
+                    additionalImages = car.images.slice(1).map(img => ({ data: img, existing: true }));
+                    displayAdditionalPreviews();
+                }
+            }
 
             document.getElementById('carModal').classList.add('active');
         }
 
-        function handleImageUpload(event) {
+        function handlePrimaryImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                primaryImage = {
+                    data: e.target.result,
+                    name: file.name,
+                    isNew: true
+                };
+                displayPrimaryPreview();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function displayPrimaryPreview() {
+            const preview = document.getElementById('primaryPreview');
+            if (!primaryImage) {
+                preview.innerHTML = '';
+                return;
+            }
+
+            preview.innerHTML = `
+                <div style="position: relative;">
+                    <img src="${primaryImage.data}" alt="Primary image">
+                    <button type="button" class="remove-image" onclick="removePrimaryImage()" style="top: 0.5rem; right: 0.5rem;">×</button>
+                </div>
+            `;
+        }
+
+        function removePrimaryImage() {
+            primaryImage = null;
+            document.getElementById('primaryPreview').innerHTML = '';
+            document.getElementById('primaryImage').value = '';
+        }
+
+        function handleAdditionalImagesUpload(event) {
             const files = Array.from(event.target.files);
             files.forEach(file => {
                 const reader = new FileReader();
                 reader.onload = (e) => {
-                    currentImages.push({
+                    additionalImages.push({
                         data: e.target.result,
                         name: file.name,
                         isNew: true
                     });
-                    displayImagePreviews();
+                    displayAdditionalPreviews();
                 };
                 reader.readAsDataURL(file);
             });
         }
 
-        function displayImagePreviews() {
-            const preview = document.getElementById('imagePreview');
-            preview.innerHTML = currentImages.map((img, index) => `
+        function displayAdditionalPreviews() {
+            const preview = document.getElementById('additionalPreview');
+            preview.innerHTML = additionalImages.map((img, index) => `
                 <div class="preview-item">
-                    <img src="${img.data || img}" alt="Car image ${index + 1}">
-                    <button type="button" class="remove-image" onclick="removeImage(${index})">×</button>
+                    <img src="${img.data}" alt="Additional image ${index + 1}">
+                    <button type="button" class="remove-image" onclick="removeAdditionalImage(${index})">×</button>
                 </div>
             `).join('');
         }
 
-        function removeImage(index) {
-            currentImages.splice(index, 1);
-            displayImagePreviews();
+        function removeAdditionalImage(index) {
+            additionalImages.splice(index, 1);
+            displayAdditionalPreviews();
         }
 
         function saveCar() {
+            // Validate primary image
+            if (!primaryImage) {
+                showAlert('Please upload a primary image', 'error');
+                return;
+            }
+
+            // Combine images: primary first, then additional
+            const allImages = [primaryImage, ...additionalImages];
+
             const formData = {
                 id: document.getElementById('carId').value,
                 make: document.getElementById('make').value,
@@ -734,7 +917,7 @@
                 availability: document.getElementById('availability').value,
                 featured: document.getElementById('featured').value === 'true',
                 description: document.getElementById('description').value,
-                images: currentImages
+                images: allImages
             };
 
             showLoading(true);
@@ -752,15 +935,16 @@
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    showAlert(`Car ${editingCarId ? 'updated' : 'added'} successfully!`, 'success');
+                    showAlert(`Car ${editingCarId ? 'updated' : 'added'} successfully! Website will update in 1-2 minutes.`, 'success');
                     closeCarModal();
-                    loadCars();
+                    setTimeout(() => loadCars(), 1000);
                 } else {
                     showAlert('Failed to save car: ' + data.message, 'error');
                 }
                 showLoading(false);
             })
             .catch(err => {
+                console.error('Error saving car:', err);
                 showAlert('Error saving car', 'error');
                 showLoading(false);
             });

@@ -1,4 +1,4 @@
-/* car-detail-styles.css - Sytner-inspired car detail page */
+/* car-detail-styles.css - FIXED Mobile Image Display */
 
 :root {
     --primary-color: #1a1a2e;
@@ -57,20 +57,27 @@
     gap: 1rem;
 }
 
+/* 🔧 FIXED: Main Image Container - Better Mobile Display */
 .main-image-container {
     position: relative;
     width: 100%;
     aspect-ratio: 16/10;
-    background: #000;
+    background: #f8f9fa; /* Light gray background */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* 🔧 FIXED: Main Image - Shows Full Image, No Cropping */
 .main-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Changed from 'cover' to 'contain' */
+    object-position: center;
+    background: #fff;
 }
 
 .image-nav {
@@ -152,6 +159,7 @@
     border-radius: 3px;
 }
 
+/* 🔧 FIXED: Thumbnail Images */
 .thumbnail {
     flex-shrink: 0;
     width: 100px;
@@ -161,6 +169,10 @@
     cursor: pointer;
     border: 3px solid transparent;
     transition: all 0.3s;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .thumbnail:hover {
@@ -174,7 +186,8 @@
 .thumbnail img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Changed from 'cover' to 'contain' */
+    object-position: center;
 }
 
 /* Right Column - Details */
@@ -230,7 +243,7 @@
     margin: 0;
 }
 
-/* Key Specs Grid - Sytner Style */
+/* Key Specs Grid */
 .key-specs {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -426,21 +439,21 @@
     align-items: center;
     gap: 0.75rem;
     margin: 0;
-    color: #ffffff !important; /* Ensure white on all devices */
+    color: #ffffff !important;
 }
 
 .contact-info p a {
-    color: #ffffff !important; /* Force white for phone links */
+    color: #ffffff !important;
     text-decoration: none;
 }
 
 .contact-info i {
     width: 20px;
     text-align: center;
-    color: #ffffff !important; /* Ensure white icons */
+    color: #ffffff !important;
 }
 
-/* Responsive */
+/* 🔧 IMPROVED: Mobile Responsive */
 @media (max-width: 1024px) {
     .detail-container {
         grid-template-columns: 1fr;
@@ -468,6 +481,7 @@
     }
 }
 
+/* 🔧 IMPROVED: Mobile Image Display */
 @media (max-width: 768px) {
     .car-title {
         font-size: 1.5rem;
@@ -481,9 +495,23 @@
         flex-direction: column;
     }
     
+    /* Better mobile main image */
+    .main-image-container {
+        aspect-ratio: 4/3; /* Better for mobile */
+    }
+    
+    .main-image {
+        object-fit: contain; /* Always show full image */
+    }
+    
+    /* Mobile thumbnails */
     .thumbnail {
         width: 80px;
         height: 56px;
+    }
+    
+    .thumbnail img {
+        object-fit: contain; /* Show full thumbnail */
     }
     
     .key-specs {
@@ -501,6 +529,32 @@
     
     .spec-value {
         font-size: 1rem;
+    }
+    
+    /* Smaller nav buttons on mobile */
+    .image-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .image-nav.prev {
+        left: 10px;
+    }
+    
+    .image-nav.next {
+        right: 10px;
+    }
+}
+
+/* 🔧 NEW: Very Small Phone Adjustments */
+@media (max-width: 480px) {
+    .main-image-container {
+        aspect-ratio: 1/1; /* Square on very small screens */
+    }
+    
+    .thumbnail {
+        width: 60px;
+        height: 42px;
     }
 }
 
@@ -524,10 +578,11 @@
     to { opacity: 1; }
 }
 
+/* 🔧 FIXED: Lightbox Image - Full Display */
 .lightbox-image {
     max-width: 90%;
     max-height: 90vh;
-    object-fit: contain;
+    object-fit: contain; /* Shows full image in lightbox */
     border-radius: 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
@@ -603,6 +658,11 @@
 
 /* Mobile lightbox adjustments */
 @media (max-width: 768px) {
+    .lightbox-image {
+        max-width: 95%;
+        max-height: 85vh;
+    }
+    
     .lightbox-nav {
         width: 45px;
         height: 45px;

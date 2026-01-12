@@ -2,14 +2,13 @@
 make: "Mazda CX-3"
 model: SKYACTIV-G
 year: 2016
-trim: SKYACTIV-G
 price: 4995
 availability: available
 featured: true
 mileage: 115615
 transmission: Manual
 fuelType: Petrol
-engineSize: 2.0
+engineSize: 2
 bodyType: SUV
 doors: 5
 seats: 6

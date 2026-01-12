@@ -1100,3 +1100,90 @@ main {
     cursor: default;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+
+/* 🔧 FORCE CONSISTENT IMAGE SIZING - Add this to your styles.css or create image-fix.css */
+
+/* Car Detail Page - Main Image */
+.main-image-container {
+    width: 100%;
+    aspect-ratio: 16/9; /* Force consistent aspect ratio */
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important; /* Force contain, override any other CSS */
+    object-position: center !important;
+    background: #ffffff;
+}
+
+/* Inventory Page - Car Cards */
+.car-image {
+    width: 100%;
+    height: 250px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important; /* Force contain */
+    object-position: center !important;
+    background: #ffffff;
+}
+
+/* Car Detail Page - Thumbnails */
+.thumbnail {
+    width: 100px;
+    height: 70px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important; /* Force contain */
+    object-position: center !important;
+}
+
+/* Mobile Specific */
+@media (max-width: 768px) {
+    .main-image-container {
+        aspect-ratio: 4/3; /* Better ratio for mobile */
+    }
+    
+    .car-image {
+        height: 220px;
+    }
+    
+    .car-image img,
+    .main-image {
+        object-fit: contain !important;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 480px) {
+    .main-image-container {
+        aspect-ratio: 1/1; /* Square on tiny screens */
+    }
+    
+    .car-image {
+        height: 200px;
+    }
+}

@@ -7,6 +7,63 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="car-detail-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Loading state */
+        .loading-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 4rem 2rem;
+        }
+        
+        .loading-state i {
+            font-size: 3rem;
+            color: #10b981;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .loading-state p {
+            margin-top: 1rem;
+            font-size: 1.125rem;
+            color: #64748b;
+        }
+        
+        /* Error state */
+        .error-state {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .error-state i {
+            font-size: 3rem;
+            color: #ef4444;
+            margin-bottom: 1rem;
+        }
+        
+        .error-state h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+        
+        .error-state p {
+            font-size: 1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -58,6 +115,14 @@
         <p>Loading vehicle details...</p>
     </div>
 
+    <!-- Error State -->
+    <div id="error-state" class="error-state">
+        <i class="fas fa-exclamation-circle"></i>
+        <h2>Vehicle Not Found</h2>
+        <p>Sorry, we couldn't find this vehicle. It may have been sold or removed.</p>
+        <a href="gallery.html" class="btn">← Back to Inventory</a>
+    </div>
+
     <!-- Main Content -->
     <main id="car-detail-content" style="display: none;">
         <div class="container detail-container">
@@ -81,7 +146,7 @@
                         <i class="fas fa-chevron-left"></i>
                     </button>
                     <div class="thumbnail-gallery" id="thumbnail-gallery">
-                        <!-- Thumbnails will be inserted here -->
+                        <!-- Thumbnails will be added here -->
                     </div>
                     <button class="thumbnail-scroll right" id="scroll-right">
                         <i class="fas fa-chevron-right"></i>
@@ -91,41 +156,41 @@
 
             <!-- Right Column: Details -->
             <div class="detail-right">
-                <!-- Title & Price -->
+                <!-- Title Section -->
                 <div class="detail-header">
-                    <h1 id="car-title" class="car-title"></h1>
-                    <div id="car-badges" class="car-badges"></div>
-                    <p id="car-price" class="car-price"></p>
+                    <h1 id="car-title"></h1>
+                    <p id="car-subtitle"></p>
+                    <div class="price-badge">
+                        <span id="car-price"></span>
+                    </div>
                 </div>
 
-                <!-- Key Specs Grid -->
+                <!-- Key Specs -->
                 <div class="key-specs" id="key-specs">
-                    <!-- Specs will be inserted here -->
+                    <!-- Will be populated dynamically -->
                 </div>
 
                 <!-- Description -->
-                <div class="car-description">
+                <div class="description-section">
                     <h2>Description</h2>
-                    <div id="car-description"></div>
+                    <div id="car-description">
+                        <p>No description available.</p>
+                    </div>
                 </div>
 
-                <!-- Features -->
-                <div class="car-features" id="car-features-section" style="display: none;">
-                    <h2>Features & Equipment</h2>
-                    <ul id="car-features" class="features-list"></ul>
+                <!-- Full Specifications -->
+                <div class="specifications-section">
+                    <h2>Full Specifications</h2>
+                    <div id="full-specs" class="spec-grid">
+                        <!-- Will be populated dynamically -->
+                    </div>
                 </div>
 
-                <!-- Additional Details -->
-                <div class="additional-details" id="additional-details">
-                    <!-- Additional details will be inserted here -->
-                </div>
-
-                <!-- Contact Section -->
-                <div class="contact-section">
-                    <h2>Interested in this vehicle?</h2>
-                    <p>Contact us today to arrange a viewing or test drive.</p>
-                    <div class="contact-buttons">
-                        <a href="tel:+442012345678" class="btn btn-primary">
+                <!-- Contact CTA -->
+                <div class="contact-cta">
+                    <h3>Interested in this vehicle?</h3>
+                    <div class="cta-buttons">
+                        <a href="tel:07918931399" class="btn btn-primary">
                             <i class="fas fa-phone"></i> Call Us
                         </a>
                         <a href="contact.html" class="btn btn-secondary">
@@ -133,9 +198,9 @@
                         </a>
                     </div>
                     <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> +44 20 1234 5678</p>
+                        <p><i class="fas fa-phone"></i> 07918 931399</p>
                         <p><i class="fas fa-envelope"></i> Sales@wandmautosltd.co.uk</p>
-                        <p><i class="fas fa-clock"></i> Mon-Fri: 9am-6pm, Sat: 10am-4pm</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 10am-6pm</p>
                     </div>
                 </div>
             </div>
@@ -154,9 +219,375 @@
             <i class="fas fa-chevron-right"></i>
         </button>
         <img id="lightbox-image" src="" alt="Fullscreen car image" class="lightbox-image">
-        <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
-    <script src="car-detail.js"></script>
+    <script>
+    // ==================================================
+    // STANDALONE CAR DETAIL PAGE
+    // Fetches FRESH data from GitHub API every time!
+    // ==================================================
+    
+    let currentCar = null;
+    let currentImageIndex = 0;
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Car detail page loaded - standalone version with fresh data');
+        loadCarDetails();
+        setupMobileMenu();
+    });
+    
+    // Get car ID from URL
+    function getCarIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('id');
+    }
+    
+    // Load car details from GitHub API (FRESH every time!)
+    async function loadCarDetails() {
+        const loadingState = document.getElementById('loading');
+        const errorState = document.getElementById('error-state');
+        const contentArea = document.getElementById('car-detail-content');
+        
+        try {
+            const carId = getCarIdFromUrl();
+            
+            if (!carId) {
+                throw new Error('No car ID provided');
+            }
+            
+            console.log(`Fetching fresh data for car: ${carId}`);
+            
+            // Add timestamp to prevent caching! This is the key!
+            const timestamp = new Date().getTime();
+            const url = `https://api.github.com/repos/shaanaks99/elite-auto-gallery/contents/_cars/${carId}.md?t=${timestamp}`;
+            
+            const response = await fetch(url, {
+                cache: 'no-store', // Force no caching!
+                headers: {
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error('Car not found');
+            }
+            
+            const data = await response.json();
+            
+            // Decode base64 content
+            const content = atob(data.content);
+            console.log('Got fresh content from GitHub!');
+            
+            // Parse markdown
+            currentCar = parseCarMarkdown(content, carId);
+            
+            if (!currentCar) {
+                throw new Error('Failed to parse car data');
+            }
+            
+            // Display car details
+            displayCarDetails(currentCar);
+            
+            // Hide loading, show content
+            loadingState.style.display = 'none';
+            contentArea.style.display = 'block';
+            
+            // Setup image navigation
+            setupImageNavigation();
+            setupLightbox();
+            
+            console.log('Car details loaded successfully!');
+            
+        } catch (error) {
+            console.error('Error loading car details:', error);
+            loadingState.style.display = 'none';
+            errorState.style.display = 'flex';
+        }
+    }
+    
+    // Parse markdown content
+    function parseCarMarkdown(content, carId) {
+        try {
+            // Extract frontmatter
+            const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+            if (!frontmatterMatch) {
+                console.error('No frontmatter found');
+                return null;
+            }
+            
+            const frontmatter = frontmatterMatch[1];
+            const car = { id: carId };
+            
+            // Extract description (everything after the second ---)
+            const descriptionMatch = content.match(/^---\n[\s\S]*?\n---\n\n([\s\S]*)/);
+            if (descriptionMatch) {
+                car.description = descriptionMatch[1].trim();
+            }
+            
+            // Parse frontmatter
+            const lines = frontmatter.split('\n');
+            let currentKey = null;
+            let currentArray = null;
+            
+            for (const line of lines) {
+                const trimmed = line.trim();
+                
+                if (!trimmed || trimmed.startsWith('#')) continue;
+                
+                if (trimmed.startsWith('- ')) {
+                    // Array item
+                    if (currentArray) {
+                        currentArray.push(trimmed.substring(2));
+                    }
+                } else if (trimmed.includes(':')) {
+                    // Key-value pair
+                    const colonIndex = trimmed.indexOf(':');
+                    const key = trimmed.substring(0, colonIndex).trim();
+                    let value = trimmed.substring(colonIndex + 1).trim();
+                    
+                    // Remove quotes
+                    if (value.startsWith('"') && value.endsWith('"')) {
+                        value = value.slice(1, -1);
+                    }
+                    
+                    if (key === 'images') {
+                        currentKey = key;
+                        currentArray = [];
+                        car[key] = currentArray;
+                    } else {
+                        currentKey = null;
+                        currentArray = null;
+                        
+                        // Convert numbers
+                        if (!isNaN(value) && value !== '') {
+                            car[key] = Number(value);
+                        } else if (value.toLowerCase() === 'true') {
+                            car[key] = true;
+                        } else if (value.toLowerCase() === 'false') {
+                            car[key] = false;
+                        } else {
+                            car[key] = value;
+                        }
+                    }
+                }
+            }
+            
+            console.log('Parsed car data:', car);
+            return car;
+            
+        } catch (error) {
+            console.error('Error parsing markdown:', error);
+            return null;
+        }
+    }
+    
+    // Display car details
+    function displayCarDetails(car) {
+        // Title
+        const title = `${car.year || ''} ${car.make || ''} ${car.model || ''}`.trim();
+        document.getElementById('car-title').textContent = title;
+        document.title = `${title} - W&M Autos`;
+        
+        // Subtitle
+        if (car.trim) {
+            document.getElementById('car-subtitle').textContent = car.trim;
+        }
+        
+        // Price
+        const priceText = car.price ? `£${Number(car.price).toLocaleString()}` : 'POA';
+        document.getElementById('car-price').textContent = priceText;
+        
+        // Key Specs
+        displayKeySpecs(car);
+        
+        // Description (FRESH from GitHub!)
+        displayDescription(car);
+        
+        // Full Specs
+        displayFullSpecs(car);
+        
+        // Images
+        displayImages(car);
+    }
+    
+    // Display key specs
+    function displayKeySpecs(car) {
+        const keySpecsContainer = document.getElementById('key-specs');
+        
+        const specs = [
+            { icon: 'fa-calendar', label: 'Year', value: car.year },
+            { icon: 'fa-tachometer-alt', label: 'Mileage', value: car.mileage ? `${Number(car.mileage).toLocaleString()} miles` : 'N/A' },
+            { icon: 'fa-cog', label: 'Transmission', value: car.transmission || 'N/A' },
+            { icon: 'fa-gas-pump', label: 'Fuel Type', value: car.fuelType || 'N/A' },
+            { icon: 'fa-car', label: 'Body Type', value: car.bodyType || 'N/A' },
+            { icon: 'fa-palette', label: 'Color', value: car.color || 'N/A' }
+        ];
+        
+        keySpecsContainer.innerHTML = specs.map(spec => `
+            <div class="spec-item">
+                <i class="fas ${spec.icon}"></i>
+                <div>
+                    <span class="spec-label">${spec.label}</span>
+                    <span class="spec-value">${spec.value || 'N/A'}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    // Display description (FRESH!)
+    function displayDescription(car) {
+        const descContainer = document.getElementById('car-description');
+        
+        if (car.description && car.description.trim()) {
+            // Convert line breaks to paragraphs
+            const paragraphs = car.description.split('\n\n').filter(p => p.trim());
+            descContainer.innerHTML = paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
+            console.log('Displaying FRESH description from GitHub!');
+        } else {
+            descContainer.innerHTML = '<p>No description available.</p>';
+        }
+    }
+    
+    // Display full specifications
+    function displayFullSpecs(car) {
+        const specsContainer = document.getElementById('full-specs');
+        
+        const allSpecs = [
+            { label: 'Make', value: car.make },
+            { label: 'Model', value: car.model },
+            { label: 'Year', value: car.year },
+            { label: 'Trim', value: car.trim },
+            { label: 'Registration', value: car.registration },
+            { label: 'Mileage', value: car.mileage ? `${Number(car.mileage).toLocaleString()} miles` : null },
+            { label: 'Transmission', value: car.transmission },
+            { label: 'Fuel Type', value: car.fuelType },
+            { label: 'Engine Size', value: car.engineSize },
+            { label: 'Body Type', value: car.bodyType },
+            { label: 'Doors', value: car.doors },
+            { label: 'Seats', value: car.seats },
+            { label: 'Color', value: car.color }
+        ];
+        
+        specsContainer.innerHTML = allSpecs
+            .filter(spec => spec.value)
+            .map(spec => `
+                <div class="spec-row">
+                    <span class="spec-label">${spec.label}</span>
+                    <span class="spec-value">${spec.value}</span>
+                </div>
+            `).join('');
+    }
+    
+    // Display images
+    function displayImages(car) {
+        if (!car.images || car.images.length === 0) {
+            document.getElementById('main-image').src = 'https://via.placeholder.com/800x600?text=No+Image';
+            return;
+        }
+        
+        // Main image
+        document.getElementById('main-image').src = car.images[0];
+        
+        // Thumbnails
+        if (car.images.length > 1) {
+            const thumbnailContainer = document.getElementById('thumbnail-container');
+            const thumbnailGallery = document.getElementById('thumbnail-gallery');
+            
+            thumbnailContainer.style.display = 'flex';
+            
+            thumbnailGallery.innerHTML = car.images.map((img, index) => `
+                <div class="thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
+                    <img src="${img}" alt="Car image ${index + 1}">
+                </div>
+            `).join('');
+            
+            // Show navigation arrows if more than 1 image
+            document.getElementById('prev-image').style.display = 'flex';
+            document.getElementById('next-image').style.display = 'flex';
+        }
+    }
+    
+    // Setup image navigation
+    function setupImageNavigation() {
+        if (!currentCar || !currentCar.images || currentCar.images.length <= 1) return;
+        
+        const mainImage = document.getElementById('main-image');
+        const prevBtn = document.getElementById('prev-image');
+        const nextBtn = document.getElementById('next-image');
+        
+        function updateImage(index) {
+            currentImageIndex = index;
+            mainImage.src = currentCar.images[index];
+            
+            // Update thumbnail active state
+            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + currentCar.images.length) % currentCar.images.length;
+            updateImage(currentImageIndex);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % currentCar.images.length;
+            updateImage(currentImageIndex);
+        });
+        
+        // Thumbnail clicks
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const index = parseInt(thumb.dataset.index);
+                updateImage(index);
+            });
+        });
+    }
+    
+    // Setup lightbox
+    function setupLightbox() {
+        const mainImage = document.getElementById('main-image');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        
+        mainImage.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+            lightboxImage.src = mainImage.src;
+        });
+        
+        lightboxClose.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    }
+    
+    // Setup mobile menu
+    function setupMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+            
+            document.addEventListener('click', function(event) {
+                if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
+    }
+    </script>
 </body>
 </html>

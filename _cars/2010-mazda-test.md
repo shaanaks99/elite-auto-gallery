@@ -2,6 +2,7 @@
 make: "Mazda CX-3"
 model: SKYACTIV-G
 year: 2016
+trim: Sport
 price: 4995
 availability: available
 featured: true
@@ -19,6 +20,7 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/w_1200,h_800,c_fill,g_auto,q_auto:good,f_auto/v1768231890/car-inventory/thl9zkxt6tynz1toptnw.jpg
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/w_1200,h_800,c_fill,g_auto,q_auto:good,f_auto/v1768231892/car-inventory/rysner1mvwycdqioazoc.jpg
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/w_1200,h_800,c_fill,g_auto,q_auto:good,f_auto/v1768231893/car-inventory/ubc5grbw6jchg4dr3hrv.jpg
+  - https://res.cloudinary.com/dyc4c4ujj/image/upload/w_1200,h_800,c_fill,g_auto,q_auto:good,f_auto/v1768308500/car-inventory/mjhefpqvsf7lrn2jbj75.jpg
 ---
 
 -ULEZ FREE + BARGAIN SUV + 3 MONTHS WARRANTY!

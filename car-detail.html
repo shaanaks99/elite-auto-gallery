@@ -230,13 +230,30 @@
     
     let currentCar = null;
     let currentImageIndex = 0;
+    let isLoading = false; // Prevent multiple simultaneous loads
     
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('Car detail page loaded - standalone version with fresh data');
-        loadCarDetails();
+    // Run immediately when script loads
+    console.log('Car detail page script loaded - standalone version');
+    
+    // Check if DOM is already loaded
+    if (document.readyState === 'loading') {
+        // DOM still loading, wait for it
+        document.addEventListener('DOMContentLoaded', initPage);
+    } else {
+        // DOM already loaded, run immediately
+        initPage();
+    }
+    
+    function initPage() {
+        console.log('Initializing car detail page with fresh data');
+        
+        // Only load once!
+        if (!isLoading) {
+            loadCarDetails();
+        }
+        
         setupMobileMenu();
-    });
+    }
     
     // Get car ID from URL
     function getCarIdFromUrl() {
@@ -246,6 +263,14 @@
     
     // Load car details from GitHub API (FRESH every time!)
     async function loadCarDetails() {
+        // Prevent multiple simultaneous loads!
+        if (isLoading) {
+            console.log('Already loading, skipping...');
+            return;
+        }
+        
+        isLoading = true;
+        
         const loadingState = document.getElementById('loading');
         const errorState = document.getElementById('error-state');
         const contentArea = document.getElementById('car-detail-content');
@@ -263,11 +288,14 @@
             const timestamp = new Date().getTime();
             const url = `https://api.github.com/repos/shaanaks99/elite-auto-gallery/contents/_cars/${carId}.md?t=${timestamp}`;
             
+            console.log(`Fetching from: ${url}`);
+            
             const response = await fetch(url, {
                 cache: 'no-store' // Force no caching - this works with GitHub!
             });
             
             if (!response.ok) {
+                console.error('GitHub API response not OK:', response.status);
                 throw new Error('Car not found');
             }
             
@@ -301,6 +329,8 @@
             console.error('Error loading car details:', error);
             loadingState.style.display = 'none';
             errorState.style.display = 'flex';
+        } finally {
+            isLoading = false; // Always reset the flag
         }
     }
     

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Loading & Error States */
+        /* Inline critical styles for gallery */
         #loading-indicator, #error-message, #no-results {
             text-align: center;
             padding: 4rem 2rem;
@@ -25,15 +25,10 @@
             to { transform: rotate(360deg); }
         }
         
-        #error-message {
+        #error-message, #no-results {
             display: none;
         }
         
-        #no-results {
-            display: none;
-        }
-        
-        /* Filter Buttons */
         .filter-buttons {
             display: flex;
             gap: 0.75rem;
@@ -64,7 +59,6 @@
             color: white;
         }
         
-        /* Car Grid */
         #inventory-grid {
             display: none;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -72,7 +66,6 @@
             margin-top: 2rem;
         }
         
-        /* Car Card */
         .car-card {
             background: white;
             border-radius: 1rem;
@@ -244,7 +237,7 @@
         <div class="page-header">
             <div class="container">
                 <h1 class="animate-slide-up">Our Inventory</h1>
-                <p class="animate-slide-up delay-100">Browse our complete collection of quality pre-owned vehicles. Each car has been inspected and certified for your peace of mind.</p>
+                <p class="animate-slide-up delay-100">Browse our complete collection of quality pre-owned vehicles.</p>
             </div>
         </div>
 
@@ -269,7 +262,7 @@
         <!-- Error State -->
         <div id="error-message">
             <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #ef4444;"></i>
-            <p style="margin-top: 1rem; font-size: 1.125rem; color: #64748b;">Unable to load vehicles</p>
+            <p style="margin-top: 1rem; font-size: 1.125rem; color: #64748b;">Unable to load vehicles. Please refresh the page.</p>
         </div>
 
         <!-- No Results State -->
@@ -286,10 +279,282 @@
         </div>
     </main>
 
-    <script src="js/app.js"></script>
     <script>
-    // Mobile menu toggle
+    // ==================================================
+    // COMPLETE STANDALONE GALLERY SCRIPT
+    // All-in-one, no external dependencies!
+    // ==================================================
+    
+    let allCarsData = [];
+    let currentFilterStatus = 'default';
+    
+    // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
+        console.log('Gallery page loaded - standalone version');
+        loadAndDisplayCars();
+        setupFilterButtons();
+        setupMobileMenu();
+    });
+    
+    // Load cars from GitHub
+    async function loadAndDisplayCars() {
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const errorMessage = document.getElementById('error-message');
+        const inventoryGrid = document.getElementById('inventory-grid');
+        
+        try {
+            console.log('Fetching cars from GitHub...');
+            
+            // Fetch cars from GitHub API
+            const response = await fetch('https://api.github.com/repos/shaanaks99/elite-auto-gallery/contents/_cars');
+            
+            if (!response.ok) {
+                throw new Error('Failed to fetch cars directory');
+            }
+            
+            const files = await response.json();
+            const carFiles = files.filter(file => file.name.endsWith('.md'));
+            
+            console.log(`Found ${carFiles.length} car files`);
+            
+            // Load each car file
+            const cars = await Promise.all(
+                carFiles.map(async (file) => {
+                    try {
+                        const contentResponse = await fetch(file.download_url);
+                        const content = await contentResponse.text();
+                        return parseCarMarkdown(content, file.name);
+                    } catch (error) {
+                        console.error(`Error loading ${file.name}:`, error);
+                        return null;
+                    }
+                })
+            );
+            
+            // Filter out null/invalid cars
+            allCarsData = cars.filter(car => car !== null);
+            
+            console.log(`Loaded ${allCarsData.length} cars successfully`);
+            
+            if (allCarsData.length === 0) {
+                loadingIndicator.style.display = 'none';
+                errorMessage.style.display = 'block';
+                errorMessage.querySelector('p').textContent = 'No vehicles available at the moment.';
+                return;
+            }
+            
+            // Sort by featured status
+            allCarsData.sort((a, b) => {
+                if (a.featured && !b.featured) return -1;
+                if (!a.featured && b.featured) return 1;
+                return 0;
+            });
+            
+            loadingIndicator.style.display = 'none';
+            inventoryGrid.style.display = 'grid';
+            
+            // Display cars with default filter
+            displayCars(currentFilterStatus);
+            
+        } catch (error) {
+            console.error('Error loading cars:', error);
+            loadingIndicator.style.display = 'none';
+            errorMessage.style.display = 'block';
+        }
+    }
+    
+    // Parse markdown file into car object
+    function parseCarMarkdown(content, filename) {
+        try {
+            // Extract frontmatter between --- markers
+            const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+            if (!frontmatterMatch) {
+                console.error('No frontmatter found in:', filename);
+                return null;
+            }
+            
+            const frontmatter = frontmatterMatch[1];
+            const car = {
+                id: filename.replace('.md', '')
+            };
+            
+            // Parse YAML-style frontmatter
+            const lines = frontmatter.split('\n');
+            let currentKey = null;
+            let currentArray = null;
+            
+            for (const line of lines) {
+                const trimmed = line.trim();
+                
+                if (!trimmed || trimmed.startsWith('#')) continue;
+                
+                if (trimmed.startsWith('- ')) {
+                    // Array item
+                    if (currentArray) {
+                        currentArray.push(trimmed.substring(2));
+                    }
+                } else if (trimmed.includes(':')) {
+                    // Key-value pair
+                    const colonIndex = trimmed.indexOf(':');
+                    const key = trimmed.substring(0, colonIndex).trim();
+                    let value = trimmed.substring(colonIndex + 1).trim();
+                    
+                    // Remove quotes
+                    if (value.startsWith('"') && value.endsWith('"')) {
+                        value = value.slice(1, -1);
+                    }
+                    
+                    if (key === 'images') {
+                        currentKey = key;
+                        currentArray = [];
+                        car[key] = currentArray;
+                    } else {
+                        currentKey = null;
+                        currentArray = null;
+                        
+                        // Convert numbers
+                        if (!isNaN(value) && value !== '') {
+                            car[key] = Number(value);
+                        } else if (value.toLowerCase() === 'true') {
+                            car[key] = true;
+                        } else if (value.toLowerCase() === 'false') {
+                            car[key] = false;
+                        } else {
+                            car[key] = value;
+                        }
+                    }
+                }
+            }
+            
+            return car;
+        } catch (error) {
+            console.error('Error parsing markdown:', error);
+            return null;
+        }
+    }
+    
+    // Display cars based on filter
+    function displayCars(filterStatus) {
+        const inventoryGrid = document.getElementById('inventory-grid');
+        const noResults = document.getElementById('no-results');
+        const carCount = document.getElementById('car-count');
+        
+        // Filter cars based on status
+        let filteredCars = [];
+        
+        switch(filterStatus) {
+            case 'all':
+                filteredCars = allCarsData;
+                break;
+            case 'available':
+                filteredCars = allCarsData.filter(car => car.availability === 'available');
+                break;
+            case 'reserved':
+                filteredCars = allCarsData.filter(car => car.availability === 'reserved');
+                break;
+            case 'sold':
+                filteredCars = allCarsData.filter(car => car.availability === 'sold');
+                break;
+            case 'default':
+            default:
+                // Default: show available + reserved only
+                filteredCars = allCarsData.filter(car => 
+                    car.availability === 'available' || car.availability === 'reserved'
+                );
+                break;
+        }
+        
+        // Update count
+        carCount.textContent = `${filteredCars.length} vehicle${filteredCars.length !== 1 ? 's' : ''}`;
+        
+        if (filteredCars.length === 0) {
+            inventoryGrid.style.display = 'none';
+            noResults.style.display = 'block';
+            return;
+        }
+        
+        noResults.style.display = 'none';
+        inventoryGrid.style.display = 'grid';
+        
+        // Clear existing content
+        inventoryGrid.innerHTML = '';
+        
+        // Create car cards
+        filteredCars.forEach(car => {
+            const carCard = createCarCard(car);
+            inventoryGrid.appendChild(carCard);
+        });
+    }
+    
+    // Create individual car card
+    function createCarCard(car) {
+        const card = document.createElement('div');
+        card.className = 'car-card';
+        card.dataset.availability = car.availability || 'available';
+        
+        // Status badge
+        let statusBadge = '';
+        if (car.availability === 'sold') {
+            statusBadge = '<span class="status-badge status-sold">Sold</span>';
+        } else if (car.availability === 'reserved') {
+            statusBadge = '<span class="status-badge status-reserved">Reserved</span>';
+        }
+        
+        // Featured badge
+        let featuredBadge = car.featured ? '<span class="featured-badge"><i class="fas fa-star"></i> Featured</span>' : '';
+        
+        // Main image
+        const mainImage = car.images && car.images.length > 0 ? car.images[0] : 'https://via.placeholder.com/400x300?text=No+Image';
+        
+        // Price formatting - SAFE handling
+        const priceText = car.price ? `£${Number(car.price).toLocaleString()}` : 'POA';
+        
+        // Mileage formatting - SAFE handling
+        const mileageText = car.mileage ? `${Number(car.mileage).toLocaleString()} miles` : 'N/A';
+        
+        card.innerHTML = `
+            <div class="car-image">
+                <img src="${mainImage}" alt="${car.make || 'Car'} ${car.model || ''}" onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Available'">
+                ${featuredBadge}
+                ${statusBadge}
+            </div>
+            <div class="car-details">
+                <h3>${car.year || ''} ${car.make || 'Unknown'} ${car.model || 'Model'}</h3>
+                ${car.trim ? `<p class="car-trim">${car.trim}</p>` : ''}
+                <div class="car-specs">
+                    <span><i class="fas fa-tachometer-alt"></i> ${mileageText}</span>
+                    <span><i class="fas fa-cog"></i> ${car.transmission || 'N/A'}</span>
+                    <span><i class="fas fa-gas-pump"></i> ${car.fuelType || 'N/A'}</span>
+                </div>
+                <div class="car-footer">
+                    <span class="car-price">${priceText}</span>
+                    <a href="car-detail.html?id=${car.id}" class="btn-primary">View Details</a>
+                </div>
+            </div>
+        `;
+        
+        return card;
+    }
+    
+    // Setup filter buttons
+    function setupFilterButtons() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Get filter status and display
+                currentFilterStatus = button.dataset.status;
+                displayCars(currentFilterStatus);
+            });
+        });
+    }
+    
+    // Setup mobile menu
+    function setupMobileMenu() {
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -297,8 +562,15 @@
             mobileMenuBtn.addEventListener('click', function() {
                 mobileMenu.classList.toggle('active');
             });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
         }
-    });
+    }
     </script>
 </body>
 </html>

@@ -287,7 +287,18 @@
     </main>
 
     <script src="js/app.js"></script>
-    <script src="js/carLoader.js"></script>
-    <script src="inventory.js"></script>
+    <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+    });
+    </script>
 </body>
 </html>

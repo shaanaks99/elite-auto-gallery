@@ -29,10 +29,10 @@ Comes with a decent service history and a long MOT.
 
 3 months warranty included for peace of mind.
 
-Viewings by appointment Ã¢ÂÂ this ensures you receive our full attention and can take your time without any pressure.
+Viewings by appointment ÃÂ¢ÃÂÃÂ this ensures you receive our full attention and can take your time without any pressure.
 
 Opening Hours:
 
-MondayÃ¢ÂÂFriday: 10:00 Ã¢ÂÂ 18:00
+MondayÃÂ¢ÃÂÃÂFriday: 10:00 ÃÂ¢ÃÂÃÂ 18:00
 
-SaturdayÃ¢ÂÂSunday: 10:00 Ã¢ÂÂ 12:00
+SaturdayÃÂ¢ÃÂÃÂSunday: 10:00 ÃÂ¢ÃÂÃÂ 12:00

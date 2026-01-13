@@ -199,7 +199,7 @@
                     </div>
                     <div class="contact-info">
                         <p><i class="fas fa-phone"></i> 07918 931399</p>
-                        <p><i class="fas fa-envelope"></i> Sales@wandmautosltd.co.uk</p>
+                        <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94c7f5f8f1e7d4e3f5faf0f9f5e1e0fbe7f8e0f0baf7fbbae1ff">[email&#160;protected]</a></p>
                         <p><i class="fas fa-clock"></i> Mon-Fri: 10am-6pm</p>
                     </div>
                 </div>
@@ -222,7 +222,7 @@
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ==================================================
     // STANDALONE CAR DETAIL PAGE
     // Fetches FRESH data from GitHub API every time!
@@ -264,12 +264,7 @@
             const url = `https://api.github.com/repos/shaanaks99/elite-auto-gallery/contents/_cars/${carId}.md?t=${timestamp}`;
             
             const response = await fetch(url, {
-                cache: 'no-store', // Force no caching!
-                headers: {
-                    'Cache-Control': 'no-cache, no-store, must-revalidate',
-                    'Pragma': 'no-cache',
-                    'Expires': '0'
-                }
+                cache: 'no-store' // Force no caching - this works with GitHub!
             });
             
             if (!response.ok) {
@@ -582,12 +577,3 @@
             });
             
             document.addEventListener('click', function(event) {
-                if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
-                    mobileMenu.classList.remove('active');
-                }
-            });
-        }
-    }
-    </script>
-</body>
-</html>

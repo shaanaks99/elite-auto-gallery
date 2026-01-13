@@ -288,6 +288,44 @@
     let allCarsData = [];
     let currentFilterStatus = 'default';
     
+    // 🎨 Cloudinary URL Transformer
+    // Optimizes images for gallery display
+    function transformCloudinaryUrl(url, context = 'gallery') {
+        if (!url || !url.includes('cloudinary.com')) {
+            return url;
+        }
+        
+        const parts = url.split('/upload/');
+        if (parts.length !== 2) return url;
+        
+        // Check if already has good transformations
+        if (url.includes('dpr_auto') && url.includes('e_improve')) {
+            return url;
+        }
+        
+        let transformation;
+        
+        if (context === 'gallery') {
+            // Gallery images: Good quality, moderate size, Retina support
+            transformation = 'f_auto,q_auto:good,dpr_auto,w_800,e_improve,e_upscale';
+        } else {
+            transformation = 'f_auto,q_auto:good,dpr_auto,w_1200';
+        }
+        
+        // If URL already has transformations, enhance them
+        const hasTransform = parts[1].includes(',');
+        if (hasTransform) {
+            const existing = parts[1].split('/')[0];
+            if (!existing.includes('dpr_auto')) {
+                const enhanced = existing + ',dpr_auto,e_improve';
+                return `${parts[0]}/upload/${enhanced}/${parts[1].split('/').slice(1).join('/')}`;
+            }
+            return url;
+        }
+        
+        return `${parts[0]}/upload/${transformation}/${parts[1]}`;
+    }
+    
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
         console.log('Gallery page loaded - standalone version');
@@ -503,8 +541,9 @@
         // Featured badge
         let featuredBadge = car.featured ? '<span class="featured-badge"><i class="fas fa-star"></i> Featured</span>' : '';
         
-        // Main image
-        const mainImage = car.images && car.images.length > 0 ? car.images[0] : 'https://via.placeholder.com/400x300?text=No+Image';
+        // Main image - Apply gallery transformation for optimal display!
+        const rawImage = car.images && car.images.length > 0 ? car.images[0] : 'https://via.placeholder.com/400x300?text=No+Image';
+        const mainImage = transformCloudinaryUrl(rawImage, 'gallery');
         
         // Price formatting - SAFE handling
         const priceText = car.price ? `£${Number(car.price).toLocaleString()}` : 'POA';

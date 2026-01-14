@@ -259,16 +259,37 @@
             <p style="margin-top: 1rem; font-size: 1.125rem; color: #64748b;">Loading vehicles...</p>
         </div>
 
-        <!-- Error State -->
+        <!-- Error State - Now Friendly Empty State! -->
         <div id="error-message">
-            <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #ef4444;"></i>
-            <p style="margin-top: 1rem; font-size: 1.125rem; color: #64748b;">Unable to load vehicles. Please refresh the page.</p>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🚗</div>
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">More Stock Coming Soon!</h2>
+            <p style="font-size: 1.125rem; color: #64748b; max-width: 500px; margin: 0 auto 2rem; line-height: 1.6;">
+                We're currently sourcing quality pre-owned vehicles for you. Check back soon for new arrivals, or contact us about finding a specific vehicle.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn" style="background: #10b981; color: white; padding: 0.875rem 1.75rem; border-radius: 9999px; text-decoration: none; font-weight: 600;">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+                <a href="tel:07918931399" class="btn" style="background: white; color: #0f172a; border: 2px solid #e2e8f0; padding: 0.875rem 1.75rem; border-radius: 9999px; text-decoration: none; font-weight: 600;">
+                    <i class="fas fa-phone"></i> Call Us
+                </a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9375rem; color: #94a3b8;">
+                <i class="fas fa-clock"></i> New stock typically arrives weekly
+            </p>
         </div>
 
-        <!-- No Results State -->
+        <!-- No Results State - Improved! -->
         <div id="no-results">
-            <i class="fas fa-search" style="font-size: 3rem; color: #94a3b8;"></i>
-            <p style="margin-top: 1rem; font-size: 1.125rem; color: #64748b;">No vehicles match your filter</p>
+            <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔍</div>
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">No Vehicles Match Your Filter</h2>
+            <p style="font-size: 1rem; color: #64748b; max-width: 400px; margin: 0 auto 1.5rem;">
+                Try selecting a different filter or view all vehicles.
+            </p>
+            <button onclick="document.querySelector('[data-status=\\'all\\']').click()" 
+                    style="background: #10b981; color: white; padding: 0.75rem 1.5rem; border-radius: 9999px; border: none; font-weight: 600; cursor: pointer;">
+                View All Vehicles
+            </button>
         </div>
 
         <!-- Car Grid -->

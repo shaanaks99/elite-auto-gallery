@@ -4,7 +4,7 @@ model: "Qashqai "
 year: 2015
 trim: n-tec+
 price: 2995
-availability: available
+availability: sold
 featured: false
 mileage: 162000
 transmission: Manual
@@ -30,9 +30,9 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1769088948/car-inventory/vjextw3bfhpc1clzn9az.jpg
 ---
 
-BARGAIN SUV • PANORAMIC ROOF • 360° CAMERA • SAT NAV • 3 MONTH WARRANTY
+BARGAIN SUV â¢ PANORAMIC ROOF â¢ 360Â° CAMERA â¢ SAT NAV â¢ 3 MONTH WARRANTY
 
-We are delighted to present this excellent-value Nissan Qashqai N‑TEC Edition, equipped with a panoramic roof, 360° camera system, and a smooth 6‑speed manual gearbox offering great fuel economy.
+We are delighted to present this excellent-value Nissan Qashqai NâTEC Edition, equipped with a panoramic roof, 360Â° camera system, and a smooth 6âspeed manual gearbox offering great fuel economy.
 
 The vehicle comes with solid service history, including a cambelt replacement at 130,000 miles (07/02/2023) and its most recent service at 160,579 miles (05/11/2025). Supplied with 2 keys and full documentation.
 
@@ -40,5 +40,5 @@ VIEWING BY APPOINTMENT ONLY
 This ensures you receive our full attention with no rush or interruptions.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

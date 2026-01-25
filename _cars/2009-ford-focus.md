@@ -4,7 +4,7 @@ model: "Focus "
 year: 2009
 trim: "Zetec "
 price: 995
-availability: available
+availability: sold
 featured: false
 mileage: 135000
 transmission: Manual
@@ -31,15 +31,15 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1769172478/car-inventory/dwuowstb58aspdynvhy3.jpg
 ---
 
-BARGAIN FORD FOCUS • 3‑MONTH WARRANTY • GREAT ECONOMY
+BARGAIN FORD FOCUS â¢ 3âMONTH WARRANTY â¢ GREAT ECONOMY
 
-We are delighted to present this excellent‑value Ford Focus Zetec, powered by the reliable 1.6 diesel engine which delivers exceptional fuel economy and low running costs. It drives very well with smooth gear changes and plenty of power, making it an ideal daily commuter or family runaround.
+We are delighted to present this excellentâvalue Ford Focus Zetec, powered by the reliable 1.6 diesel engine which delivers exceptional fuel economy and low running costs. It drives very well with smooth gear changes and plenty of power, making it an ideal daily commuter or family runaround.
 
-The vehicle comes with decent service history, including a recorded cambelt change in 2020, giving added peace of mind. A 3‑month warranty is included in the price.
+The vehicle comes with decent service history, including a recorded cambelt change in 2020, giving added peace of mind. A 3âmonth warranty is included in the price.
 
 VIEWING BY APPOINTMENT ONLY  
 This ensures you receive our full attention with no rush or interruptions.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

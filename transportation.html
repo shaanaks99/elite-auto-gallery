@@ -361,9 +361,9 @@
                     <p style="font-size: 1.25rem; color: #cbd5e1; max-width: 42rem; margin: 0 auto 2rem;">Get in touch today for a fast, competitive quote. We're here to help with all your vehicle transportation needs.</p>
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                         <a href="contact.html" class="btn" style="background: white; color: #1e293b; font-weight: 600; padding: 1rem 2.5rem;">Request a Quote</a>
-                        <a href="tel:07918931399" class="btn" style="background: #10b981; color: #ffffff; font-weight: 700; padding: 1rem 2.5rem; border: 2px solid #10b981;">📞 07918 931399</a>
+                        <a href="tel:07918931399" class="btn" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2.5rem;">📞 07918 931399</a>
                     </div>
-                    <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #cbd5e1;">Available 24/7 for emergency recovery</p>
+                    <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #94a3b8;">Available 24/7 for emergency recovery</p>
                 </div>
             </div>
         </section>
@@ -388,7 +388,7 @@
                 </div>
                 <div>
                     <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Contact</h4>
-                    <p style="color: var(--slate-400); line-height: 1.75; margin-bottom: 0.5rem;">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6437050801172413050a00090511100b170810004a070b4a110f">[email&#160;protected]</a></p>
+                    <p style="color: var(--slate-400); line-height: 1.75; margin-bottom: 0.5rem;">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6231030e07112215030c060f0317160d110e16064c010d4c1709">[email&#160;protected]</a></p>
                     <p style="color: var(--slate-400); line-height: 1.75; margin-bottom: 0.5rem;">📞 07918 931399</p>
                     <p style="color: var(--slate-400); line-height: 1.75;">📍 Byfleet, West Byfleet</p>
                 </div>
@@ -401,16 +401,37 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/app.js"></script>
     <script>
-        // Mobile menu functionality
+        // Mobile menu functionality - COMPLETE VERSION!
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             
             if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
+                // Toggle menu on button click
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
                     mobileMenu.classList.toggle('active');
+                    console.log('Mobile menu toggled!');
                 });
                 
                 // Close menu when clicking a link
                 const menuLinks = mobileMenu.querySelectorAll('a');
-                menuLinks.forEach(l
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                    }
+                });
+            } else {
+                console.error('Mobile menu elements not found!');
+            }
+        });
+    </script>
+</body>
+</html>

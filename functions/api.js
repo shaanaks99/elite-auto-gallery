@@ -116,8 +116,9 @@ async function githubRequest(path, method, body, env) {
 // Get all car markdown files from GitHub
 async function getAllCars(env) {
   try {
-    // Get all files in _cars directory
-    const contents = await githubRequest('contents/_cars', 'GET', null, env);
+    // Get all files in _cars directory with pagination support
+    // GitHub API defaults to 30 items per page, we'll request 100 per page (max allowed)
+    const contents = await githubRequest('contents/_cars?per_page=100', 'GET', null, env);
     
     const cars = [];
     

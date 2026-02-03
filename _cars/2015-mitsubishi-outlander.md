@@ -4,12 +4,12 @@ model: Outlander
 year: 2015
 trim: "2.0h 12kWh GX4h CVT 4WD "
 price: 2995
-availability: available
+availability: sold
 featured: false
 mileage: 207000
 transmission: Automatic
 fuelType: Hybrid
-engineSize: 2.0
+engineSize: 2
 bodyType: SUV
 doors: 5
 seats: 5
@@ -37,11 +37,11 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1769524077/car-inventory/a2qxi7wn9adyvkhbxqcv.jpg
 ---
 
-BARGAIN HYBRID OUTLANDER • 12 MONTHS MOT • PDI CHECK • WARRANTY
+BARGAIN HYBRID OUTLANDER â¢ 12 MONTHS MOT â¢ PDI CHECK â¢ WARRANTY
 
-We are pleased to offer this excellent‑value Mitsubishi Outlander PHEV hybrid, a smooth‑driving automatic with no warning lights and strong electric/petrol performance. Delivers great fuel economy and benefits from £20 annual road tax.
+We are pleased to offer this excellentâvalue Mitsubishi Outlander PHEV hybrid, a smoothâdriving automatic with no warning lights and strong electric/petrol performance. Delivers great fuel economy and benefits from Â£20 annual road tax.
 
-Comes with a fresh 12‑month MOT, full PDI check, and 3‑month warranty included. Drives very well, goes through gears smoothly, and is ready to go.
+Comes with a fresh 12âmonth MOT, full PDI check, and 3âmonth warranty included. Drives very well, goes through gears smoothly, and is ready to go.
 
 VIEWING BY APPOINTMENT ONLY  
 This ensures you receive our full attention with no rush or interruptions.

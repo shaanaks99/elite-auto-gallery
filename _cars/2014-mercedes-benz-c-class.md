@@ -4,7 +4,7 @@ model: "C class "
 year: 2014
 trim: "AMG Sport Edition G-Tronic+ "
 price: 3995
-availability: available
+availability: sold
 featured: false
 mileage: 165000
 transmission: Manual
@@ -34,19 +34,19 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1770200046/car-inventory/m5gxogebwtclwjvf27um.jpg
 ---
 
-STUNNING C220 AMG SPORT • PANROOF • REVERSE CAMERA • NAVIGATION
+STUNNING C220 AMG SPORT â¢ PANROOF â¢ REVERSE CAMERA â¢ NAVIGATION
 
 Lovely example of the Mercedes C220 AMG Sport, finished in the most desirable colour with black sports interior, full AMG bodystyling, and AMG alloy wheels. Panoramic roof gives the car real presence and transforms the look. Reverse camera + navigation + AMG pack make this superb value for money at this price point.
 
-We have personally driven this vehicle over 100 miles and it performed without fault — smooth, powerful, and exactly how a well‑maintained C‑Class should drive.
+We have personally driven this vehicle over 100 miles and it performed without fault â smooth, powerful, and exactly how a wellâmaintained CâClass should drive.
 
-Comes with a long MOT, 3‑month warranty, and access to our workshop facilities for added peace of mind.
+Comes with a long MOT, 3âmonth warranty, and access to our workshop facilities for added peace of mind.
 Nationwide delivery available.  
-Walk‑around video available upon request.
+Walkâaround video available upon request.
 
 ANY INSPECTION WELCOME  
 TOP PRICES PAID FOR YOUR PART EXCHANGE
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

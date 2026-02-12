@@ -3,7 +3,7 @@ make: Citroen
 model: "C4 Cactus"
 year: 2014
 trim: "BlueHDi Feel Euro 6"
-price: 2650
+price: 1995
 availability: available
 featured: false
 mileage: 126000
@@ -35,15 +35,15 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1769113243/car-inventory/l3ctqj1zqfyfdhl702ad.jpg
 ---
 
-ULEZ FREE • EURO 6 • GREAT VALUE HATCHBACK
+ULEZ FREE â¢ EURO 6 â¢ GREAT VALUE HATCHBACK
 
-We are delighted to present this excellent‑value Citroen C4 Cactus, now fully available and ready to go. Being a Euro 6 model, it is completely ULEZ compliant and ideal as a commuter car or practical family runaround. It drives very well with smooth gear changes and plenty of power, offering a comfortable and economical driving experience.
+We are delighted to present this excellentâvalue Citroen C4 Cactus, now fully available and ready to go. Being a Euro 6 model, it is completely ULEZ compliant and ideal as a commuter car or practical family runaround. It drives very well with smooth gear changes and plenty of power, offering a comfortable and economical driving experience.
 
-The vehicle comes with decent service history and a long MOT, making it a reliable and low‑cost option.
+The vehicle comes with decent service history and a long MOT, making it a reliable and lowâcost option.
 
 VIEWING BY APPOINTMENT ONLY  
 This ensures you receive our full attention with no rush or interruptions.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

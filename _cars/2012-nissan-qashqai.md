@@ -4,7 +4,7 @@ model: Qashqai
 year: 2012
 trim: "n-tec 2WD Euro 5 "
 price: 2495
-availability: available
+availability: sold
 featured: false
 mileage: 121000
 transmission: Manual
@@ -27,9 +27,9 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1770373637/car-inventory/p7dpecdoeqrwxxwy46ii.jpg
 ---
 
-ULEZ FREE • 12 MONTHS MOT • 3‑MONTH WARRANTY
+ULEZ FREE â¢ 12 MONTHS MOT â¢ 3âMONTH WARRANTY
 
-We are pleased to offer for sale this bargain Nissan Qashqai 1.6 petrol, fully ULEZ compliant and ideal as a reliable family run‑around. Drives very well with smooth power delivery and comes with decent service history. Nice spec including reverse camera, navigation, and panoramic roof. Just been MOT’d, so it’s ready to drive away.
+We are pleased to offer for sale this bargain Nissan Qashqai 1.6 petrol, fully ULEZ compliant and ideal as a reliable family runâaround. Drives very well with smooth power delivery and comes with decent service history. Nice spec including reverse camera, navigation, and panoramic roof. Just been MOTâd, so itâs ready to drive away.
 
 A clean, sensibly priced Qashqai that represents great value in this sector.
 
@@ -40,5 +40,5 @@ ANY INSPECTION WELCOME
 TOP PRICES PAID FOR YOUR PART EXCHANGE
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

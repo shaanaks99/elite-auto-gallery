@@ -4,11 +4,12 @@ model: Golf
 year: 2009
 trim: "1.4 S Euro 5"
 price: 1695
-availability: available
+availability: sold
 featured: false
 mileage: 150000
 transmission: Manual
 fuelType: Petrol
+engineSize: 2
 bodyType: Sedan
 doors: 5
 seats: 5

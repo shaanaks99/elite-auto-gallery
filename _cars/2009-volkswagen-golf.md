@@ -9,7 +9,7 @@ featured: false
 mileage: 150000
 transmission: Manual
 fuelType: Petrol
-engineSize: 2
+engineSize: 2.0
 bodyType: Sedan
 doors: 5
 seats: 5

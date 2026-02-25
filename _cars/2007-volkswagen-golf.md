@@ -4,7 +4,7 @@ model: Golf
 year: 2007
 trim: Match
 price: 995
-availability: available
+availability: sold
 featured: false
 mileage: 160000
 transmission: Manual

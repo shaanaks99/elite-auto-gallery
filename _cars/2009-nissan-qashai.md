@@ -4,7 +4,7 @@ model: Qashai
 year: 2009
 trim: "Acenta 2WD"
 price: 1495
-availability: available
+availability: sold
 featured: false
 mileage: 119000
 transmission: Manual
@@ -32,8 +32,8 @@ images:
 ---
 
 3 MONTHS WARRANTY. LONG MOT.  
-Bargain SUV, drives well, goes through the gears smoothly and has plenty of power. Great price‑range family car with lots of space. Decent history and a long MOT.
+Bargain SUV, drives well, goes through the gears smoothly and has plenty of power. Great priceârange family car with lots of space. Decent history and a long MOT.
 
 VIEWING BY APPOINTMENT THIS WAY YOU RECEIVE OUR FULL ATTENTION AND ARE NOT RUSHED IN ANYWAY AT ALL.  
-OPENING TIMES MON–FRI 10 TO 6 SAT–SUN 10 TO 12.  
+OPENING TIMES MONâFRI 10 TO 6 SATâSUN 10 TO 12.  
 WE ARE BASED IN BYFLEET SURREY 10 MINS OFF M25 J10 AND A3 COBHAM.

@@ -4,7 +4,7 @@ model: Tiguan
 year: 2011
 trim: Match
 price: 2495
-availability: available
+availability: sold
 featured: false
 mileage: 184000
 transmission: Manual
@@ -41,4 +41,4 @@ images:
 We are pleased to offer for sale this bargain VW Tiguan MATCH edition, massive spec car and very rare at this price range. Drives very well despite the miles, has been well looked after and comes with a very good service history all up to date including 2nd cam-belt change at 161k, clutch/dual mass at 120k and importantly Haldex service at 130k. Long MOT November 2026, advisory also done. Two new tyres, all with invoices, and comes with 2 keys. At this price, a lot of car for not a lot of money.
 
 VIEWING BY APPOINTMENT THIS WAY YOU RECEIVE OUR FULL ATTENTION AND ARE NOT RUSHED IN ANYWAY AT ALL.  
-OPENING TIMES MONâFRI 10 TO 6 SATâSUN 10 TO 12.
+OPENING TIMES MONÃ¢ÂÂFRI 10 TO 6 SATÃ¢ÂÂSUN 10 TO 12.

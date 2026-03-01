@@ -4,12 +4,12 @@ model: CX-3
 year: 2016
 trim: "2.0 SKYACTIV-G SE Euro 6"
 price: 4795
-availability: available
+availability: sold
 featured: false
 mileage: 115000
 transmission: Manual
 fuelType: Petrol
-engineSize: 2.0
+engineSize: 2
 bodyType: Sedan
 doors: 5
 seats: 5
@@ -35,14 +35,14 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1769774579/car-inventory/jam4y3qkfjrb6d33piqw.jpg
 ---
 
-ULEZ FREE • BARGAIN SUV • 3 MONTHS WARRANTY INCLUDED
+ULEZ FREE â¢ BARGAIN SUV â¢ 3 MONTHS WARRANTY INCLUDED
 
-We’re pleased to offer this stunning Mazda CX-3 for sale. It drives very well, has loads of space, and makes an excellent family car.
+Weâre pleased to offer this stunning Mazda CX-3 for sale. It drives very well, has loads of space, and makes an excellent family car.
 
 The vehicle comes with decent service history, a long MOT, and a 3-month warranty included in the price.
 
-Viewing is strictly by appointment — this way, you receive our full attention and are never rushed.
+Viewing is strictly by appointment â this way, you receive our full attention and are never rushed.
 
 Opening times:  
-Monday to Friday: 10am – 6pm
-Saturday & Sunday: 10am – 12pm
+Monday to Friday: 10am â 6pm
+Saturday & Sunday: 10am â 12pm

@@ -4,11 +4,12 @@ model: ASX
 year: 2017
 trim: "4 4WD "
 price: 3995
-availability: available
+availability: sold
 featured: false
 mileage: 145000
 transmission: Manual
 fuelType: Diesel
+engineSize: 1.4
 bodyType: SUV
 doors: 5
 seats: 5
@@ -33,7 +34,7 @@ images:
 ---
 
 HUGE SPEC. FULL BLACK LEATHER. PANROOF. CAMERA. NAV.  
-We are pleased to offer for sale this bargain Mitsubishi ASX, new‑shape model with a huge spec. Drives very well and being a 1.6d delivers exceptional fuel economy. Decent history and a long MOT.
+We are pleased to offer for sale this bargain Mitsubishi ASX, newâshape model with a huge spec. Drives very well and being a 1.6d delivers exceptional fuel economy. Decent history and a long MOT.
 
 VIEWING BY APPOINTMENT THIS WAY YOU RECEIVE OUR FULL ATTENTION AND ARE NOT RUSHED IN ANYWAY AT ALL.  
-OPENING TIMES MON–FRI 10 TO 6 SAT–SUN 10 TO 12.
+OPENING TIMES MONâFRI 10 TO 6 SATâSUN 10 TO 12.

@@ -2,8 +2,9 @@
 make: Mini
 model: "Cooper D"
 year: 2013
+trim: n-tec+
 price: 1995
-availability: available
+availability: sold
 featured: false
 mileage: 126000
 transmission: Manual
@@ -39,14 +40,14 @@ images:
 HALF LEATHER INTERIOR + WHITE ROOF + DECENT HISTORY + NEW CLUTCH JUST DONE + 3 MONTHS WARRANTY
 
 We are pleased to offer for sale this Mini Diesel, a stylish and economical hatchback finished with the iconic white roof and mirror caps.
-This example benefits from half leather interior, decent service history, and has just had a brand‑new clutch fitted, making it fully ready to drive away.
+This example benefits from half leather interior, decent service history, and has just had a brandânew clutch fitted, making it fully ready to drive away.
 
 Super economical motoring with low running costs and a smooth, responsive drive.
 
 Supplied with 3 months warranty for peace of mind.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

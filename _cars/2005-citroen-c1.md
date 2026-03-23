@@ -3,12 +3,12 @@ make: Citroen
 model: C1
 year: 2005
 price: 1295
-availability: available
+availability: sold
 featured: false
 mileage: 90000
 transmission: Manual
 fuelType: Petrol
-engineSize: 1.0
+engineSize: 1
 bodyType: Hatchback
 doors: 5
 seats: 5
@@ -28,14 +28,14 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1773422355/car-inventory/r9dl8wvyi88s7fgoqau8.jpg
 ---
 
- MONTHS WARRANTY + ULEZ FREE + DECENT HISTORY + AIR CON + REV COUNTER + ELECTRIC WINDOWS
+MONTHS WARRANTY + ULEZ FREE + DECENT HISTORY + AIR CON + REV COUNTER + ELECTRIC WINDOWS
 
-We are pleased to offer for sale this Citroën C1 5‑Door, a practical and economical runaround that is ULEZ compliant and comes with a decent service history.
+We are pleased to offer for sale this CitroÃ«n C1 5âDoor, a practical and economical runaround that is ULEZ compliant and comes with a decent service history.
 This example benefits from air conditioning, electric windows, rev counter, and a long MOT, making it ideal as a first car or a reliable daily commuter.
 
 Supplied with 3 months warranty for peace of mind.
 Drives well and is cheap to run, tax, and insure.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 LOCATION: Based in Byfleet, Surrey, just 10 minutes from M25 J10 and A3 Cobham.

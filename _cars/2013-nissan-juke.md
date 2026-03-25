@@ -4,7 +4,7 @@ model: Juke
 year: 2013
 trim: "Acenta Premium "
 price: 1895
-availability: available
+availability: sold
 featured: false
 mileage: 147000
 transmission: Manual
@@ -41,5 +41,5 @@ VIEWING BY APPOINTMENT THIS WAY YOU RECEIVE OUR FULL ATTENTION AND ARE NOT RUSHE
 EXTENDED TEST DRIVES AVAILABLE SO YOU CAN GET A PROPER FEEL FOR THE CAR.  
 ANY INSPECTION WELCOME.
 
-OPENING TIMES MON – FRI 10AM – 6PM  
-SAT – SUN 10AM – 12PM
+OPENING TIMES MON â FRI 10AM â 6PM  
+SAT â SUN 10AM â 12PM

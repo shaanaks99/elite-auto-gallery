@@ -3,12 +3,13 @@ make: Nissan
 model: "X Trail "
 year: 2014
 trim: n-tec+
-availability: available
+price: 3495
+availability: sold
 featured: false
 mileage: 165000
 transmission: Manual
 fuelType: Diesel
-engineSize: 2.0
+engineSize: 2
 bodyType: SUV
 doors: 5
 seats: 5
@@ -34,7 +35,7 @@ images:
 PANROOF + REVERSE CAMERA + NAV + LOADS OF HISTORY  
 EXTENDED TEST DRIVES AVAILABLE
 
-We are pleased to offer for sale this Nissan X‑Trail 2.0 Diesel, a strong and capable SUV with plenty of power and excellent fuel economy thanks to the 6‑speed manual gearbox.
+We are pleased to offer for sale this Nissan XâTrail 2.0 Diesel, a strong and capable SUV with plenty of power and excellent fuel economy thanks to the 6âspeed manual gearbox.
 This example comes with a great specification, including:
 
 Panoramic Roof
@@ -50,8 +51,8 @@ Loads of Service History
 Supplied with a long MOT and 3 months warranty for peace of mind.
 Drives very well and any inspection is welcome.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

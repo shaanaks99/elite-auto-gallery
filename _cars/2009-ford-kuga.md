@@ -4,12 +4,12 @@ model: Kuga
 year: 2009
 trim: Titanium
 price: 3495
-availability: available
+availability: sold
 featured: false
 mileage: 91000
 transmission: Manual
 fuelType: Diesel
-engineSize: 2.0
+engineSize: 2
 bodyType: SUV
 doors: 5
 seats: 5
@@ -33,20 +33,20 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1773439551/car-inventory/ulobudypsz80lu3mxdgx.jpg
 ---
 
-SUPERB LOW‑MILEAGE EXAMPLE WITH ALL THE EXTRAS  
-SECURE TODAY FOR ONLY £99 – FULLY REFUNDABLE (T&Cs APPLY)
+SUPERB LOWâMILEAGE EXAMPLE WITH ALL THE EXTRAS  
+SECURE TODAY FOR ONLY Â£99 â FULLY REFUNDABLE (T&Cs APPLY)
 
-We are pleased to offer for sale this Ford Kuga, a genuine low‑mileage example with a decent service history and MOT until March 2027.
-All our cars are hand‑picked and road‑tested by us — this Kuga was driven over 50 miles back to base and performed without fault.
+We are pleased to offer for sale this Ford Kuga, a genuine lowâmileage example with a decent service history and MOT until March 2027.
+All our cars are handâpicked and roadâtested by us â this Kuga was driven over 50 miles back to base and performed without fault.
 
-A great‑value family SUV offering strong performance, comfort, and practicality at an excellent price point.
+A greatâvalue family SUV offering strong performance, comfort, and practicality at an excellent price point.
 
-Supplied with a 3‑month warranty and a full PDI check for peace of mind.
+Supplied with a 3âmonth warranty and a full PDI check for peace of mind.
 
 EXTENDED TEST DRIVES AVAILABLE so you can get a proper feel for the car.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat: 10am–12pm
+MonâFri: 10amâ6pm
+Sat: 10amâ12pm

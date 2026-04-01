@@ -4,12 +4,12 @@ model: "1 Series"
 year: 2010
 trim: ES
 price: 2995
-availability: available
+availability: sold
 featured: false
 mileage: 72000
 transmission: Manual
 fuelType: Diesel
-engineSize: 2.0
+engineSize: 2
 bodyType: Sedan
 doors: 5
 seats: 5
@@ -35,7 +35,7 @@ images:
 72,000 MILES + 2.0 DIESEL + MANUAL + 5 DOOR + 5 SEATS + DECENT HISTORY
 
 We are pleased to offer for sale this 2010 (60 reg) 2.0L Diesel Hatchback, covered just 72,000 miles and presented in great condition throughout.
-Practical 5‑door, 5‑seat layout with strong performance from the 2.0L diesel engine and smooth manual gearbox.
+Practical 5âdoor, 5âseat layout with strong performance from the 2.0L diesel engine and smooth manual gearbox.
 
 Comes with decent service history, drives very well, and offers excellent fuel economy and reliability.
 
@@ -43,8 +43,8 @@ A clean, genuine example ready to drive away.
 
 Supplied with 3 months warranty for peace of mind.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

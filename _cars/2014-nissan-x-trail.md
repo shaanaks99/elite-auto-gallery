@@ -3,7 +3,7 @@ make: Nissan
 model: "X Trail "
 year: 2014
 trim: n-tec+
-price: 3495
+price: 1895
 availability: sold
 featured: false
 mileage: 165000

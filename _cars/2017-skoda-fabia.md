@@ -4,7 +4,7 @@ model: Fabia
 year: 2017
 trim: " S Euro 6"
 price: 3995
-availability: available
+availability: sold
 featured: false
 mileage: 121000
 transmission: Manual
@@ -13,6 +13,7 @@ engineSize: 1.4
 bodyType: Estate
 doors: 5
 seats: 5
+color: Silver
 registration: EU17HXL
 images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1771535366/car-inventory/wiktrltamxddob7k7nzn.jpg
@@ -40,4 +41,4 @@ Great family car with plenty of space.
 
 3 MONTHS WARRANTY INCLUDED IN THE PRICE + PDI SERVICE WHICH INCLUDES A CAMBELT CHANGE.  
 VIEWING BY APPOINTMENT THIS WAY YOU RECEIVE OUR FULL ATTENTION AND ARE NOT RUSHED IN ANYWAY AT ALL.  
-OPENING TIMES MONÃ¢ÂÂFRI 10 TO 6 SATÃ¢ÂÂSUN 10 TO 12.
+OPENING TIMES MONÃÂ¢ÃÂÃÂFRI 10 TO 6 SATÃÂ¢ÃÂÃÂSUN 10 TO 12.

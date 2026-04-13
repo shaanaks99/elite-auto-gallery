@@ -4,7 +4,7 @@ model: Fabia
 year: 2017
 trim: " S Euro 6"
 price: 3995
-availability: sold
+availability: available
 featured: false
 mileage: 121000
 transmission: Manual
@@ -41,4 +41,4 @@ Great family car with plenty of space.
 
 3 MONTHS WARRANTY INCLUDED IN THE PRICE + PDI SERVICE WHICH INCLUDES A CAMBELT CHANGE.  
 VIEWING BY APPOINTMENT THIS WAY YOU RECEIVE OUR FULL ATTENTION AND ARE NOT RUSHED IN ANYWAY AT ALL.  
-OPENING TIMES MONÃÂ¢ÃÂÃÂFRI 10 TO 6 SATÃÂ¢ÃÂÃÂSUN 10 TO 12.
+OPENING TIMES MONÃÂÃÂ¢ÃÂÃÂÃÂÃÂFRI 10 TO 6 SATÃÂÃÂ¢ÃÂÃÂÃÂÃÂSUN 10 TO 12.

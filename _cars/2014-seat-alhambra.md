@@ -4,12 +4,12 @@ model: Alhambra
 year: 2014
 trim: "Ecomotive CR SE"
 price: 3995
-availability: available
+availability: sold
 featured: false
 mileage: 136000
 transmission: Manual
 fuelType: Diesel
-engineSize: 2.0
+engineSize: 2
 bodyType: Sedan
 doors: 5
 seats: 5
@@ -34,13 +34,13 @@ images:
 
 DECENT HISTORY + 3 MONTHS WARRANTY
 
-We are pleased to offer for sale this bargain Seat Alhambra, a practical and spacious 7‑seater, perfect as a family bus with loads of room throughout.
+We are pleased to offer for sale this bargain Seat Alhambra, a practical and spacious 7âseater, perfect as a family bus with loads of room throughout.
 Drives very well, goes through the gears smoothly, and has plenty of power for daily use.
 
 Comes with decent service history including a cambelt change, plus a long MOT and 3 months warranty for peace of mind.
 
 A great value people carrier ready to drive away.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 Any questions, please feel free to ask.

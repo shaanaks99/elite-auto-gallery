@@ -4,7 +4,7 @@ model: Pulsar
 year: 2016
 trim: Acenta
 price: 1695
-availability: available
+availability: sold
 featured: false
 mileage: 218000
 transmission: Manual
@@ -35,11 +35,11 @@ images:
 ULEZ FREE + LONG MOT + DECENT HISTORY + SUPER ECONOMICAL
 
 We are pleased to offer for sale this bargain Nissan Pulsar.
-Despite the mileage, it genuinely looks and feels like an 80k example inside and out — very clean, very tidy, and clearly well looked after.
+Despite the mileage, it genuinely looks and feels like an 80k example inside and out â very clean, very tidy, and clearly well looked after.
 
 Comes with decent service history and a long MOT.
 Drives very well with plenty of power and excellent fuel economy, making it a perfect daily runaround.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 Any questions, please feel free to ask.

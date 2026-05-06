@@ -4,7 +4,7 @@ model: "Golf Plus"
 year: 2006
 trim: S
 price: 995
-availability: available
+availability: sold
 featured: false
 mileage: 100000
 transmission: Manual
@@ -36,4 +36,4 @@ We are pleased to offer for sale this bargain VW Golf Diesel, only 100k miles, w
 Comes with a long MOT and drives very well with smooth gear changes and plenty of power.
 A great family car and priced to sell.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.

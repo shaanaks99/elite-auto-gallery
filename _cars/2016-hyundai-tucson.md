@@ -4,11 +4,12 @@ model: TUCSON
 year: 2016
 trim: "Blue Drive SE Nav"
 price: 5990
-availability: available
+availability: sold
 featured: false
 mileage: 67000
 transmission: Manual
 fuelType: Diesel
+engineSize: 2.0
 bodyType: SUV
 doors: 5
 seats: 5
@@ -44,12 +45,12 @@ A spacious and practical family car with loads of room throughout.
 
 Comes with great extras including Heated Seats, Reverse Camera, and Sat Nav.
 
-This vehicle was accident‑repaired at some point in its life, although there are no obvious signs of repair and it drives exactly as it should.
+This vehicle was accidentârepaired at some point in its life, although there are no obvious signs of repair and it drives exactly as it should.
 
-Supplied with a 6‑month warranty and a pre‑delivery service included in the price.
+Supplied with a 6âmonth warranty and a preâdelivery service included in the price.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

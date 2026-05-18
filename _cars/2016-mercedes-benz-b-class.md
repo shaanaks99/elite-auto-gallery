@@ -4,7 +4,7 @@ model: "B Class"
 year: 2016
 trim: "Sport (Executive)"
 price: 3995
-availability: available
+availability: sold
 featured: false
 mileage: 131000
 transmission: Manual
@@ -38,12 +38,12 @@ images:
 
 ULEZ FREE + TOP SPEC SPORT + ULEZ FREE
 
-We are pleased to offer for sale this bargain Facelift Mercedes B‑Class Sport, packed with extras including Full Black Leather Interior, Heated Seats, Sat Nav, and a Reverse Camera.
+We are pleased to offer for sale this bargain Facelift Mercedes BâClass Sport, packed with extras including Full Black Leather Interior, Heated Seats, Sat Nav, and a Reverse Camera.
 Drives very well, super economical, and with Sports Mode it delivers excellent power when needed.
 
 A great family car with useful extras such as picnic tables.
 Comes with decent service history, a long MOT, and 3 months warranty included in the price.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
 
 EXTENDED TEST DRIVES AVAILABLE so you can get a proper feel for the car.

@@ -4,7 +4,7 @@ model: "Scenic Xmod"
 year: 2013
 trim: "Dynamique TomTom"
 price: 1995
-availability: available
+availability: sold
 featured: false
 mileage: 148000
 transmission: Manual
@@ -33,10 +33,10 @@ images:
 FULL HISTORY + NEW SHAPE + LONG MOT + 3 MONTHS WARRANTY
 
 We are pleased to offer for sale this bargain Renault Scenic, a very tidy example considering its age and mileage.
-Comes with full service history, drives very well with a responsive engine and smooth gear changes, and being the newerÃ¢ÂÂshape model, it benefits from a more modern interior and exterior design.
+Comes with full service history, drives very well with a responsive engine and smooth gear changes, and being the newerÃÂ¢ÃÂÃÂshape model, it benefits from a more modern interior and exterior design.
 
 A clean, practical family car offering great value for money.
 
 Supplied with a long MOT and 3 months warranty for peace of mind.
 
-VIEWING BY APPOINTMENT ONLY Ã¢ÂÂ this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY ÃÂ¢ÃÂÃÂ this ensures you receive our full attention and are not rushed in any way at all.

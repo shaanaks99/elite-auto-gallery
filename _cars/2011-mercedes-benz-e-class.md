@@ -4,7 +4,7 @@ model: "E class "
 year: 2011
 trim: " Sport Edition 125"
 price: 2695
-availability: available
+availability: sold
 featured: false
 mileage: 186000
 transmission: Automatic
@@ -36,9 +36,9 @@ images:
 
 BARGAIN E CLASS COUPE + TOP SPEC
 
-We are pleased to offer for sale this bargain Mercedes E‑Class Coupe, a top‑spec Sport model featuring the factory bodykit and upgraded alloys.
-Comes with Sports Leather Seats and offers a premium, stylish driving experience — a lot of car for the money.
+We are pleased to offer for sale this bargain Mercedes EâClass Coupe, a topâspec Sport model featuring the factory bodykit and upgraded alloys.
+Comes with Sports Leather Seats and offers a premium, stylish driving experience â a lot of car for the money.
 
-Drives very well with a responsive 7‑speed gearbox and plenty of power from the engine, making it smooth, quick, and effortless on the road.
+Drives very well with a responsive 7âspeed gearbox and plenty of power from the engine, making it smooth, quick, and effortless on the road.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.

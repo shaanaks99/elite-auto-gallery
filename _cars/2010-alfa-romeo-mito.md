@@ -4,7 +4,7 @@ model: " MiTo"
 year: 2010
 trim: Lusso
 price: 2450
-availability: available
+availability: sold
 featured: false
 mileage: 89000
 transmission: Manual
@@ -35,11 +35,11 @@ images:
 
 3 MONTHS WARRANTY + TOP SPEC
 
-We are pleased to offer for sale this stunning Alfa Romeo Mito, a top‑spec example with Heated Seats, Large Info Screen, BOSE Sound System with subwoofer, aluminium brushed mirror covers, and carbon‑look dashboard extras.
+We are pleased to offer for sale this stunning Alfa Romeo Mito, a topâspec example with Heated Seats, Large Info Screen, BOSE Sound System with subwoofer, aluminium brushed mirror covers, and carbonâlook dashboard extras.
 Powered by the 1.6 diesel, it is very economical and surprisingly quick.
 
-Comes with full service history, fresh 12‑month MOT, and is supplied with a 3‑month warranty for peace of mind.
+Comes with full service history, fresh 12âmonth MOT, and is supplied with a 3âmonth warranty for peace of mind.
 
 A lovely example that drives extremely well with a responsive engine and smooth gear changes.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.

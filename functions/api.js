@@ -116,9 +116,8 @@ async function githubRequest(path, method, body, env) {
 // Get all car markdown files from GitHub
 async function getAllCars(env) {
   try {
-    // Get all files in _cars directory with pagination support
-    // GitHub API defaults to 30 items per page, we'll request 100 per page (max allowed)
-    const contents = await githubRequest('contents/_cars?per_page=100', 'GET', null, env);
+    // Get all files in _cars directory
+    const contents = await githubRequest('contents/_cars', 'GET', null, env);
     
     const cars = [];
     
@@ -238,11 +237,40 @@ function createMarkdown(carData) {
 // Add new car
 async function addCar(carData, env) {
   try {
-    // Generate filename from car details
-    const filename = `${carData.year}-${carData.make}-${carData.model}`
+    // Generate base filename from car details
+    let filename = `${carData.year}-${carData.make}-${carData.model}`
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
+    
+    // Check if file already exists, and if so, append trim or unique identifier
+    let fileExists = true;
+    let attemptCount = 0;
+    let uniqueFilename = filename;
+    
+    while (fileExists && attemptCount < 10) {
+      try {
+        // Try to get the file to see if it exists
+        await githubRequest(`contents/_cars/${uniqueFilename}.md`, 'GET', null, env);
+        // If we get here, file exists, so we need to make it unique
+        if (carData.trim) {
+          // If the car has a trim, add it to make filename unique
+          uniqueFilename = `${filename}-${carData.trim.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+        } else {
+          // Otherwise, add a numeric suffix
+          attemptCount++;
+          uniqueFilename = `${filename}-${attemptCount}`;
+        }
+      } catch (err) {
+        // File doesn't exist, we can use this filename
+        fileExists = false;
+        filename = uniqueFilename;
+      }
+    }
+    
+    if (fileExists) {
+      return { success: false, message: 'Unable to generate unique filename. Please add more details to the car (trim, color, etc.)' };
+    }
     
     // Handle image uploads
     const processedImages = [];

@@ -4,7 +4,7 @@ model: L200
 year: 2011
 trim: "D Barbarian Pickup Double Cab"
 price: 5990
-availability: available
+availability: sold
 featured: false
 mileage: 144000
 transmission: Manual
@@ -36,25 +36,25 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1770885798/car-inventory/wqgbvjezjqfs94ujwie8.jpg
 ---
 
-NO VAT • 12 MONTHS MOT • TOP‑SPEC BARBARIAN • FULL LEATHER • RUNNING BOARDS • REVERSE CAMERA
+NO VAT â¢ 12 MONTHS MOT â¢ TOPâSPEC BARBARIAN â¢ FULL LEATHER â¢ RUNNING BOARDS â¢ REVERSE CAMERA
 
-DON’T MISS OUT — SECURE TODAY FOR ONLY £99 (FULLY REFUNDABLE, T&Cs APPLY)
+DONâT MISS OUT â SECURE TODAY FOR ONLY Â£99 (FULLY REFUNDABLE, T&Cs APPLY)
 
-We are pleased to offer for sale this stunning Mitsubishi L200 Barbarian, the top‑of‑the‑range model with full leather interior, running boards, reverse camera, and a long list of extras. Previous owner used seat covers, so the leather is in excellent condition. Last keeper since 2015 and comes complete with all user manuals and two keys.
+We are pleased to offer for sale this stunning Mitsubishi L200 Barbarian, the topâofâtheârange model with full leather interior, running boards, reverse camera, and a long list of extras. Previous owner used seat covers, so the leather is in excellent condition. Last keeper since 2015 and comes complete with all user manuals and two keys.
 
-Inside looks like new — even the load tray is clean, showing this truck has not been worked hard. Looks amazing and drives just as good. We personally collected this vehicle from over 150 miles away and it drove without fault.
+Inside looks like new â even the load tray is clean, showing this truck has not been worked hard. Looks amazing and drives just as good. We personally collected this vehicle from over 150 miles away and it drove without fault.
 
-Several service stamps present, then self‑serviced like many pickups. We will carry out a full PDI service, including a cambelt change, all included in the price. A full PDI report and invoice will be supplied with the truck.
+Several service stamps present, then selfâserviced like many pickups. We will carry out a full PDI service, including a cambelt change, all included in the price. A full PDI report and invoice will be supplied with the truck.
 
 EXTENDED TEST DRIVES AVAILABLE  
 So you can get a proper feel for the vehicle.
 
 ANY INSPECTION WELCOME  
-WALK‑AROUND VIDEO AVAILABLE ON REQUEST
+WALKâAROUND VIDEO AVAILABLE ON REQUEST
 
 VIEWING BY APPOINTMENT ONLY  
 This ensures you receive our full attention and are not rushed in any way at all.
 
 OPENING TIMES:  
-Mon–Fri: 10am–6pm
-Sat–Sun: 10am–12pm
+MonâFri: 10amâ6pm
+SatâSun: 10amâ12pm

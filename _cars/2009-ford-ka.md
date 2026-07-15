@@ -4,11 +4,12 @@ model: KA
 year: 2009
 trim: ZETEC
 price: 995
-availability: available
+availability: sold
 featured: false
 mileage: 120000
 transmission: Manual
 fuelType: Petrol
+engineSize: 1.5
 bodyType: Hatchback
 doors: 3
 seats: 5
@@ -26,7 +27,7 @@ images:
 ---
 
 ULEZ FREE + AIR CON MODEL + DECENT HISTORY.  
-We are pleased to offer for sale this bargain ULEZ free model, ideal first car and well‑spec’d incl cold air con, heated screen, electric windows and electric mirrors.
+We are pleased to offer for sale this bargain ULEZ free model, ideal first car and wellâspecâd incl cold air con, heated screen, electric windows and electric mirrors.
 Decent service history and will make an ideal runaround or first car.
 
 VIEWING BY APPOINTMENT THIS WAY YOU RECEIVE OUR FULL ATTENTION AND ARE NOT RUSHED IN ANYWAY AT ALL.

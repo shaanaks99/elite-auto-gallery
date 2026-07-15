@@ -4,7 +4,7 @@ model: Touran
 year: 2014
 trim: S
 price: 3995
-availability: available
+availability: sold
 featured: false
 mileage: 87000
 transmission: Manual
@@ -38,13 +38,13 @@ images:
   - https://res.cloudinary.com/dyc4c4ujj/image/upload/f_auto,q_auto:best,dpr_auto,w_1600,e_improve/v1780312198/car-inventory/vyi0ggxwyioqutx3xp7t.jpg
 ---
 
-SUPERB LOWâMILEAGE EXAMPLE + 3 MONTHS WARRANTY + PDI SERVICE
+SUPERB LOWÃ¢ÂÂMILEAGE EXAMPLE + 3 MONTHS WARRANTY + PDI SERVICE
 
-We are pleased to offer for sale this bargain VW Touran, a lovely lowâmileage example that drives very well, goes through the gears smoothly, and has plenty of power.
+We are pleased to offer for sale this bargain VW Touran, a lovely lowÃ¢ÂÂmileage example that drives very well, goes through the gears smoothly, and has plenty of power.
 We have personally driven this car over 100 miles and it performed without fault.
 
 Supplied with 3 months warranty and a cambelt service included in the price, along with a full PDI service.
 
 A great value family MPV with loads of space and ready to drive away.
 
-VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY Ã¢ÂÂ this ensures you receive our full attention and are not rushed in any way at all.

@@ -4,7 +4,7 @@ model: "Qashqai "
 year: 2017
 trim: Tekna
 price: 4995
-availability: available
+availability: sold
 featured: false
 mileage: 145000
 transmission: Manual
@@ -35,8 +35,8 @@ images:
 ---
 
 ULEZ FREE + 3 MONTHS WARRANTY + CAMBELT SERVICE INCLUDED IN THE PRICE.  
-We are pleased to offer for sale this top‑of‑the‑range facelift Qashqai, top spec incl PANROOF + HALF LEATHER + 360 CAMERA + HEATED SEATS.
-Decent service history, drives very well, goes through gears smoothly and has plenty of power — will make a very nice family car.
+We are pleased to offer for sale this topâofâtheârange facelift Qashqai, top spec incl PANROOF + HALF LEATHER + 360 CAMERA + HEATED SEATS.
+Decent service history, drives very well, goes through gears smoothly and has plenty of power â will make a very nice family car.
 
 Decent history + PDI check and 3 months warranty included in the price, this also includes a cambelt service.
 

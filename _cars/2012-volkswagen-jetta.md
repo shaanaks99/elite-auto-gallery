@@ -4,7 +4,7 @@ model: "Jetta "
 year: 2012
 trim: "BlueMotion Tech SE "
 price: 2450
-availability: available
+availability: sold
 featured: false
 mileage: 132000
 transmission: Manual
@@ -34,8 +34,8 @@ images:
 We are pleased to offer for sale this bargain VW Jetta, the Tech Model so it comes with the Large Info Screen and tech extras.
 Drives very well, goes through the gears smoothly, and has a responsive engine.
 
-Comes with decent service history, and we have just MOT’d the car, now supplied with a fresh 12‑month MOT and 3 months warranty for peace of mind.
+Comes with decent service history, and we have just MOTâd the car, now supplied with a fresh 12âmonth MOT and 3 months warranty for peace of mind.
 
 A great value saloon ready to drive away.
 
-VIEWING BY APPOINTMENT ONLY — this ensures you receive our full attention and are not rushed in any way at all.
+VIEWING BY APPOINTMENT ONLY â this ensures you receive our full attention and are not rushed in any way at all.
